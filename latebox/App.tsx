@@ -1,12 +1,17 @@
-import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
+import Restaurants from './src/components/Restaurants';
+import Restaurant from './src/models/restaurant';
 
 export default function App() {
+
+  const DUMMY_RESTAURANTS = [
+    new Restaurant('Alaaddin Bakery'),
+    new Restaurant('Kettlemans Bagel'),
+    new Restaurant('Joey Rideau')
+  ];
+
   return (
-    <View style={styles.container}>
-      <Text>Open up App.tsx to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <Restaurants items={DUMMY_RESTAURANTS}/>
   );
 }
 
