@@ -1,6 +1,7 @@
 import { StyleSheet, Text, View } from 'react-native';
-import Restaurants from './src/components/Restaurants';
 import Restaurant from './src/models/restaurant';
+import RestaurantsScreen from './src/screens/RestaurantsScreen';
+import * as Font from 'expo-font';
 
 export default function App() {
 
@@ -11,7 +12,7 @@ export default function App() {
   ];
 
   return (
-    <Restaurants items={DUMMY_RESTAURANTS}/>
+    <RestaurantsScreen items={DUMMY_RESTAURANTS}/>
   );
 }
 
