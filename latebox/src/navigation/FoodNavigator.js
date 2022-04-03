@@ -1,11 +1,15 @@
-import { createAppContainer, createStackNavigator } from 'react-navigation';
+import { createAppContainer } from 'react-navigation';
+import { createStackNavigator } from 'react-navigation-stack';
 import { Platform } from 'react-native';
 
 import NearMeScreen from '../screens/NearMeScreen';
+import ProductDetailScreen from '../screens/ProductDetailScreen';
 import Colors from '../constants/Colors';
 
 const productsNavigator = createStackNavigator({
-    ProductsOverview: NearMeScreen
+    NearMe: NearMeScreen,
+    ProductDetail: ProductDetailScreen
+
 },{
     defaultNavigationOptions: {
         headerStyle: {
