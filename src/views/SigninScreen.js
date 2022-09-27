@@ -6,8 +6,8 @@ function SigninScreen({ navigation }) {
     return (
         
         
-      <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center', backgroundColor:"#f08080" }}>
-        <Image source = {require("../../assets/favicon.png")}/>
+      <View style={styles.container}>
+        <Image style = {styles.image} source = {require("../../assets/favicon.png")}/>
         
         <TextInput
         style={styles.input}
@@ -38,6 +38,16 @@ function SigninScreen({ navigation }) {
 
 
 const styles = StyleSheet.create({
+    container: {
+        flex: 1,
+        backgroundColor: '#f08080',
+        alignItems: 'center',
+        justifyContent: 'center',
+       },
+       image :{
+        marginBottom: 40
+     
+      },
     input: {
         width:"80%",
         backgroundColor:"#465881",
