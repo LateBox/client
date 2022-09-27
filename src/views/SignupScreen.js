@@ -1,35 +1,51 @@
 import * as React from 'react';
-import { Button, View, TextInput, StyleSheet } from 'react-native';
+import { Button, View, TextInput, StyleSheet,TouchableOpacity,Text,Image } from 'react-native';
 
 function SignupScreen({ navigation }) {
     return (
-        <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+        <View style={styles.container}>
+            <Image style={styles.image} source={require("../../assets/favicon.png")} />
+
             <TextInput
                 style={styles.input}
                 value={String}
-                placeholder="Full Name"
+                placeholder="Full name"
+                placeholderTextColor="#a9a9a9"
+                autoCapitalize={"none"}
             />
 
             <TextInput
                 style={styles.input}
                 value={String}
-                placeholder="E-mail address"
+                placeholder="E=mail Address"
+                placeholderTextColor="#a9a9a9"
+                
+            />
+
+            <TextInput
+                style={styles.input}
+                keyboardType={'phone-pad'}
+                value={String}
+                placeholder="Phone Number"
+                maxLength={10}
+                placeholderTextColor="#a9a9a9"
             />
 
             <TextInput
                 style={styles.input}
                 value={String}
-                placeholder="Phone number"
-            />
-            <TextInput
-                style={styles.input}
-                value={String}
-                placeholder="password"
+                secureTextEntry={true}
+                placeholder="Password"
+                placeholderTextColor="#a9a9a9"
             />
 
-            <Button title="Sign up" onPress={() => navigation.navigate('Login')} />
+            <TouchableOpacity style={styles.signUpBtn} onPress={() => navigation.navigate('Home')}>
+                <Text>Sign up</Text>
+            </TouchableOpacity>
 
-            <Button title="Go to Home" onPress={() => navigation.navigate('Home')} />
+            {/* <Button title="Sign up" onPress={() => navigation.navigate('Login')} />
+
+            <Button title="Go to Home" onPress={() => navigation.navigate('Home')} /> */}
 
 
         </View>
@@ -38,25 +54,42 @@ function SignupScreen({ navigation }) {
 
 
 const styles = StyleSheet.create({
-    app: {
-        backgroundColor: 'white'
-      },
-    input: {
-        width: 350,
-        height: 55,
-        backgroundColor: '#42A5F5',
-        margin: 10,
-        padding: 8,
-        color: 'white',
-        borderRadius: 14,
-        fontSize: 18,
-        fontWeight: '500',
-      },
-      container: {
+    container: {
         flex: 1,
+        backgroundColor: '#f08080',
+        alignItems: 'center',
         justifyContent: 'center',
-        alignItems: 'center'
-      }
+    },
+    image: {
+        marginBottom: 40
+
+    },
+    input: {
+        width: "80%",
+        backgroundColor: "#465881",
+        borderRadius: 25,
+        height: 50,
+        color: "white",
+        marginBottom: 20,
+        justifyContent: "center",
+        padding: 20
+    },
+    forgot: {
+        height: 30,
+        marginBottom: 30,
+    },
+    signUpBtn: {
+        width: "80%",
+        borderRadius: 25,
+        height: 50,
+        alignItems: "center",
+        justifyContent: "center",
+        marginTop: 40,
+        backgroundColor: "#ff1493",
+    },
+
+
+
 });
 
 export default SignupScreen;

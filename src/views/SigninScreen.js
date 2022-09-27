@@ -13,25 +13,27 @@ function SigninScreen({ navigation }) {
         style={styles.input}
         value={String}
         
-        placeholder="username"
+        placeholder="Username"
         placeholderTextColor="#a9a9a9"
         />
         <TextInput
         style={styles.input}
         value={String}
-        
-        placeholder="password"
+        secureTextEntry={true}
+        placeholder="Password"
         placeholderTextColor="#a9a9a9"
-        />
+        /> 
 
-    
-        
-        <Button title="Sign in" onPress={() => navigation.navigate('Home')} /> 
         <TouchableOpacity>
           <Text style={styles.forgot}>Forgot Password?</Text>
         </TouchableOpacity>
+
+        <TouchableOpacity style={styles.loginBtn} onPress={() => navigation.navigate('Home')}>
+        <Text >Sign in</Text>
+      </TouchableOpacity>
         
-        <Button title="Go to Home" onPress={() => navigation.navigate('Home')} />      
+        
+        {/* <Button title="Go to Home" onPress={() => navigation.navigate('Home')} />       */}
       </View>
     );
 }
@@ -59,9 +61,18 @@ const styles = StyleSheet.create({
         padding:20
     },
     forgot:{
-        color:"blue",
-        fontSize:11
-      }
+        height: 30,
+  marginBottom: 30,
+      },
+      loginBtn: {
+        width: "80%",
+        borderRadius: 25,
+        height: 50,
+        alignItems: "center",
+        justifyContent: "center",
+        marginTop: 40,
+        backgroundColor: "#ff1493",
+      },
     
   });
 
