@@ -71,7 +71,7 @@ const styles = StyleSheet.create({
     topBar: {
       alignItems: 'center',
       backgroundColor: 'rgba(241, 136, 97, 0.8)',
-      height: 180,
+      height: '24%',
     },
     body: {
         flex: 3,
@@ -81,19 +81,14 @@ const styles = StyleSheet.create({
         
        
        },
-       image :{
-        marginBottom: 40
-  
-     
-      },
     input: {
-        marginTop: 7,
+        marginTop: "2%",
         width:"80%",
         backgroundColor:'rgba(245, 220, 189, 0.4)',
         borderRadius:25,
         height:30,
         color: "white",
-        marginBottom:20,
+        marginBottom:"6%",
         justifyContent:"center",
         padding:20,
         fontSize: 12,
