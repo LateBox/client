@@ -77,7 +77,7 @@ function SignupScreen({ navigation }) {
 
                 
 
-                <TouchableOpacity style={styles.signUpBtn} onPress={() => navigation.navigate('Home')}>
+                <TouchableOpacity style={styles.signUpBtn} onPress={postAccount}>
                     <Text style={styles.signUpBtnTxt}>Sign up</Text>
                 </TouchableOpacity>
 
@@ -87,9 +87,63 @@ function SignupScreen({ navigation }) {
 
 
             </View>
+
+
         </View>
     );
 }
+
+const getFromApi = () => {
+    return fetch('http://localhost:8080/accounts',
+                    {
+                        method:'GET',
+                        // mode: 'no-cors',
+                        
+                        // credentials: 'include',
+                        'Access-Control-Allow-Credentials':'true'
+                
+                    },
+                )
+        .then((response) => response.json())
+        .then((json) => {
+            // console.log(json)
+            return json;
+        })
+        .catch((error) => {
+            console.error(error);
+        });
+};
+
+const postAccount = () => {
+    var data = {
+            "email" : "email1",
+            "password" : "password1",
+            "phone" : "phone1",
+            "userType" : "userType1"
+    }
+    return fetch('http://localhost:8080/accounts',
+                    {
+                        method:'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                            'Access-Control-Allow-Credentials':'true',
+                          },
+                        // mode: 'no-cors',
+                        // credentials: 'include',
+                        body: JSON.stringify(data),
+                    
+                    }
+                )
+                .then((response) => response.json())
+                .then((json) => {
+                    // console.log(json)
+                    return json;
+                })
+                .catch((error) => {
+                    console.error(error);
+                });
+};
+
 
 
 const styles = StyleSheet.create({
