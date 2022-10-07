@@ -31,9 +31,7 @@ function SigninScreen({ navigation }) {
             </Text>  
 
             <TextInput
-            style={styles.input}
-            value={String}
-            
+            style={styles.input}            
             placeholder="hello@latebox.com"
             placeholderTextColor= 'rgba(77, 76, 76, 0.5)'
             />
@@ -44,7 +42,6 @@ function SigninScreen({ navigation }) {
 
             <TextInput
             style={styles.input}
-            value={String}
             secureTextEntry={true}
             placeholder="Password"
             placeholderTextColor='rgba(77, 76, 76, 0.5)'
