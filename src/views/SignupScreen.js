@@ -94,7 +94,7 @@ function SignupScreen({ navigation }) {
 }
 
 const getFromApi = () => {
-    return fetch('http://localhost:8080/accounts',
+    return fetch('http://149.28.236.92:8080/accounts',
                     {
                         method:'GET',
                         // mode: 'no-cors',
@@ -121,7 +121,7 @@ const postAccount = () => {
             "phone" : "phone1",
             "userType" : "userType1"
     }
-    return fetch('http://localhost:8080/accounts',
+    return fetch('http://149.28.236.92:8080/accounts',
                     {
                         method:'POST',
                         headers: {
