@@ -6,6 +6,7 @@ import PRODUCTS from "../data/dummy-data";
 function HomeScreen(props, { navigation }) {
   return (
     <View>
+      <Button title="Return to Router" onPress={() => props.navigation.navigate('Router')} />  
       <FlatList
         data={PRODUCTS}
         keyExtractor={(item) => item.id}
@@ -14,7 +15,7 @@ function HomeScreen(props, { navigation }) {
             image={itemData.item.imageURL}
             title={itemData.item.title}
             price={itemData.item.price}
-            onViewDetail={() => props.navigation.navigate("Second")}
+            onViewDetail={() => props.navigation.navigate("Spare")}
             onAddToCart={() => {}}
           />
         )}

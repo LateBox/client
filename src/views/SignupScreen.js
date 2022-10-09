@@ -68,6 +68,8 @@ const postAccount = () => {
         return (
         
         <View style={styles.mainContainer}>
+            <Button title="Return to Router" onPress={() => navigation.navigate('Router')} />  
+
 
             <View style={styles.topBar}>
 

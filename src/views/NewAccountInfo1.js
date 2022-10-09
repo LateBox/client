@@ -8,6 +8,7 @@ import { StyleSheet, Text, View, Image, TouchableHighlight } from 'react-native'
 const AccountInfo1 = () => {
     return (
     <View>
+        <Button title="Return to Router" onPress={() => navigation.navigate('Router')} />  
         <View style={styles.above}>
             <TouchableHighlight style={styles.roundshape}>
             <Image source={{uri: 'https://svgshare.com/i/n27.svg'}}

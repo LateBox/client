@@ -6,6 +6,8 @@ import { withSafeAreaInsets } from 'react-native-safe-area-context';
 function SigninScreen({ navigation }) {
     return (
       <View style={styles.mainContainer}>
+        <Button title="Return to Router" onPress={() => navigation.navigate('Router')} />  
+
         <View style={styles.topBar}>
 
         <Text style={styles.titleText} >Login</Text>
