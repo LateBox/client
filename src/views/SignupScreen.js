@@ -2,7 +2,70 @@ import * as React from 'react';
 import { Button, View, TextInput, StyleSheet,TouchableOpacity,Text,Image } from 'react-native';
 
 function SignupScreen({ navigation }) {
-    return (
+
+    const [fullName, setFullName] = React.useState('Full Name');
+    const [email, setEmail] = React.useState('Email');
+    const [password, setPassword] = React.useState('Password');
+    const [phone, setPhone] = React.useState('Phone Number');
+    const [userType, setUserType] = React.useState('UserType');
+
+    
+const getFromApi = () => {
+    return fetch('http://149.28.236.92:8080/accounts',
+                    {
+                        method:'GET',
+                        // mode: 'no-cors',
+                        
+                        // credentials: 'include',
+                        'Access-Control-Allow-Credentials':'true'
+                
+                    },
+                )
+        .then((response) => response.json())
+        .then((json) => {
+            console.log(fullName)
+            return json;
+        })
+        .catch((error) => {
+            console.error(error);
+        });
+};
+
+const postAccount = () => {
+    console.log("hada houa l fucking name: "+ fullName)
+    var data = {
+            "fullName" : fullName,
+            "email" : email,
+            "password" : password,
+            "phone" : phone,
+            "userType" : "normal"
+    }
+    return fetch('http://149.28.236.92:8080/accounts',
+                    {
+                        method:'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                            'Access-Control-Allow-Credentials':'true',
+                          },
+                        // mode: 'no-cors',
+                        // credentials: 'include',
+                        body: JSON.stringify(data),
+                    
+                    }
+                )
+                .then((response) => response.json())
+                .then((json) => {
+                    // console.log(json)
+                    return json;
+                })
+                .catch((error) => {
+                    console.error(error);
+                });
+};
+
+
+
+        return (
         
         <View style={styles.mainContainer}>
 
@@ -32,9 +95,10 @@ function SignupScreen({ navigation }) {
 
                 <TextInput
                     style={styles.input}
-                    value={String}
                     placeholder="Full name"
                     placeholderTextColor="#a9a9a9"
+                    onChangeText={value => setFullName(value)}
+                    fullNameValue={fullName}
                     autoCapitalize={"none"}
                 />
 
@@ -44,10 +108,11 @@ function SignupScreen({ navigation }) {
 
                 <TextInput
                     style={styles.input}
-                    value={String}
                     placeholder="E=mail Address"
                     placeholderTextColor="#a9a9a9"
-                    
+                    onChangeText={value => setEmail(value)}
+                    emailValue={email}
+                    autoCapitalize={"none"}
                 />
 
                 <Text style={styles.sentence}>
@@ -56,10 +121,12 @@ function SignupScreen({ navigation }) {
 
                 <TextInput
                     style={styles.input}
-                    value={String}
                     secureTextEntry={true}
                     placeholder="Password"
                     placeholderTextColor="#a9a9a9"
+                    onChangeText={value => setPassword(value)}
+                    passwordValue={password}
+                    autoCapitalize={"none"}
                 />
 
                 <Text style={styles.sentence}>
@@ -69,10 +136,12 @@ function SignupScreen({ navigation }) {
                 <TextInput
                     style={styles.input}
                     keyboardType={'phone-pad'}
-                    value={String}
                     placeholder="Phone Number"
                     maxLength={10}
                     placeholderTextColor="#a9a9a9"
+                    onChangeText={value => setPhone(value)}
+                    phoneValue={phone}
+                    autoCapitalize={"none"}
                 />
 
                 
@@ -92,57 +161,6 @@ function SignupScreen({ navigation }) {
         </View>
     );
 }
-
-const getFromApi = () => {
-    return fetch('http://149.28.236.92:8080/accounts',
-                    {
-                        method:'GET',
-                        // mode: 'no-cors',
-                        
-                        // credentials: 'include',
-                        'Access-Control-Allow-Credentials':'true'
-                
-                    },
-                )
-        .then((response) => response.json())
-        .then((json) => {
-            // console.log(json)
-            return json;
-        })
-        .catch((error) => {
-            console.error(error);
-        });
-};
-
-const postAccount = () => {
-    var data = {
-            "email" : "email1",
-            "password" : "password1",
-            "phone" : "phone1",
-            "userType" : "userType1"
-    }
-    return fetch('http://149.28.236.92:8080/accounts',
-                    {
-                        method:'POST',
-                        headers: {
-                            'Content-Type': 'application/json',
-                            'Access-Control-Allow-Credentials':'true',
-                          },
-                        // mode: 'no-cors',
-                        // credentials: 'include',
-                        body: JSON.stringify(data),
-                    
-                    }
-                )
-                .then((response) => response.json())
-                .then((json) => {
-                    // console.log(json)
-                    return json;
-                })
-                .catch((error) => {
-                    console.error(error);
-                });
-};
 
 
 
