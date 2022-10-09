@@ -7,6 +7,7 @@ import SecondScreen from './src/views/SecondScreen';
 import SigninScreen from './src/views/SigninScreen';
 import SignupScreen from './src/views/SignupScreen'; 
 import NewAccountInfo1 from './src/views/NewAccountInfo1'; 
+import ProductDetailScreen from './src/views/ProductDetailScreen';
 
 
 
@@ -22,6 +23,7 @@ function App() {
         <Stack.Screen name="Login" component={SigninScreen}/>
         <Stack.Screen name="Register" component={SignupScreen}/>
         <Stack.Screen name="NewAccount1" component={NewAccountInfo1}/>
+        <Stack.Screen name="ProductDetail" component={ProductDetailScreen}/>
 
       </Stack.Navigator>
     </NavigationContainer>
