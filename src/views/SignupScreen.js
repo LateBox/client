@@ -41,7 +41,8 @@ const postAccount = () => {
             "userType" : "normal"
     }
     return fetch('http://149.28.236.92:8080/accounts',
-                    {
+    // return fetch('http://localhost:8080/accounts',
+    {
                         method:'POST',
                         headers: {
                             'Content-Type': 'application/json',
@@ -110,7 +111,7 @@ const postAccount = () => {
 
                 <TextInput
                     style={styles.input}
-                    placeholder="E=mail Address"
+                    placeholder="Email Address"
                     placeholderTextColor="#a9a9a9"
                     onChangeText={value => setEmail(value)}
                     emailValue={email}
@@ -193,7 +194,7 @@ const styles = StyleSheet.create({
         backgroundColor:'rgba(245, 220, 189, 0.4)',
         borderRadius:25,
         height:30,
-        color: "white",
+        color: "black",
         marginBottom:"6%",
         justifyContent:"center",
         padding:20,
