@@ -1,5 +1,7 @@
 import * as React from 'react';
 import { Button, View, TextInput, StyleSheet,TouchableOpacity,Text,Image } from 'react-native';
+import currentUrl from "../constants/urls";
+
 
 function SignupScreen({ navigation }) {
 
@@ -11,7 +13,7 @@ function SignupScreen({ navigation }) {
 
     
 const getFromApi = () => {
-    return fetch('http://149.28.236.92:8080/accounts',
+    return fetch(currentUrl+'accounts',
                     {
                         method:'GET',
                         // mode: 'no-cors',
@@ -40,7 +42,7 @@ const postAccount = () => {
             "phone" : phone,
             "userType" : "normal"
     }
-    return fetch('http://149.28.236.92:8080/accounts',
+    return fetch(currentUrl+'accounts',
     // return fetch('http://localhost:8080/accounts',
     {
                         method:'POST',
