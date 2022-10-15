@@ -3,15 +3,15 @@ import { Button, View, Text, StyleSheet, TextInput, TouchableOpacity,ActivityInd
 import currentUrl from "../constants/urls";
 
 
-function EditBoxScreen({ navigation }) {
+function EditBoxScreen({ navigation, route  }) {
   const [boxName, setBoxName] = React.useState('Box Name');
   const [description, setDescription] = React.useState('description');
   const [price, setPrice] = React.useState('price');
   const [restaurantId, setRestaurantId] = React.useState('restaurantId');
   const [stock, setStock] = React.useState('stock');
   const [isLoading, setLoading] = React.useState(true);
-
-
+  const itemId  = route.params.itemId;
+console.log(itemId);
 //   const getProduct = async () => {
 //     try {
 //         const response = await fetch(currentUrl + 'products/19',
@@ -57,7 +57,7 @@ function EditBoxScreen({ navigation }) {
   const getBox = async () => {
     try {
       const response = await fetch(
-        currentUrl+'products/'+19,
+        currentUrl+'products/'+itemId,
                     {
                         method:'GET',
                         // mode: 'no-cors',
@@ -91,7 +91,7 @@ function EditBoxScreen({ navigation }) {
       "restaurantId": "0",
       "stock": stock
     }
-    return fetch(currentUrl + 'products/'+19,
+    return fetch(currentUrl + 'products/'+itemId,
       // return fetch('http://localhost:8080/accounts',
       {
         method: 'PUT',

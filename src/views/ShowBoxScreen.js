@@ -3,9 +3,11 @@ import { Button, View, Text, StyleSheet, FlatList, TouchableOpacity, ActivityInd
 import currentUrl from "../constants/urls";
 
 
-function ShowBoxScreen({ navigation }) {
+function ShowBoxScreen({  navigation}) {
     const [isLoading, setLoading] = React.useState(true);
     const [data, setData] = React.useState([]);
+      /* 2. Get the param */
+
 
 
 
@@ -48,13 +50,23 @@ function ShowBoxScreen({ navigation }) {
                     data={data}
                     keyExtractor={({ id }, index) => id}
                     renderItem={({ item }) => (
-                        <>  <Text>Name: {item.name}, {"\n"}
-                                description:{item.description}, {"\n"}
-                                price: {item.price}, {"\n"}
-                                restaurantId: {item.restaurantId}, {"\n"}
-                                stock: {item.stock}</Text>
+                        <>
+                            <Text>id: {item.id}, {"\n"}
+                            Name: {item.name}, {"\n"}
+                            description:{item.description}, {"\n"}
+                            price: {item.price}, {"\n"}
+                            restaurantId: {item.restaurantId}, {"\n"}
+                            stock: {item.stock}</Text>
+                            <Button
+                                onPress={() => navigation.navigate('EditBox' , {
+                                    itemId: item.id})} 
+                                    
+                            title="Edit"
+                            color="#841584"
+                            accessibilityLabel="Learn more about this purple button"/>
+                            {console.log(item.id)}
                             <Text>{"\n"}{"\n"}</Text>
-                        </>  
+                        </> 
                     )}
                 />
                 
