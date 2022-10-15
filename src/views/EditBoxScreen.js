@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { Button, View, Text, StyleSheet, TextInput, TouchableOpacity,ActivityIndicator } from 'react-native';
 import currentUrl from "../constants/urls";
+import ShowBoxScreen from './ShowBoxScreen';
 
 
 function EditBoxScreen({ navigation, route  }) {
@@ -110,6 +111,32 @@ console.log(itemId);
         // console.log(json)
         return json;
       })
+      .then(navigation.navigate('ShowBox'))
+      .catch((error) => {
+        console.error(error);
+      });
+  };
+
+  const deleteBox = () => {
+
+    return fetch(currentUrl + 'products/'+itemId,
+      // return fetch('http://localhost:8080/accounts',
+      {
+        method: 'DELETE',
+        headers: {
+          // 'Content-Type': 'application/json',
+          'Access-Control-Allow-Credentials': 'true',
+        }
+        // mode: 'no-cors',
+        // credentials: 'include',
+        // body: JSON.stringify(data),
+
+      }
+    )
+          // get the new products before moving to the show box screen
+
+    // .then(ShowBoxScreen.getProducts)
+      .then(navigation.navigate('ShowBox'))
       .catch((error) => {
         console.error(error);
       });
@@ -177,7 +204,10 @@ console.log(itemId);
 
 
           <TouchableOpacity style={styles.signUpBtn} onPress={putBox}>
-            <Text style={styles.signUpBtnTxt}>Submit box</Text>
+            <Text style={styles.signUpBtnTxt}>edit box</Text>
+          </TouchableOpacity>
+          <TouchableOpacity style={styles.signUpBtn} onPress={deleteBox}>
+            <Text style={styles.signUpBtnTxt}>DELETE box</Text>
           </TouchableOpacity>
 
           {/* <Button title="Sign up" onPress={() => navigation.navigate('Login')} />

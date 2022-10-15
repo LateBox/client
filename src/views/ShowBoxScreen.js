@@ -1,12 +1,14 @@
 import * as React from 'react';
 import { Button, View, Text, StyleSheet, FlatList, TouchableOpacity, ActivityIndicator } from 'react-native';
+import { useIsFocused } from "@react-navigation/native";
 import currentUrl from "../constants/urls";
 
 
 function ShowBoxScreen({  navigation}) {
     const [isLoading, setLoading] = React.useState(true);
     const [data, setData] = React.useState([]);
-      /* 2. Get the param */
+
+    const isFocused = useIsFocused();
 
 
 
@@ -36,8 +38,15 @@ function ShowBoxScreen({  navigation}) {
 
       // this line is necessary to get the data before the html loads
     React.useEffect(() => {
-        getProducts();
-    }, []);
+        // this conditionis necessary to refresh the data when coming from a different screen
+        if(isFocused){ 
+            getProducts();
+        }
+        //return the isFocused to refresh data when coming from different screen
+    }, [[isFocused]]);
+
+
+
 
 
     return (
@@ -58,13 +67,14 @@ function ShowBoxScreen({  navigation}) {
                             restaurantId: {item.restaurantId}, {"\n"}
                             stock: {item.stock}</Text>
                             <Button
-                                onPress={() => navigation.navigate('EditBox' , {
-                                    itemId: item.id})} 
+                                onPress={() =>{navigation.navigate('EditBox' , {
+                                    itemId: item.id})}} 
+                                    // itemId: item.id});setLoading(true)}} 
                                     
                             title="Edit"
                             color="#841584"
                             accessibilityLabel="Learn more about this purple button"/>
-                            {console.log(item.id)}
+                            {console.log()}
                             <Text>{"\n"}{"\n"}</Text>
                         </> 
                     )}

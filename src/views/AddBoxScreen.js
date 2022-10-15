@@ -1,6 +1,8 @@
 import * as React from 'react';
 import { Button, View, Text, StyleSheet, TextInput, TouchableOpacity } from 'react-native';
 import currentUrl from "../constants/urls";
+import ShowBoxScreen from './ShowBoxScreen';
+
 
 
 function AddBoxScreen({ navigation }) {
@@ -59,6 +61,9 @@ function AddBoxScreen({ navigation }) {
         // console.log(json)
         return json;
       })
+      // get the new products before moving to the show box screen
+      // .then(ShowBoxScreen.getProducts)
+      .then(navigation.navigate('ShowBox'))
       .catch((error) => {
         console.error(error);
       });
