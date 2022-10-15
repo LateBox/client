@@ -10,6 +10,8 @@ import SignupScreen from './src/views/SignupScreen';
 import NewAccountInfo1 from './src/views/NewAccountInfo1'; 
 import ProductDetailScreen from './src/views/ProductDetailScreen';
 import AddBoxScreen from './src/views/AddBoxScreen';
+import EditBoxScreen from './src/views/EditBoxScreen';
+import ShowBoxScreen from './src/views/ShowBoxScreen';
 
 
 
@@ -29,6 +31,8 @@ function App() {
         <Stack.Screen name="Register" component={SignupScreen}/>
         <Stack.Screen name="NewAccount1" component={NewAccountInfo1}/>
         <Stack.Screen name="AddBox" component={AddBoxScreen}/>
+        <Stack.Screen name="EditBox" component={EditBoxScreen}/>
+        <Stack.Screen name="ShowBox" component={ShowBoxScreen}/>
         <Stack.Screen name="ProductDetail" component={ProductDetailScreen}/>
 
       </Stack.Navigator>

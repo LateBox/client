@@ -10,6 +10,28 @@ function AddBoxScreen({ navigation }) {
   const [restaurantId, setRestaurantId] = React.useState('restaurantId');
   const [stock, setStock] = React.useState('stock');
 
+
+  const getFromApi = () => {
+    return fetch(currentUrl+'products',
+                    {
+                        method:'GET',
+                        // mode: 'no-cors',
+                        
+                        // credentials: 'include',
+                        'Access-Control-Allow-Credentials':'true'
+                
+                    },
+                )
+        .then((response) => response.json())
+        .then((json) => {
+            console.log(fullName)
+            return json;
+        })
+        .catch((error) => {
+            console.error(error);
+        });
+  };
+
   const postBox = () => {
     var data = {
       "name": boxName,
@@ -42,9 +64,7 @@ function AddBoxScreen({ navigation }) {
       });
   };
   return (
-    <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-      <Text>This is a spare screen test your code in it if you wish</Text>
-      <Button title="Return to Router" onPress={() => navigation.navigate('Router')} />
+    
       <View style={styles.mainContainer}>
         <Button title="Return to Router" onPress={() => navigation.navigate('Router')} />
 
@@ -117,7 +137,7 @@ function AddBoxScreen({ navigation }) {
 
 
           <TouchableOpacity style={styles.signUpBtn} onPress={postBox}>
-            <Text style={styles.signUpBtnTxt}>Sign up</Text>
+            <Text style={styles.signUpBtnTxt}>Submit box</Text>
           </TouchableOpacity>
 
           {/* <Button title="Sign up" onPress={() => navigation.navigate('Login')} />
@@ -129,7 +149,6 @@ function AddBoxScreen({ navigation }) {
 
 
       </View>
-    </View>
 
 
   );
