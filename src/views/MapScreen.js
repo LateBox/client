@@ -33,15 +33,28 @@ function MapScreen(props, { navigation }) {
         )}
       /> } */}
       <MapView
-      provider={PROVIDER_GOOGLE} // remove if not using Google Maps
-      style={styles.map} 
-      initialRegion={ottawa}>
-                <Marker
-                  coordinate={ottawa}
-                  centerOffset={{x: -18, y: -60}}
-                  anchor={{x: 0.69, y: 1}}
-                  image={marker50}
-                />
+        provider={PROVIDER_GOOGLE} // remove if not using Google Maps
+        style={styles.map} 
+        initialRegion={ottawa}>
+      <Marker
+        coordinate={ottawa}
+        centerOffset={{x: -18, y: -60}}
+        anchor={{x: 0.69, y: 1}}
+        image={marker100}
+      />
+      {COORDINATES.map(loc => (
+        <Marker
+            coordinate={{
+              latitude: loc.lat,
+              longitude: loc.long,
+              latitudeDelta: latlongdelta,
+              longitudeDelta: latlongdelta,
+          }}
+            centerOffset={{x: -18, y: -60}}
+            anchor={{x: 0.69, y: 1}}
+            image={marker50}
+          />
+          ))}
       </MapView>
     </View>
   );

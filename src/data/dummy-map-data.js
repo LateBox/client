@@ -2,23 +2,15 @@ import Coordinate from '../models/coordinate';
 
 const COORDINATES = [
   new Coordinate(
-    'coord1',
-    'restrnt1',
-    45.424721,
-    -75.695000
+    '1',
+    'Restaurant 1',
+    45.42885405022149, -75.69420554454943
   ),
   new Coordinate(
-    'coord2',
-    'restrnt2',
-    45.424723,
-    -75.695001
+    '2',
+    'Restaurant 2',
+    45.425962495133575, -75.69417130222058,
   ),
-  new Coordinate(
-    'coord3',
-    'restrnt3',
-    45.424725,
-    -75.695010
-  )
 ];
 
 export default COORDINATES;
