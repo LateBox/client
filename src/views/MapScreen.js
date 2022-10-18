@@ -1,7 +1,7 @@
 import { FlatList, View, Button, StyleSheet, Text, Dimensions } from "react-native";
 import MapView, { PROVIDER_GOOGLE } from 'react-native-maps';
 import MapCoordinate from "../components/MapCoordinate";
-//import COORDINATES from "../data/dummy-map-data";
+import COORDINATES from "../data/dummy-map-data";
 
 const {width, height} = Dimensions.get('window');
 const latlongdelta = 0.06; // The amount of east-to-west distance (measured in degrees) to display for the map region
