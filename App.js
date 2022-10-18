@@ -12,7 +12,7 @@ import ProductDetailScreen from './src/views/ProductDetailScreen';
 import AddBoxScreen from './src/views/AddBoxScreen';
 import EditBoxScreen from './src/views/EditBoxScreen';
 import ShowBoxScreen from './src/views/ShowBoxScreen';
-
+import MapScreen from './src/views/MapScreen';
 
 
 
@@ -33,6 +33,7 @@ function App() {
         <Stack.Screen name="AddBox" component={AddBoxScreen}/>
         <Stack.Screen name="EditBox" component={EditBoxScreen}/>
         <Stack.Screen name="ShowBox" component={ShowBoxScreen}/>
+        <Stack.Screen name="Map" component={MapScreen}/>
         <Stack.Screen name="ProductDetail" component={ProductDetailScreen}/>
 
       </Stack.Navigator>
