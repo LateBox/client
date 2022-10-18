@@ -31,6 +31,16 @@ const COORDINATES = [
     'Restaurant 6',
     45.42826007421917, -75.6903511857831
   ),
+  new Coordinate(
+    '7',
+    'Restaurant 7',
+    45.41555519800302, -75.68801724322167
+    ),
+  new Coordinate(
+    '8',
+    'Restaurant 8',
+    45.40103248820964, -75.68301760701611
+    ),
 ];
 
 export default COORDINATES;
