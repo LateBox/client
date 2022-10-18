@@ -3,8 +3,9 @@ import MapView, { Marker, PROVIDER_GOOGLE } from 'react-native-maps';
 import MapCoordinate from "../components/MapCoordinate";
 import COORDINATES from "../data/dummy-map-data";
 // Location icon by Icons8
-import marker50 from '../../assets/marker50.png';
-import marker100 from '../../assets/marker100.png';
+import marker50 from '../../assets/marker-50.png';
+import marker100 from '../../assets/marker-100.png';
+import address from '../../assets/address-100.png';
 
 const {width, height} = Dimensions.get('window');
 const latlongdelta = 0.06; // The amount of east-to-west distance (measured in degrees) to display for the map region
@@ -52,7 +53,7 @@ function MapScreen(props, { navigation }) {
           }}
             centerOffset={{x: -18, y: -60}}
             anchor={{x: 0.69, y: 1}}
-            image={marker50}
+            image={address}
           />
           ))}
       </MapView>
