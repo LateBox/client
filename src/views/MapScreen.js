@@ -1,7 +1,10 @@
 import { FlatList, View, Button, StyleSheet, Text, Dimensions } from "react-native";
-import MapView, { PROVIDER_GOOGLE } from 'react-native-maps';
+import MapView, { Marker, PROVIDER_GOOGLE } from 'react-native-maps';
 import MapCoordinate from "../components/MapCoordinate";
 import COORDINATES from "../data/dummy-map-data";
+// Location icon by Icons8
+import marker50 from '../../assets/marker50.png';
+import marker100 from '../../assets/marker100.png';
 
 const {width, height} = Dimensions.get('window');
 const latlongdelta = 0.06; // The amount of east-to-west distance (measured in degrees) to display for the map region
@@ -33,6 +36,12 @@ function MapScreen(props, { navigation }) {
       provider={PROVIDER_GOOGLE} // remove if not using Google Maps
       style={styles.map} 
       initialRegion={ottawa}>
+                <Marker
+                  coordinate={ottawa}
+                  centerOffset={{x: -18, y: -60}}
+                  anchor={{x: 0.69, y: 1}}
+                  image={marker50}
+                />
       </MapView>
     </View>
   );
