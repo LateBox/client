@@ -1,4 +1,4 @@
-import { FlatList, View, Button, StyleSheet, Text, Dimensions } from "react-native";
+import { FlatList, View, Button, StyleSheet, Text, Dimensions, TouchableHighlight } from "react-native";
 import MapView, { Marker, PROVIDER_GOOGLE } from 'react-native-maps';
 import MapCoordinate from "../components/MapCoordinate";
 import COORDINATES from "../data/dummy-map-data";
@@ -16,23 +16,14 @@ var ottawa = {
     longitudeDelta: latlongdelta,
 };
 
+function markerClick() {
+  console.log("Marker was clicked");
+}
+
 function MapScreen(props, { navigation }) {
   return (
     <View>
       <Button title="Return to Router" onPress={() => props.navigation.navigate('Router')} />  
-      {/* { <FlatList
-        data={COORDINATES}
-        keyExtractor={(item) => item.id}
-        renderItem={(itemData) => (
-          <MapCoordinate
-            image={itemData.item.id}
-            title={itemData.item.lat}
-            price={itemData.item.long}
-            onViewDetail={() => props.navigation.navigate("Spare")}
-            onAddToCart={() => {}}
-          />
-        )}
-      /> } */}
       <MapView
         provider={PROVIDER_GOOGLE} // remove if not using Google Maps
         style={styles.map} 
@@ -43,19 +34,29 @@ function MapScreen(props, { navigation }) {
         anchor={{x: 0.69, y: 1}}
         image={marker100}
       />
-      {COORDINATES.map(loc => (
+      {COORDINATES.map(mymarker => (
         <Marker
-            coordinate={{
-              latitude: loc.lat,
-              longitude: loc.long,
-              latitudeDelta: latlongdelta,
-              longitudeDelta: latlongdelta,
+          coordinate={{
+            latitude: mymarker.lat,
+            longitude: mymarker.long,
+            latitudeDelta: latlongdelta,
+            longitudeDelta: latlongdelta,
           }}
-            centerOffset={{x: -18, y: -60}}
-            anchor={{x: 0.69, y: 1}}
-            image={address}
-          />
-          ))}
+          title={mymarker.id}
+          description={mymarker.ownerId}
+          centerOffset={{x: -18, y: -60}}
+          anchor={{x: 0.69, y: 1}}
+          image={address}
+        >
+          <MapView.Callout tooltip style={styles.customView}>
+            <TouchableHighlight onPress= {()=>markerClick()} underlayColor='#dddddd'>
+                <View style={styles.calloutText}>
+                    <Text>{mymarker.id}{"\n"}{mymarker.ownerId}</Text>
+                </View>
+            </TouchableHighlight>
+          </MapView.Callout>
+        </Marker>      
+      ))}
       </MapView>
     </View>
   );
