@@ -1,36 +1,38 @@
 import React from 'react';
-import { StyleSheet, Button, Text, View, Image, TouchableHighlight } from 'react-native';
+import { StyleSheet, Text, View, Image, TouchableHighlight } from 'react-native';
 
 
-const AccountInfo1 = () => {
+
+
+
+const AccountInfo3 = () => {
     return (
     <View>
         <View style={styles.above}>
             <TouchableHighlight style={styles.roundshape}>
-            <Image source={{uri: 'https://svgshare.com/i/n27.svg'}}
+            <Image source={{uri: 'https://svgshare.com/i/nDN.svg'}}
                 style={styles.logo} />
             </TouchableHighlight>
         </View>
         <View style={styles.under}>
-            <Text style={styles.maintext}>A PLANET WITH NO FOOD WASTE</Text>
+            <Text style={styles.maintext}>GET NOTIFIED BASED ON YOUR</Text>
+            <Text style={styles.maintext}>PREFERENCES</Text>
             <Text>
             {"\n"}
           </Text>
-            <Text style={styles.secondtext}>Perfectly good, surplus food from your</Text>
-            <Text style={styles.secondtext}>local stores. It’s always a surprise</Text>
-            <Text style={styles.secondtext}>and an instant good deed for the planet.</Text>
-            <Text style={styles.secondtext}>planet.</Text>
+            <Text style={styles.secondtext}>We'll let you know if there's a box you would</Text>
+            <Text style={styles.secondtext}>like near you</Text>
         </View>
 
         <View style={styles.bottompage}>
             <Text style={styles.textskip}>SKIP</Text>
 
             <View style={styles.circles}>
+              <View style={styles.circle}>
+              </View>
+              <View style={styles.circle}>
+              </View>
               <View style={styles.circlemain}>
-              </View>
-              <View style={styles.circle}>
-              </View>
-              <View style={styles.circle}>
               </View>
               <View style={styles.circle}>
               </View>
@@ -53,12 +55,12 @@ const styles = StyleSheet.create({
       color:"white"
     },
     logo: {
-        width: "80%",
-        height: "90%",
+        width: "100%",
+        height: "110%",
         alignItems:"center",
         justifyContent:"center",
-        left: "10%",
-        top: "20%",
+        left: "3%",
+        top: "30%",
 
       },
       under: {
@@ -135,5 +137,5 @@ const styles = StyleSheet.create({
 
 
 
-export default AccountInfo1;
+export default AccountInfo3;
 

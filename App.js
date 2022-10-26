@@ -7,7 +7,10 @@ import SpareScreen from './src/views/SpareScreen';
 import RouterScreen from './src/views/RouterScreen';
 import SigninScreen from './src/views/SigninScreen';
 import SignupScreen from './src/views/SignupScreen'; 
-import NewAccountInfo1 from './src/views/NewAccountInfo1'; 
+import NewAccountInfo1 from './src/views/NewAccountInfo1';
+import NewAccountInfo2 from './src/views/NewAccountInfo2'; 
+import NewAccountInfo3 from './src/views/NewAccountInfo3'; 
+import NewAccountPreferences from './src/views/NewAccountPreferences'; 
 import ProductDetailScreen from './src/views/ProductDetailScreen';
 import AddBoxScreen from './src/views/AddBoxScreen';
 import EditBoxScreen from './src/views/EditBoxScreen';
@@ -30,6 +33,9 @@ function App() {
         <Stack.Screen name="Login" component={SigninScreen}/>
         <Stack.Screen name="Register" component={SignupScreen}/>
         <Stack.Screen name="NewAccount1" component={NewAccountInfo1}/>
+        <Stack.Screen name="NewAccount2" component={NewAccountInfo2}/>
+        <Stack.Screen name="NewAccount3" component={NewAccountInfo3}/>
+        <Stack.Screen name="NewAccountPreferences" component={NewAccountPreferences}/>
         <Stack.Screen name="AddBox" component={AddBoxScreen}/>
         <Stack.Screen name="EditBox" component={EditBoxScreen}/>
         <Stack.Screen name="ShowBox" component={ShowBoxScreen}/>

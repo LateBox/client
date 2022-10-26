@@ -151,7 +151,7 @@ const postAccount = () => {
 
                 
 
-                <TouchableOpacity style={styles.signUpBtn} onPress={postAccount}>
+                <TouchableOpacity style={styles.signUpBtn} onPress={"NewAccount1"}>
                     <Text style={styles.signUpBtnTxt}>Sign up</Text>
                 </TouchableOpacity>
 
