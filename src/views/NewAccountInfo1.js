@@ -7,7 +7,7 @@ const AccountInfo1 = () => {
     <View>
         <View style={styles.above}>
             <TouchableHighlight style={styles.roundshape}>
-            <Image source={{uri: 'https://svgshare.com/i/n27.svg'}}
+            <Image source={{uri: 'https://raw.githubusercontent.com/LateBox/latebox/a519091b93b168ebe7a69c9d361a3c65980ebd13/SVGS/bag.svg'}}
                 style={styles.logo} />
             </TouchableHighlight>
         </View>

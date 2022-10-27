@@ -2,15 +2,12 @@ import React from 'react';
 import { StyleSheet, Text, View, Image, TouchableHighlight } from 'react-native';
 
 
-
-
-
 const AccountInfo2 = () => {
     return (
     <View>
         <View style={styles.above}>
             <TouchableHighlight style={styles.roundshape}>
-            <Image source={{uri: 'https://svgshare.com/i/nF2.svg'}}
+            <Image source={{uri: 'https://raw.githubusercontent.com/LateBox/latebox/a519091b93b168ebe7a69c9d361a3c65980ebd13/SVGS/plateau.svg'}}
                 style={styles.logo} />
             </TouchableHighlight>
         </View>
