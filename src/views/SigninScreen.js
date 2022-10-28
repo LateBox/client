@@ -1,63 +1,113 @@
 import * as React from 'react';
 import { Button, View, TextInput, StyleSheet,TouchableOpacity,Text,Image} from 'react-native';
 import { withSafeAreaInsets } from 'react-native-safe-area-context';
+import currentUrl from "../constants/urls";
+
 
 
 function SigninScreen({ navigation }) {
-    return (
-      <View style={styles.mainContainer}>
-        <Button title="Return to Router" onPress={() => navigation.navigate('Router')} />  
 
-        <View style={styles.topBar}>
-
-        <Text style={styles.titleText} >Login</Text>
-          <Text style={styles.forgot}>
-            {"\n"}
-          </Text>
-          <TouchableOpacity>
-                <Text style={styles.newaccount} onPress={() => navigation.navigate('Register')}>Don't have an account? Sign up</Text>
-            </TouchableOpacity>
-
-        </View>
+  const [email, setEmail] = React.useState('Email');
+  const [password, setPassword] = React.useState('Password');
 
 
-          <View style={styles.body}>  
-          <Text style={styles.forgot}>
-            {"\n"}
-            {"\n"}
-            {"\n"}
-          </Text>
-          
-            <Text style={styles.sentence}>
-            {"PLEASE ENTER YOUR EMAIL                                     "}
-            </Text>  
+  function digestMessage(message) {
+    const msgUint8 = new TextEncoder().encode(message);                           // encode as (utf-8) Uint8Array
+    const hashBuffer = crypto.subtle.digest('SHA-256', msgUint8);           // hash the message
+    const hashArray = Array.from(new Uint8Array(hashBuffer));                     // convert buffer to byte array
+    const hashHex = hashArray.map((b) => b.toString(16).padStart(2, '0')).join(''); // convert bytes to hex string
+    return hashHex;
+  }
 
-            <TextInput
-            style={styles.input}            
-            placeholder="hello@latebox.com"
-            placeholderTextColor= 'rgba(77, 76, 76, 0.5)'
-            />
 
-            <Text style={styles.sentence}>
-            {"PLEASE ENTER YOUR PASSWORD                             "}
-            </Text>   
+  const getAuthToken = () => {
+    
+    console.log("hada houa l fucking username: "+ email)
+    var data = {
+            "username" : email,
+            "password" : password,
+    }
+    return fetch(currentUrl+'authenticate',
+    {
+                        method:'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                            'Access-Control-Allow-Credentials':'true',
+                        },
+                        // mode: 'no-cors',
+                        // credentials: 'include',
+                        body: JSON.stringify(data),
+                    
+                    }
+                )
+                .then((response) => response.json())
+                .then((json) => {
+                    // console.log(json)
+                    return json;
+                })
+                .catch((error) => {
+                    console.error(error);
+                });
+  };
 
-            <TextInput
-            style={styles.input}
-            secureTextEntry={true}
-            placeholder="Password"
-            placeholderTextColor='rgba(77, 76, 76, 0.5)'
-            /> 
+  return (
+    <View style={styles.mainContainer}>
+      <Button title="Return to Router" onPress={() => navigation.navigate('Router')} />  
 
-            <TouchableOpacity style={styles.loginBtn} onPress={() => navigation.navigate('Home')}>
-            <Text style={styles.loginBtnTxt} >login</Text>
+      <View style={styles.topBar}>
+
+      <Text style={styles.titleText} >Login</Text>
+        <Text style={styles.forgot}>
+          {"\n"}
+        </Text>
+        <TouchableOpacity>
+              <Text style={styles.newaccount} onPress={() => navigation.navigate('Register')}>Don't have an account? Sign up</Text>
           </TouchableOpacity>
-            
-            
-            {/* <Button title="Go to Home" onPress={() => navigation.navigate('Home')} />       */}
-          </View>
+
       </View>
-    );
+
+
+        <View style={styles.body}>  
+        <Text style={styles.forgot}>
+          {"\n"}
+          {"\n"}
+          {"\n"}
+        </Text>
+        
+          <Text style={styles.sentence}>
+          {"PLEASE ENTER YOUR EMAIL                                     "}
+          </Text>  
+
+          <TextInput
+          style={styles.input}            
+          placeholder="hello@latebox.com"
+          onChangeText={value => setEmail(value)}
+          emailValue={email}
+          placeholderTextColor= 'rgba(77, 76, 76, 0.5)'
+          />
+
+          <Text style={styles.sentence}>
+          {"PLEASE ENTER YOUR PASSWORD                             "}
+          </Text>   
+
+          <TextInput
+          style={styles.input}
+          secureTextEntry={true}
+          placeholder="Password"
+          onChangeText={value => setPassword(digestMessage(value))}
+          passwordValue={password}
+          placeholderTextColor='rgba(77, 76, 76, 0.5)'
+          /> 
+
+          <TouchableOpacity style={styles.loginBtn} onPress={getAuthToken}>
+          <Text style={styles.loginBtnTxt} >login</Text>
+        </TouchableOpacity>
+          
+          
+          {/* <Button title="Go to Home" onPress={() => navigation.navigate('Home')} />       */}
+        </View>
+    </View>
+  );
 }
 
 
