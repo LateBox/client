@@ -12,6 +12,12 @@ function RouterScreen({ navigation }) {
         <Button title="Go to Add Box" onPress={() => navigation.navigate('AddBox')} />  
         {/* <Button title="Go to Edit Box" onPress={() => navigation.navigate('EditBox')} />   */}
         <Button title="Go to Map" onPress={() => navigation.navigate('Map')} />
+        <Button title="Go to Info1" onPress={() => navigation.navigate('NewAccount1')} />
+        <Button title="Go to Info2" onPress={() => navigation.navigate('NewAccount2')} />
+        <Button title="Go to Info3" onPress={() => navigation.navigate('NewAccount3')} />
+        <Button title="Go to Account Preferences" onPress={() => navigation.navigate('AccountPreferences')} />
+
+
         <Button title="Go to Spare screen" onPress={() => navigation.navigate('Spare')} />
 
       </View>
