@@ -11,13 +11,13 @@ function SigninScreen({ navigation }) {
   const [password, setPassword] = React.useState('Password');
 
 
-  function digestMessage(message) {
-    const msgUint8 = new TextEncoder().encode(message);                           // encode as (utf-8) Uint8Array
-    const hashBuffer = crypto.subtle.digest('SHA-256', msgUint8);           // hash the message
-    const hashArray = Array.from(new Uint8Array(hashBuffer));                     // convert buffer to byte array
-    const hashHex = hashArray.map((b) => b.toString(16).padStart(2, '0')).join(''); // convert bytes to hex string
-    return hashHex;
-  }
+  // function digestMessage(message) {
+  //   const msgUint8 = new TextEncoder().encode(message);                           // encode as (utf-8) Uint8Array
+  //   const hashBuffer = crypto.subtle.digest('SHA-256', msgUint8);           // hash the message
+  //   const hashArray = Array.from(new Uint8Array(hashBuffer));                     // convert buffer to byte array
+  //   const hashHex = hashArray.map((b) => b.toString(16).padStart(2, '0')).join(''); // convert bytes to hex string
+  //   return hashHex;
+  // }
 
 
   const getAuthToken = () => {
@@ -94,7 +94,8 @@ function SigninScreen({ navigation }) {
           style={styles.input}
           secureTextEntry={true}
           placeholder="Password"
-          onChangeText={value => setPassword(digestMessage(value))}
+          // onChangeText={value => setPassword(digestMessage(value))}
+          onChangeText={value => setPassword(value)}
           passwordValue={password}
           placeholderTextColor='rgba(77, 76, 76, 0.5)'
           /> 
