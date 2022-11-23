@@ -1,7 +1,10 @@
 import * as React from 'react';
-import { Button, View, Text, StyleSheet, TextInput, TouchableOpacity,ActivityIndicator } from 'react-native';
+import { Image,Button, View, Text, StyleSheet, TextInput, TouchableOpacity,ActivityIndicator } from 'react-native';
 import currentUrl from "../constants/urls";
 import ShowBoxScreen from './ShowBoxScreen';
+
+import * as ImagePicker from 'expo-image-picker';  // not react-image-picker
+
 
 
 function EditBoxScreen({ navigation, route  }) {
@@ -10,6 +13,8 @@ function EditBoxScreen({ navigation, route  }) {
   const [price, setPrice] = React.useState('price');
   const [restaurantId, setRestaurantId] = React.useState('restaurantId');
   const [stock, setStock] = React.useState('stock');
+  const [imageUri, setImageUri] = React.useState('imageUri');
+
   const [isLoading, setLoading] = React.useState(true);
   const itemId  = route.params.itemId;
 console.log(itemId);
@@ -55,6 +60,26 @@ console.log(itemId);
   //       });
   // };
 
+
+
+  const takeImage = async () => {
+    // No permissions request is necessary for launching the image library
+    let result = await ImagePicker.launchCameraAsync({
+      mediaTypes: ImagePicker.MediaTypeOptions.All,
+      allowsEditing: true,
+      aspect: [4, 3],
+      quality: 1,
+    });
+
+    console.log(result.uri);
+
+
+
+    if (!result.cancelled) {
+      setImageUri(result.uri);
+    }
+  };
+
   const getBox = async () => {
     try {
       const response = await fetch(
@@ -75,6 +100,7 @@ console.log(itemId);
       setPrice(json.price)
       setRestaurantId(json.restaurantId)
       setStock(json.stock)
+      setImageUri(json.imageUri)
       return json;
     } catch (error) {
       console.error(error);
@@ -90,7 +116,9 @@ console.log(itemId);
       "description": description,
       "price": price,
       "restaurantId": "0",
-      "stock": stock
+      "stock": stock,
+      "imageUri":imageUri
+
     }
     return fetch(currentUrl + 'products/'+itemId,
       // return fetch('http://localhost:8080/accounts',
@@ -200,6 +228,11 @@ console.log(itemId);
               value={stock}
               autoCapitalize={"none"} /></>
           )}
+
+
+<Button title="Pick an image from camera roll" onPress={takeImage} />
+      {imageUri && <Image source={{ uri: imageUri }} style={{ width: 200, height: 200 }} />}
+
 
 
 

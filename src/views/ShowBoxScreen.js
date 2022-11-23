@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Button, View, Text, StyleSheet, FlatList, TouchableOpacity, ActivityIndicator } from 'react-native';
+import { Button, View, Text, StyleSheet, FlatList, TouchableOpacity, ActivityIndicator,Image } from 'react-native';
 import { useIsFocused } from "@react-navigation/native";
 import currentUrl from "../constants/urls";
 
@@ -14,8 +14,10 @@ function ShowBoxScreen({  navigation}) {
 
 
     const getProducts = async () => {
+        console.debug(currentUrl)
+
         try {
-            const response = await fetch(currentUrl + 'products',
+            const response = await fetch(currentUrl + 'products/',
                 {
                     method: 'GET',
                     // mode: 'no-cors',
@@ -66,6 +68,7 @@ function ShowBoxScreen({  navigation}) {
                             price: {item.price}, {"\n"}
                             restaurantId: {item.restaurantId}, {"\n"}
                             stock: {item.stock}</Text>
+                            <Image source={{ uri: item.imageUri }} style={{ width: 200, height: 200 }} />
                             <Button
                                 onPress={() =>{navigation.navigate('EditBox' , {
                                     itemId: item.id})}} 

@@ -1,7 +1,9 @@
 import * as React from 'react';
-import { Button, View, Text, StyleSheet, TextInput, TouchableOpacity } from 'react-native';
+import { Button, View, Text, StyleSheet, TextInput, TouchableOpacity,Image } from 'react-native';
 import currentUrl from "../constants/urls";
 import ShowBoxScreen from './ShowBoxScreen';
+import * as ImagePicker from 'expo-image-picker';  // not react-image-picker
+
 
 
 
@@ -11,6 +13,26 @@ function AddBoxScreen({ navigation }) {
   const [price, setPrice] = React.useState('price');
   const [restaurantId, setRestaurantId] = React.useState('restaurantId');
   const [stock, setStock] = React.useState('stock');
+  const [imageUri, setImageUri] = React.useState('imageUri');
+
+
+  const takeImage = async () => {
+    // No permissions request is necessary for launching the image library
+    let result = await ImagePicker.launchCameraAsync({
+      mediaTypes: ImagePicker.MediaTypeOptions.All,
+      allowsEditing: true,
+      aspect: [4, 3],
+      quality: 1,
+    });
+
+    console.log(result.uri);
+
+
+
+    if (!result.cancelled) {
+      setImageUri(result.uri);
+    }
+  };
 
 
   const getFromApi = () => {
@@ -40,7 +62,8 @@ function AddBoxScreen({ navigation }) {
       "description": description,
       "price": price,
       "restaurantId": "0",
-      "stock": stock
+      "stock": stock,
+      "imageUri":imageUri
     }
     return fetch(currentUrl + 'products',
       // return fetch('http://localhost:8080/accounts',
@@ -139,6 +162,8 @@ function AddBoxScreen({ navigation }) {
             autoCapitalize={"none"}
           />
 
+<Button title="Pick an image from camera roll" onPress={takeImage} />
+      {imageUri && <Image source={{ uri: imageUri }} style={{ width: 200, height: 200 }} />}
 
 
           <TouchableOpacity style={styles.signUpBtn} onPress={postBox}>
