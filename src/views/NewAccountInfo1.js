@@ -36,7 +36,7 @@ const AccountInfo1 = () => {
               </View>
             </View>
 
-            <Text style={styles.textnext}>NEXT</Text>
+            <Text onPress={() => navigation.navigate('NewAccount2')} style={styles.textnext}>NEXT</Text>
 
         </View>
     </View>
