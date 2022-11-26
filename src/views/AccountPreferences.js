@@ -36,6 +36,294 @@ function NewAccountPreferences({ navigation }) {
               return arr.push(varr);
               
         }
+        const ButtonVegan = (props) => {
+          const { color, activeColor } = props;
+          const [active, setActive] = useState(false);
+          const onPress = () => setActive(!active);
+          const buttonStyle = {
+              backgroundColor: active ? "rgba(241, 136, 97, 1)" : "rgba(198, 198, 198, 0.35)",
+              width: '27%',
+              height: '85%',
+              alignItems: "center",
+              padding: 10,
+              flexDirection:"row",
+              borderRadius: 100  
+            };
+          return (
+            <TouchableOpacity style={buttonStyle} onPress={() => {onPress(); buttonChange(vegan);} }>
+              <Image style={styles.icon} source={{uri: 'https://raw.githubusercontent.com/LateBox/latebox/main/SVGS/lettuce2.svg'}}/>
+              <Text > Vegan</Text>
+            </TouchableOpacity>
+
+          );
+        };
+
+        const ButtonHalal = (props) => {
+          const { color, activeColor } = props;
+          const [active, setActive] = useState(false);
+          const onPress = () => setActive(!active);
+          const buttonStyle = {
+              backgroundColor: active ? "rgba(241, 136, 97, 1)" : "rgba(198, 198, 198, 0.35)",
+              width: '27%',
+              height: '85%',
+              alignItems: "center",
+              padding: 10,
+              flexDirection:"row",
+              borderRadius: 100  
+            };
+          return (
+            <TouchableOpacity style={buttonStyle} onPress={() => {onPress(); buttonChange(halal);} }>
+            <Image style={styles.icon} source={{uri: 'https://raw.githubusercontent.com/LateBox/latebox/main/SVGS/halal-cropped.svg'}}/>
+              <Text > Halal</Text>
+            </TouchableOpacity>
+
+          );
+        };
+
+        const ButtonVege = (props) => {
+          const { color, activeColor } = props;
+          const [active, setActive] = useState(false);
+          const onPress = () => setActive(!active);
+          const buttonStyle = {
+              backgroundColor: active ? "rgba(241, 136, 97, 1)" : "rgba(198, 198, 198, 0.35)",
+              width: '37%',
+              height: '85%',
+              alignItems: "center",
+              padding: 10,
+              flexDirection:"row",
+              borderRadius: 100  
+            };
+          return (
+            <TouchableOpacity style={buttonStyle} onPress={() => {onPress(); buttonChange(vege);} }>
+            <Image style={styles.icon} source={{uri: 'https://raw.githubusercontent.com/LateBox/latebox/main/SVGS/vegan-cropped.svg'}}/>
+              <Text > Vegetarian</Text>
+            </TouchableOpacity>
+
+          );
+        };
+
+        const ButtonGluten = (props) => {
+          const { color, activeColor } = props;
+          const [active, setActive] = useState(false);
+          const onPress = () => setActive(!active);
+          const buttonStyle = {
+              backgroundColor: active ? "rgba(241, 136, 97, 1)" : "rgba(198, 198, 198, 0.35)",
+              width: '34%',
+              height: '126%',
+              alignItems: "center",
+              padding: 5,
+              flexDirection:"row",
+              borderRadius: 100,
+            };
+          return (
+            <TouchableOpacity style={buttonStyle} onPress={() => {onPress(); buttonChange(gluten);} }>
+            <Image style={styles.icon2} source={{uri: 'https://raw.githubusercontent.com/LateBox/latebox/main/SVGS/gluten-cropped.svg'}}/>
+              <Text > Gluten-free</Text>
+            </TouchableOpacity>
+
+          );
+        };
+
+        const ButtonLactose = (props) => {
+          const { color, activeColor } = props;
+          const [active, setActive] = useState(false);
+          const onPress = () => setActive(!active);
+          const buttonStyle = {
+              backgroundColor: active ? "rgba(241, 136, 97, 1)" : "rgba(198, 198, 198, 0.35)",
+              width: '34%',
+              height: '126%',
+              alignItems: "center",
+              padding: 5,
+              flexDirection:"row",
+              borderRadius: 100,
+            };
+          return (
+            <TouchableOpacity style={buttonStyle} onPress={() => {onPress(); buttonChange(lactose);} }>
+            <Image style={styles.icon2} source={{uri: 'https://raw.githubusercontent.com/LateBox/latebox/main/SVGS/lactose-cropped.svg'}}/>
+              <Text > Lactose-free</Text>
+            </TouchableOpacity>
+
+          );
+        };
+
+        const ButtonIndian = (props) => {
+          const { color, activeColor } = props;
+          const [active, setActive] = useState(false);
+          const onPress = () => setActive(!active);
+          const buttonStyle = {
+              backgroundColor: active ? "rgba(241, 136, 97, 1)" : "rgba(198, 198, 198, 0.35)",
+              width: '28%',
+              height: '120%',
+              alignItems: "center",
+              padding: 5,
+              flexDirection:"row",
+              borderRadius: 100,
+            };
+          return (
+            <TouchableOpacity style={buttonStyle} onPress={() => {onPress(); buttonChange(indian);} }>
+            <Image style={styles.icon3} source={{uri: 'https://raw.githubusercontent.com/LateBox/latebox/main/SVGS/indian-cropped.svg'}}/>
+              <Text >  Indian</Text>
+            </TouchableOpacity>
+
+          );
+        };
+
+        const ButtonFast = (props) => {
+          const { color, activeColor } = props;
+          const [active, setActive] = useState(false);
+          const onPress = () => setActive(!active);
+          const buttonStyle = {
+              backgroundColor: active ? "rgba(241, 136, 97, 1)" : "rgba(198, 198, 198, 0.35)",
+              width: '28%',
+              height: '120%',
+              alignItems: "center",
+              padding: 5,
+              flexDirection:"row",
+              borderRadius: 100,
+            };
+          return (
+            <TouchableOpacity style={buttonStyle} onPress={() => {onPress(); buttonChange(fastfood);} }>
+            <Image style={styles.icon4} source={{uri: 'https://raw.githubusercontent.com/LateBox/latebox/main/SVGS/fast-cropped.svg'}}/>
+              <Text > Fast food</Text>
+            </TouchableOpacity>
+
+          );
+        };
+
+        const ButtonItalian = (props) => {
+          const { color, activeColor } = props;
+          const [active, setActive] = useState(false);
+          const onPress = () => setActive(!active);
+          const buttonStyle = {
+              backgroundColor: active ? "rgba(241, 136, 97, 1)" : "rgba(198, 198, 198, 0.35)",
+              width: '28%',
+              height: '120%',
+              alignItems: "center",
+              padding: 5,
+              flexDirection:"row",
+              borderRadius: 100,
+            };
+          return (
+            <TouchableOpacity style={buttonStyle} onPress={() => {onPress(); buttonChange(italian);} }>
+            <Image style={styles.icon3} source={{uri: 'https://raw.githubusercontent.com/LateBox/latebox/main/SVGS/pizza-cropped.svg'}}/>
+              <Text >  Italian</Text>
+            </TouchableOpacity>
+
+          );
+        };
+
+        const ButtonMexican = (props) => {
+          const { color, activeColor } = props;
+          const [active, setActive] = useState(false);
+          const onPress = () => setActive(!active);
+          const buttonStyle = {
+              backgroundColor: active ? "rgba(241, 136, 97, 1)" : "rgba(198, 198, 198, 0.35)",
+              width: '28%',
+              height: '120%',
+              alignItems: "center",
+              padding: 5,
+              flexDirection:"row",
+              borderRadius: 100,
+            };
+          return (
+            <TouchableOpacity style={buttonStyle} onPress={() => {onPress(); buttonChange(mexican);} }>
+            <Image style={styles.icon5} source={{uri: 'https://raw.githubusercontent.com/LateBox/latebox/main/SVGS/tacos-cropped.svg'}}/>
+              <Text >  Mexican</Text>
+            </TouchableOpacity>
+
+          );
+        };
+
+        const ButtonMed = (props) => {
+          const { color, activeColor } = props;
+          const [active, setActive] = useState(false);
+          const onPress = () => setActive(!active);
+          const buttonStyle = {
+              backgroundColor: active ? "rgba(241, 136, 97, 1)" : "rgba(198, 198, 198, 0.35)",
+              width: '40%',
+              height: '120%',
+              alignItems: "center",
+              padding: 5,
+              flexDirection:"row",
+              borderRadius: 100,
+            };
+          return (
+            <TouchableOpacity style={buttonStyle} onPress={() => {onPress(); buttonChange(mediteranean);} }>
+            <Image style={styles.icon6} source={{uri: 'https://raw.githubusercontent.com/LateBox/latebox/main/SVGS/kebab-cropped.svg'}}/>
+              <Text >  Mediteranean</Text>
+            </TouchableOpacity>
+
+          );
+        };
+
+        const ButtonAfrican = (props) => {
+          const { color, activeColor } = props;
+          const [active, setActive] = useState(false);
+          const onPress = () => setActive(!active);
+          const buttonStyle = {
+              backgroundColor: active ? "rgba(241, 136, 97, 1)" : "rgba(198, 198, 198, 0.35)",
+              width: '28%',
+              height: '120%',
+              alignItems: "center",
+              padding: 5,
+              flexDirection:"row",
+              borderRadius: 100,
+            };
+          return (
+            <TouchableOpacity style={buttonStyle} onPress={() => {onPress(); buttonChange(african);} }>
+            <Image style={styles.icon3} source={{uri: 'https://raw.githubusercontent.com/LateBox/latebox/main/SVGS/african.svg'}}/>
+              <Text >  African</Text>
+            </TouchableOpacity>
+
+          );
+        };
+
+        const ButtonAsian = (props) => {
+          const { color, activeColor } = props;
+          const [active, setActive] = useState(false);
+          const onPress = () => setActive(!active);
+          const buttonStyle = {
+              backgroundColor: active ? "rgba(241, 136, 97, 1)" : "rgba(198, 198, 198, 0.35)",
+              width: '28%',
+              height: '120%',
+              alignItems: "center",
+              padding: 5,
+              flexDirection:"row",
+              borderRadius: 100,
+            };
+          return (
+            <TouchableOpacity style={buttonStyle} onPress={() => {onPress(); buttonChange(asian);} }>
+            <Image style={styles.icon3} source={{uri: 'https://raw.githubusercontent.com/LateBox/latebox/main/SVGS/sopa-cropped.svg'}}/>
+              <Text > Asian</Text>
+            </TouchableOpacity>
+
+          );
+        };
+
+        const ButtonBakery = (props) => {
+          const { color, activeColor } = props;
+          const [active, setActive] = useState(false);
+          const onPress = () => setActive(!active);
+          const buttonStyle = {
+              backgroundColor: active ? "rgba(241, 136, 97, 1)" : "rgba(198, 198, 198, 0.35)",
+              width: '28%',
+              height: '120%',
+              alignItems: "center",
+              padding: 5,
+              flexDirection:"row",
+              borderRadius: 100,
+            };
+          return (
+            <TouchableOpacity style={buttonStyle} onPress={() => {onPress(); buttonChange(bakery);} }>
+            <Image style={styles.icon3} source={{uri: 'https://raw.githubusercontent.com/LateBox/latebox/main/SVGS/cake-cropped.svg'}}/>
+              <Text >  Bakery</Text>
+            </TouchableOpacity>
+
+          );
+        };
+
+
+
 
         return (
             
@@ -60,67 +348,20 @@ function NewAccountPreferences({ navigation }) {
                 </Text>
 
                 <View style={styles.row1}>
-
-                    <TouchableOpacity
-                        onPress={() => buttonChange(vegan)}
-                        title="vegan"
-                        color= {arr.includes("vegan")? 'black' : 'orange'}
-                        style={styles.button}
-                        >
-                        <Image style={styles.icon} source={{uri: 'https://raw.githubusercontent.com/LateBox/latebox/main/SVGS/lettuce2.svg'}}/>
-
-                        <Text> Vegan</Text>
-                    </TouchableOpacity>
-
-                    <TouchableOpacity
-                        onPress={() => buttonChange(halal)}
-                        title="halal"
-                        color= {arr.includes("halal")? 'black' : 'orange'}
-                        style={styles.button}
-                        >
-                        <Image style={styles.icon} source={{uri: 'https://raw.githubusercontent.com/LateBox/latebox/main/SVGS/halal-cropped.svg'}}/>
-
-                        <Text> Halal</Text>
-                    </TouchableOpacity>
-
-                    <TouchableOpacity
-                        onPress={() => buttonChange(vege)}
-                        title="vege"
-                        color= {arr.includes("vege")? 'black' : 'orange'}
-                        style={styles.button2}
-                        >
-                        <Image style={styles.icon} source={{uri: 'https://raw.githubusercontent.com/LateBox/latebox/main/SVGS/vegan-cropped.svg'}}/>
-
-                        <Text> Vegetarian</Text>
-                    </TouchableOpacity>
-
+                  <ButtonVegan/>
+                  <ButtonHalal/>
+                  <ButtonVege/>
                 </View>
+
                 <Text>
                     {"\n"}
                 </Text>
+
                 <View style={styles.row2}>
 
-                    <TouchableOpacity
-                        onPress={() => buttonChange(gluten)}
-                        title="gluten"
-                        color= {arr.includes("gluten")? 'black' : 'orange'}
-                        style={styles.button3}
-                        >
-                        <Image style={styles.icon2} source={{uri: 'https://raw.githubusercontent.com/LateBox/latebox/main/SVGS/gluten-cropped.svg'}}/>
-
-                        <Text> Gluten-free</Text>
-                    </TouchableOpacity>
-
-                    <TouchableOpacity
-                        onPress={() => buttonChange(lactose)}
-                        title="lactose"
-                        color= {arr.includes("lactose")? 'black' : 'orange'}
-                        style={styles.button3}
-                        >
-                        <Image style={styles.icon2} source={{uri: 'https://raw.githubusercontent.com/LateBox/latebox/main/SVGS/lactose-cropped.svg'}}/>
-
-                        <Text> Lactose-free</Text>
-                    </TouchableOpacity>
+                <ButtonGluten/>
+                <ButtonLactose/>
+                    
                 </View>
 
                 <Text>
@@ -134,107 +375,29 @@ function NewAccountPreferences({ navigation }) {
                 </Text>
 
                 <View style={styles.row1}>
-
-                    <TouchableOpacity
-                        onPress={() => buttonChange(indian)}
-                        title="indian"
-                        color= {arr.includes("indian")? 'black' : 'orange'}
-                        style={styles.button4}
-                        >
-                        <Image style={styles.icon3} source={{uri: 'https://raw.githubusercontent.com/LateBox/latebox/main/SVGS/indian-cropped.svg'}}/>
-
-                        <Text>  Indian</Text>
-                    </TouchableOpacity>
-
-                    <TouchableOpacity
-                        onPress={() => buttonChange(fastfood)}
-                        title="fastfood"
-                        color= {arr.includes("fastfood")? 'black' : 'orange'}
-                        style={styles.button4}
-                        >
-                        <Image style={styles.icon4} source={{uri: 'https://raw.githubusercontent.com/LateBox/latebox/main/SVGS/fast-cropped.svg'}}/>
-
-                        <Text> Fast food</Text>
-                    </TouchableOpacity>
-
-                    <TouchableOpacity
-                        onPress={() => buttonChange(italian)}
-                        title="italian"
-                        color= {arr.includes("italian")? 'black' : 'orange'}
-                        style={styles.button4}
-                        >
-                        <Image style={styles.icon3} source={{uri: 'https://raw.githubusercontent.com/LateBox/latebox/main/SVGS/pizza-cropped.svg'}}/>
-
-                        <Text>  Italian</Text>
-                    </TouchableOpacity>
+                <ButtonIndian/>
+                <ButtonFast/>
+                <ButtonItalian/>
                     </View>
-
 
                     <Text>
                     {"\n"}
                     </Text>
                 <View style={styles.row2}>
 
-                    <TouchableOpacity
-                        onPress={() => buttonChange(mexican)}
-                        title="mexican"
-                        color= {arr.includes("mexican")? 'black' : 'orange'}
-                        style={styles.button5}
-                        >
-                        <Image style={styles.icon5} source={{uri: 'https://raw.githubusercontent.com/LateBox/latebox/main/SVGS/tacos-cropped.svg'}}/>
-
-                        <Text>  Mexican</Text>
-                    </TouchableOpacity>
-
-                    <TouchableOpacity
-                        onPress={() => buttonChange(mediteranean)}
-                        title="mediteranean"
-                        color= {arr.includes("mediteranean")? 'black' : 'orange'}
-                        style={styles.button6}
-                        >
-                        <Image style={styles.icon6} source={{uri: 'https://raw.githubusercontent.com/LateBox/latebox/main/SVGS/kebab-cropped.svg'}}/>
-
-                        <Text>  Mediteranean</Text>
-                    </TouchableOpacity>
+                <ButtonMexican/>
+                <ButtonMed/>
+                    
                 </View>
                 <Text>
                     {"\n"}
                     </Text>
                 <View style={styles.row1}>
 
-                    <TouchableOpacity
-                        onPress={() => buttonChange(african)}
-                        title="african"
-                        color= {arr.includes("african")? 'black' : 'orange'}
-                        style={styles.button4}
-                        >
-                        <Image style={styles.icon3} source={{uri: 'https://raw.githubusercontent.com/LateBox/latebox/main/SVGS/african.svg'}}/>
+                <ButtonAfrican/>
+                <ButtonAsian/>
+                <ButtonBakery/>
 
-                        <Text>  African</Text>
-                    </TouchableOpacity>
-
-                    <TouchableOpacity
-                        onPress={() => buttonChange(asian)}
-                        title="asian"
-                        color= {arr.includes("asian")? 'black' : 'orange'}
-                        style={styles.button4}
-                        >
-                        <Image style={styles.icon3} source={{uri: 'https://raw.githubusercontent.com/LateBox/latebox/main/SVGS/sopa-cropped.svg'}}/>
-
-                        <Text> Asian</Text>
-                    </TouchableOpacity>
-
-                    <TouchableOpacity
-                        onPress={() => buttonChange(bakery)}
-                        title="bakery"
-                        color= {arr.includes("bakery")? 'black' : 'orange'}
-                        style={styles.button4}
-                        >
-                        <Image style={styles.icon3} source={{uri: 'https://raw.githubusercontent.com/LateBox/latebox/main/SVGS/cake.svg'}}/>
-
-                        <Text>  Bakery</Text>
-                    </TouchableOpacity>
-                   
                     </View>
                     <Text>
                     {"\n"}{"\n"}{"\n"}{"\n"}{"\n"}{"\n"}{"\n"}{"\n"}{"\n"}{"\n"}{"\n"}
