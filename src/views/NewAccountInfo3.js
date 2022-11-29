@@ -18,7 +18,7 @@ const AccountInfo3 = () => {
             {"\n"}
           </Text>
             <Text style={styles.secondtext}>We'll let you know if there's a box you would</Text>
-            <Text style={styles.secondtext}>like near you</Text>
+            <Text style={styles.secondtext}>like near you{"\n"}{"\n"}{"\n"}{"\n"}{"\n"}{"\n"}{"\n"}{"\n"}{"\n"}{"\n"}{"\n"}{"\n"}</Text>
         </View>
 
         <View style={styles.bottompage}>

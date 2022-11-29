@@ -315,7 +315,7 @@ function NewAccountPreferences({ navigation }) {
             };
           return (
             <TouchableOpacity style={buttonStyle} onPress={() => {onPress(); buttonChange(bakery);} }>
-            <Image style={styles.icon3} source={{uri: 'https://raw.githubusercontent.com/LateBox/latebox/main/SVGS/cake-cropped.svg'}}/>
+            <Image style={styles.icon3} source={{uri: 'https://raw.githubusercontent.com/LateBox/latebox/main/SVGS/cake.svg'}}/>
               <Text >  Bakery</Text>
             </TouchableOpacity>
 
@@ -332,7 +332,7 @@ function NewAccountPreferences({ navigation }) {
 
             <View style={styles.above}>
                 <TouchableHighlight style={styles.roundshape}>
-                    <Image source={{uri: 'https://raw.githubusercontent.com/LateBox/latebox/a519091b93b168ebe7a69c9d361a3c65980ebd13/SVGS/latebox.svg'}}
+                    <Image source={{uri: 'https://raw.githubusercontent.com/LateBox/latebox/main/SVGS/latebox.svg'}}
                         style={styles.logo} />
                 </TouchableHighlight>
                 
@@ -340,7 +340,7 @@ function NewAccountPreferences({ navigation }) {
     
             <View style={styles.under}>
                 <Text>
-                    {"\n"}{"\n"}{"\n"}{"\n"}{"\n"}{"\n"}{"\n"}{"\n"}{"\n"}{"\n"}{"\n"}{"\n"}{"\n"}{"\n"}{"\n"}{"\n"}{"\n"}{"\n"}{"\n"}
+                    {"\n"}{"\n"}{"\n"}{"\n"}{"\n"}{"\n"}{"\n"}{"\n"}{"\n"}{"\n"}{"\n"}{"\n"}{"\n"}{"\n"}{"\n"}{"\n"}{"\n"}{"\n"}{"\n"}{"\n"}{"\n"}{"\n"}{"\n"}{"\n"}{"\n"}{"\n"}{"\n"}{"\n"}
                 </Text>
                 <Text style={styles.maintext}>   Dietary Restrictions</Text>
                 <Text>
@@ -400,7 +400,7 @@ function NewAccountPreferences({ navigation }) {
 
                     </View>
                     <Text>
-                    {"\n"}{"\n"}{"\n"}{"\n"}{"\n"}{"\n"}{"\n"}{"\n"}{"\n"}{"\n"}{"\n"}
+                    {"\n"}{"\n"}{"\n"}{"\n"}{"\n"}{"\n"}{"\n"}{"\n"}{"\n"}{"\n"}{"\n"}{"\n"}{"\n"}{"\n"}{"\n"}{"\n"}{"\n"}{"\n"}
                 </Text>
                     <View style={styles.bottompage}>
             <Text style={styles.textskip}>SKIP</Text>
