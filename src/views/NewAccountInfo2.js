@@ -18,7 +18,7 @@ const AccountInfo2 = () => {
             {"\n"}
           </Text>
             <Text style={styles.secondtext}>Start saving delicious surplus food</Text>
-            <Text style={styles.secondtext}>at great prices</Text>
+            <Text style={styles.secondtext}>at great prices{"\n"}{"\n"}{"\n"}{"\n"}{"\n"}{"\n"}{"\n"}{"\n"}{"\n"}{"\n"}{"\n"}{"\n"}</Text>
         </View>
 
         <View style={styles.bottompage}>

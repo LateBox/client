@@ -19,7 +19,7 @@ const AccountInfo1 = () => {
             <Text style={styles.secondtext}>Perfectly good, surplus food from your</Text>
             <Text style={styles.secondtext}>local stores. It’s always a surprise</Text>
             <Text style={styles.secondtext}>and an instant good deed for the planet.</Text>
-            <Text style={styles.secondtext}>planet.</Text>
+            <Text style={styles.secondtext}>planet.{"\n"}{"\n"}{"\n"}{"\n"}{"\n"}{"\n"}{"\n"}{"\n"}{"\n"}{"\n"}{"\n"}{"\n"}</Text>
         </View>
 
         <View style={styles.bottompage}>
@@ -83,7 +83,8 @@ const styles = StyleSheet.create({
         flexDirection:"row",
         padding:1,
         display: "flex",
-        justifyContent:'space-around'
+        justifyContent:'space-around',
+        
 
       },
       circles: {

@@ -16,6 +16,8 @@ import AddBoxScreen from './src/views/AddBoxScreen';
 import EditBoxScreen from './src/views/EditBoxScreen';
 import ShowBoxScreen from './src/views/ShowBoxScreen';
 import MapScreen from './src/views/MapScreen';
+import Cart from './src/views/Cart';
+
 
 
 
@@ -24,7 +26,7 @@ const Stack = createNativeStackNavigator();
 function App() {
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="AccountPreferences" screenOptions={{headerShown: false}}>
+      <Stack.Navigator initialRouteName="Router" screenOptions={{headerShown: false}}>
         <Stack.Screen name="Home" component={HomeScreen}/>
         <Stack.Screen name="Router" component={RouterScreen}/>
         <Stack.Screen name="Spare" component={SpareScreen}/>
@@ -38,6 +40,7 @@ function App() {
         <Stack.Screen name="EditBox" component={EditBoxScreen}/>
         <Stack.Screen name="ShowBox" component={ShowBoxScreen}/>
         <Stack.Screen name="Map" component={MapScreen}/>
+        <Stack.Screen name="Cart" component={Cart}/>
         <Stack.Screen name="ProductDetail" component={ProductDetailScreen}/>
 
       </Stack.Navigator>
