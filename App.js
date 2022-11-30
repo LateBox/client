@@ -17,6 +17,7 @@ import EditBoxScreen from './src/views/EditBoxScreen';
 import ShowBoxScreen from './src/views/ShowBoxScreen';
 import MapScreen from './src/views/MapScreen';
 import Cart from './src/views/Cart';
+import Settings from './src/views/Settings';
 
 
 
@@ -42,7 +43,7 @@ function App() {
         <Stack.Screen name="Map" component={MapScreen}/>
         <Stack.Screen name="Cart" component={Cart}/>
         <Stack.Screen name="ProductDetail" component={ProductDetailScreen}/>
-
+        <Stack.Screen name="Settings" component={Settings}/>
       </Stack.Navigator>
     </NavigationContainer>
   );
