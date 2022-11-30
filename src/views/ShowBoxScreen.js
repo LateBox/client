@@ -82,14 +82,28 @@ function ShowBoxScreen({  navigation}) {
                                     <View style={styles.singleCardBottom}>
 
                                         <Text style={styles.cardTextPrice}>$ {item.price}</Text>
-                                        <Button
+
+                                        <TouchableOpacity  
+                                            onPress={() =>{navigation.navigate('EditBox' , {
+                                                    itemId: item.id})}}
+                                            title="Edit box"
+                                            color="#ffffff"
+                                            accessibilityLabel="Learn more about this purple button"    
+                                        >
+                                            <Text style={styles.buttonEdit}>Edit Box</Text>
+                                        </TouchableOpacity>
+
+
+
+
+                                        {/* <Button
                                             onPress={() =>{navigation.navigate('EditBox' , {
                                                 itemId: item.id})}} 
                                                 // itemId: item.id});setLoading(true)}} 
-                                            title="Add to cart"
-                                            color="#841584"
+                                            title="Edit box"
+                                            color="#841084"
                                             accessibilityLabel="Learn more about this purple button"
-                                        />
+                                        /> */}
                                     </View>
                                 </View>
 
@@ -170,18 +184,28 @@ const styles = StyleSheet.create({
         paddingRight:20,
     
     },
+    buttonEdit: {
+        color: "#ffffff",
+        padding: 6,
+        borderRadius: 10,
+        // width: "65%",
+        // borderRadius: 25,
+        // height: 50,
+        // alignItems: "center",
+        // justifyContent: "center",
+        // marginTop: 70,
+        backgroundColor: "#1C2A5E",
+        // "rgba(241, 136, 97, 0.8)"
+    },
     singleCard:{
         margin:'100px 100px 100px 100px',
-        backgroundColor:'#D4CFC7',
+        backgroundColor:'#ffffff',
         paddingTop:10,
-        paddingBottom:10,
-        paddingLeft:20,
-        paddingRight:20,
         borderRadius:10,
     },
     singleCardTop:{
         margin:'100px 100px 100px 100px',
-        backgroundColor:'#D4CFC7',
+        backgroundColor:'#ffffff',
         paddingTop:10,
         paddingBottom:10,
         paddingLeft:20,
@@ -190,11 +214,15 @@ const styles = StyleSheet.create({
     },
     singleCardBottom:{
         margin:'100px 100px 100px 100px',
-        backgroundColor:'#D4CFC7',
+        // backgroundColor:'#DEDDC8',
+        backgroundColor: "rgba(241, 136, 97, 0.8)",
         paddingTop:10,
         paddingBottom:10,
         paddingLeft:20,
         paddingRight:20,
+        borderBottomLeftRadius: 5,
+        borderBottomRightRadius: 5,
+
         flexDirection: 'row' ,
         justifyContent:'space-between'
     },
@@ -216,14 +244,24 @@ const styles = StyleSheet.create({
         flexDirecton: 'row' ,
         height: '40%',
         paddingLeft:5,
-        fontSize:26,
+        fontSize:19,
+
+
+        // width: "65%",
+        // borderRadius: 25,
+        // height: 50,
+        // alignItems: "center",
+        // justifyContent: "center",
+        // marginTop: 150,
+        // backgroundColor: "rgba(33, 33, 98, 0.8)",
 
 
     },
     cardTextDescription:{
         flexDirecton: 'row' ,
-        height: '60%',
+        height: '40%',
         paddingLeft:10,
+        fontSize: 11
 
 
     },
