@@ -17,7 +17,8 @@ import currentUrl from "../constants/urls";
 import { icons, COLORS, SIZES, FONTS } from "../constants";
 import SigninScreen from "./SigninScreen";
 
-function ShowBoxScreen({ navigation, props }) {
+function SingleShowBox({ navigation, props }) {
+  const scrollX = new Animated.Value(0);
   const [restaurant, setRestaurant] = React.useState(null);
 
   React.useEffect(() => {
@@ -63,14 +64,30 @@ function ShowBoxScreen({ navigation, props }) {
               backgroundColor: COLORS.lightGray3,
             }}
           >
-            <Text style={{ ...FONTS.h3 }}>Restaurant Name</Text>
+            <Text>Restaurant Name</Text>
           </View>
         </View>
+        <TouchableOpacity
+          style={{
+            width: 50,
+            paddingRight: SIZES.padding * 2,
+            justifyContent: "center",
+          }}
+        >
+          <Image
+            source={icons.list}
+            resizeMode="contain"
+            style={{
+              width: 30,
+              height: 30,
+            }}
+          />
+        </TouchableOpacity>
       </View>
     );
   };
 
-  const renderFoodInfo = () => {
+  function renderFoodInfo() {
     return (
       <Animated.ScrollView
         horizontal
@@ -78,9 +95,13 @@ function ShowBoxScreen({ navigation, props }) {
         scrollEventThrottle={16}
         snapToAlignment="center"
         showsHorizontalScrollIndicator={false}
+        onScroll={Animated.event(
+          [{ nativeEvent: { contentOffset: { x: scrollX } } }],
+          { useNativeDriver: false }
+        )}
       >
         {restaurant?.menu.map((item, index) => (
-          <View key={"menu-${index}"} style={{ alignItems: "center" }}>
+          <View key={`menu-${index}`} style={{ alignItems: "center" }}>
             <View style={{ height: SIZES.height * 0.35 }}>
               {/* Food Image */}
               <Image
@@ -112,9 +133,11 @@ function ShowBoxScreen({ navigation, props }) {
                     borderTopLeftRadius: 25,
                     borderBottomLeftRadius: 25,
                   }}
+                  onPress={() => editOrder("-", item.menuId, item.price)}
                 >
-                  <Text style={{ ...FONTS.body1 }}>-</Text>
+                  <Text>-</Text>
                 </TouchableOpacity>
+
                 <View
                   style={{
                     width: 50,
@@ -123,7 +146,9 @@ function ShowBoxScreen({ navigation, props }) {
                     justifyContent: "center",
                   }}
                 >
-                  <Text style={{ ...FONTS.h2 }}>5</Text>
+                  <Text>
+                    {getOrderQty(item.menuId)}
+                  </Text>
                 </View>
 
                 <TouchableOpacity
@@ -135,8 +160,9 @@ function ShowBoxScreen({ navigation, props }) {
                     borderTopRightRadius: 25,
                     borderBottomRightRadius: 25,
                   }}
+                  onPress={() => editOrder("+", item.menuId, item.price)}
                 >
-                  <Text style={{ ...FONTS.body1 }}>+</Text>
+                  <Text>+</Text>
                 </TouchableOpacity>
               </View>
             </View>
@@ -151,20 +177,24 @@ function ShowBoxScreen({ navigation, props }) {
               }}
             >
               <Text
-                style={{ marginVertical: 10, textAlign: "center", ...FONTS.h2 }}
+                style={{ marginVertical: 10, textAlign: "center"}}
               >
                 {item.name} - {item.price.toFixed(2)}
               </Text>
-              <Text style={{ ...FONTS.body3 }}>{item.description}</Text>
+              <Text>{item.description}</Text>
             </View>
           </View>
         ))}
       </Animated.ScrollView>
     );
-  };
+  }
 
   return (
-    <SafeAreaView style={styles.container}>{renderHeader()}</SafeAreaView>
+    <SafeAreaView style={styles.container}>
+      {renderHeader()}
+      {renderFoodInfo()}
+      <Button title="Add to Cart" />
+    </SafeAreaView>
   );
 }
 
@@ -173,65 +203,6 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: COLORS.lightGray2,
   },
-  mainContainer: {
-    height: "100%",
-    display: "flex",
-    flexDirection: "column",
-  },
-  topBar: {
-    alignItems: "center",
-    backgroundColor: "rgba(241, 136, 97, 0.8)",
-    height: "24%",
-  },
-  body: {
-    flex: 1,
-    backgroundColor: "white",
-    alignItems: "center",
-  },
-  image: {
-    marginBottom: 40,
-  },
-  input: {
-    marginTop: "2%",
-    width: "80%",
-    backgroundColor: "rgba(245, 220, 189, 0.4)",
-    borderRadius: 25,
-    height: 30,
-    color: "black",
-    marginBottom: "6%",
-    justifyContent: "center",
-    padding: 20,
-    fontSize: 12,
-  },
-
-  signUpBtn: {
-    width: "65%",
-    borderRadius: 25,
-    height: 50,
-    alignItems: "center",
-    justifyContent: "center",
-    marginTop: 70,
-    backgroundColor: "rgba(33, 33, 98, 0.8)",
-  },
-  signUpBtnTxt: {
-    color: "white",
-  },
-  titleText: {
-    marginTop: 40,
-    fontSize: 28,
-    color: "#141445",
-  },
-  existing: {
-    height: 10,
-    marginBottom: 20,
-    fontSize: 14,
-    color: "#141445",
-    marginTop: 17,
-  },
-  sentence: {
-    fontSize: 10,
-    color: "#8F8E8E",
-  },
 });
 
-export default ShowBoxScreen;
+export default SingleShowBox;
