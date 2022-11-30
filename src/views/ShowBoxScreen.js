@@ -29,8 +29,8 @@ function ShowBoxScreen({  navigation}) {
             );
             const json = await response.json();
             setData(json);
-            console.log(data);
-            console.log(json)
+            // console.log(data);
+            // console.log(json)
         } catch (error) {
             console.error(error);
         } finally {
@@ -61,30 +61,55 @@ function ShowBoxScreen({  navigation}) {
                     data={data}
                     keyExtractor={({ id }, index) => id}
                     renderItem={({ item }) => (
-                        <>
-                            <Text>id: {item.id}, {"\n"}
-                            Name: {item.name}, {"\n"}
-                            description:{item.description}, {"\n"}
-                            price: {item.price}, {"\n"}
-                            restaurantId: {item.restaurantId}, {"\n"}
-                            stock: {item.stock}</Text>
-                            <Image source={{ uri: item.imageUri }} style={{ width: 200, height: 200 }} />
-                            <Button
-                                onPress={() =>{navigation.navigate('EditBox' , {
-                                    itemId: item.id})}} 
-                                    // itemId: item.id});setLoading(true)}} 
-                                    
-                            title="Edit"
-                            color="#841584"
-                            accessibilityLabel="Learn more about this purple button"/>
-                            {console.log()}
-                            <Text>{"\n"}{"\n"}</Text>
-                        </> 
+                        <View style={styles.cardHolder}>
+                            <View>
+                                <View style={styles.singleCard}>
+                                    <View style={styles.singleCardTop}>
+                                        <Image source={{ uri: item.imageUri }} style={styles.cardPic}  />
+                                        <View style={styles.cardText}>
+                                            {/* id: {item.id}, {"\n"} */}
+                                            <Text style={styles.cardTextTitle}>
+                                                {item.name} {"\n"}{"\n"}{"\n"}
+
+                                            </Text>
+                                            <Text style={styles.cardTextDescription}>
+                                                {item.description}
+                                                
+                                            </Text>
+
+                                        </View>
+                                    </View>
+                                    <View style={styles.singleCardBottom}>
+
+                                        <Text style={styles.cardTextPrice}>$ {item.price}</Text>
+                                        <Button
+                                            onPress={() =>{navigation.navigate('EditBox' , {
+                                                itemId: item.id})}} 
+                                                // itemId: item.id});setLoading(true)}} 
+                                            title="Add to cart"
+                                            color="#841584"
+                                            accessibilityLabel="Learn more about this purple button"
+                                        />
+                                    </View>
+                                </View>
+
+
+                            </View>
+
+                                {/* <Button
+                                    onPress={() =>{navigation.navigate('EditBox' , {
+                                        itemId: item.id})}} 
+                                        // itemId: item.id});setLoading(true)}} 
+                                    title="Edit"
+                                    color="#841584"
+                                    accessibilityLabel="Learn more about this purple button"
+                                /> */}
+                        </View> 
                     )}
                 />
                 
             )}
-            {isLoading ? console.log(data) : console.log("nothing here")}
+            {/* {isLoading ? console.log(data) : console.log("nothing here")} */}
             
 
             <TouchableOpacity style={styles.signUpBtn} onPress={getProducts}>
@@ -137,6 +162,79 @@ const styles = StyleSheet.create({
         padding: 20,
         fontSize: 12,
     },
+    cardHolder:{
+        margin:'100px 100px 100px 100px',
+        paddingTop:10,
+        paddingBottom:10,
+        paddingLeft:20,
+        paddingRight:20,
+    
+    },
+    singleCard:{
+        margin:'100px 100px 100px 100px',
+        backgroundColor:'#D4CFC7',
+        paddingTop:10,
+        paddingBottom:10,
+        paddingLeft:20,
+        paddingRight:20,
+        borderRadius:10,
+    },
+    singleCardTop:{
+        margin:'100px 100px 100px 100px',
+        backgroundColor:'#D4CFC7',
+        paddingTop:10,
+        paddingBottom:10,
+        paddingLeft:20,
+        paddingRight:20,
+        flexDirection: 'row' ,
+    },
+    singleCardBottom:{
+        margin:'100px 100px 100px 100px',
+        backgroundColor:'#D4CFC7',
+        paddingTop:10,
+        paddingBottom:10,
+        paddingLeft:20,
+        paddingRight:20,
+        flexDirection: 'row' ,
+        justifyContent:'space-between'
+    },
+    cardPic:{
+        margin: '10px 10px 10px 10px',
+        width: '40%', 
+        height: '100%',
+
+    },
+    cardText:{
+        width:'60%',
+        flexDirecton: 'row' ,
+        height: '100%',
+        paddingLeft:10,
+
+
+    },
+    cardTextTitle:{
+        flexDirecton: 'row' ,
+        height: '40%',
+        paddingLeft:5,
+        fontSize:26,
+
+
+    },
+    cardTextDescription:{
+        flexDirecton: 'row' ,
+        height: '60%',
+        paddingLeft:10,
+
+
+    },
+
+    cardTextPrice:{
+        
+        fontSize:26,
+
+
+    },
+
 
     signUpBtn: {
         width: "65%",
