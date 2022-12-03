@@ -15,6 +15,7 @@ import ProductDetailScreen from './src/views/ProductDetailScreen';
 import AddBoxScreen from './src/views/AddBoxScreen';
 import EditBoxScreen from './src/views/EditBoxScreen';
 import ShowBoxScreen from './src/views/ShowBoxScreen';
+import SingleShowBox from './src/views/SingleShowBox';
 import MapScreen from './src/views/MapScreen';
 import Cart from './src/views/Cart';
 import Settings from './src/views/Settings';
@@ -40,6 +41,7 @@ function App() {
         <Stack.Screen name="AddBox" component={AddBoxScreen}/>
         <Stack.Screen name="EditBox" component={EditBoxScreen}/>
         <Stack.Screen name="ShowBox" component={ShowBoxScreen}/>
+        <Stack.Screen name="SingleShowBox" component={SingleShowBox}/>
         <Stack.Screen name="Map" component={MapScreen}/>
         <Stack.Screen name="Cart" component={Cart}/>
         <Stack.Screen name="ProductDetail" component={ProductDetailScreen}/>
