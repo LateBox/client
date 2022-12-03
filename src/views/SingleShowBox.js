@@ -25,12 +25,22 @@ function SingleShowBox({ navigation, props }) {
   const [restaurantId, setRestaurantId] = React.useState("restaurantId");
   const [stock, setStock] = React.useState("stock");
   const [imageUri, setImageUri] = React.useState("imageUri");
-  const itemId =3;
-  const orderQuantity = 0;
+  const itemId = 3;
+  const [orderQuantity, setOrderQuantity] = React.useState(1);
 
   // React.useEffect(() => {
   //   setRestaurant();
   // });
+
+  const Increment = () => {
+    setOrderQuantity(orderQuantity + 1);
+  };
+
+  const Decrement = () => {
+    if (orderQuantity > 1) {
+      setOrderQuantity(orderQuantity - 1);
+    }
+  };
 
   const getBox = async () => {
     try {
@@ -109,14 +119,14 @@ function SingleShowBox({ navigation, props }) {
             justifyContent: "center",
           }}
         >
-          <Image
-            source={icons.list}
+          {/* <Image
+            source={icons.star}
             resizeMode="contain"
             style={{
               width: 30,
               height: 30,
             }}
-          />
+          /> */}
         </TouchableOpacity>
       </View>
     );
@@ -165,7 +175,7 @@ function SingleShowBox({ navigation, props }) {
                   borderTopLeftRadius: 25,
                   borderBottomLeftRadius: 25,
                 }}
-                // onPress={() => editOrder("-", price)}
+                onPress={() => Decrement()}
               >
                 <Text>-</Text>
               </TouchableOpacity>
@@ -190,7 +200,7 @@ function SingleShowBox({ navigation, props }) {
                   borderTopRightRadius: 25,
                   borderBottomRightRadius: 25,
                 }}
-                onPress={(orderQuantity) => (orderQuantity += 1)}
+                onPress={() => Increment()}
               >
                 <Text>+</Text>
               </TouchableOpacity>
@@ -200,6 +210,7 @@ function SingleShowBox({ navigation, props }) {
           {/* Name & Description */}
           <View
             style={{
+              bottom: -20,
               width: SIZES.width,
               alignItems: "center",
               marginTop: 15,
@@ -220,7 +231,9 @@ function SingleShowBox({ navigation, props }) {
     <SafeAreaView style={styles.container}>
       {renderHeader()}
       {renderFoodInfo()}
-      <Button title="Add to Cart" />
+      <View style={styles.toCartButton}>
+        <Button title="Add to Cart" />
+      </View>
     </SafeAreaView>
   );
 }
@@ -229,6 +242,16 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: COLORS.lightGray2,
+  },
+  toCartButton: {
+    marginLeft:95,
+    width: 200,
+    backgroundColor: COLORS.white,
+    borderColor: COLORS.black,
+    alignItems: "center",
+    justifyContent: "center",
+    borderWidth: 2,
+    borderRadius: 25,
   },
 });
 
