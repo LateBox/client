@@ -19,6 +19,8 @@ import SingleShowBox from './src/views/SingleShowBox';
 import MapScreen from './src/views/MapScreen';
 import Cart from './src/views/Cart';
 import Settings from './src/views/Settings';
+import SingleShowBox from './src/views/SingleShowBox';
+import Tabs from './src/navigation/tabs';
 
 
 
@@ -29,7 +31,7 @@ function App() {
   return (
     <NavigationContainer>
       <Stack.Navigator initialRouteName="Router" screenOptions={{headerShown: false}}>
-        <Stack.Screen name="Home" component={HomeScreen}/>
+        <Stack.Screen name="Home" component={Tabs}/>
         <Stack.Screen name="Router" component={RouterScreen}/>
         <Stack.Screen name="Spare" component={SpareScreen}/>
         <Stack.Screen name="Login" component={SigninScreen}/>
