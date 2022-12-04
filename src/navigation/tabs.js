@@ -1,4 +1,4 @@
-import { View, Image, TouchableOpacity } from "react-native";
+import { View, Image, TouchableOpacity, Settings } from "react-native";
 import {
   createBottomTabNavigator,
   BottomBar,
@@ -6,11 +6,12 @@ import {
 
 import Svg, { Path } from "react-native-svg";
 
-import { HomeScreen, RouterScreen, NewAccountInfo1, MapScreen } from "../views";
 import { COLORS, icons } from "../constants";
 import ShowBoxScreen from "../views/ShowBoxScreen";
-import SingleShowBox from "../views/SingleShowBox";
+import MapScreen from "../views/MapScreen";
 import Cart from "../views/Cart";
+import HomeScreen from "../views/HomeScreen";
+
 
 const Tab = createBottomTabNavigator();
 
@@ -99,8 +100,8 @@ const Tabs = () => {
       }}
     >
       <Tab.Screen
-        name="Home"
-        component={HomeScreen}
+        name="ShowBox"
+        component={ShowBoxScreen}
         options={{
           tabBarIcon: ({ focused }) => (
             <Image
@@ -117,8 +118,8 @@ const Tabs = () => {
         }}
       />
       <Tab.Screen
-        name="Search"
-        component={HomeScreen}
+        name="Maps"
+        component={MapScreen}
         options={{
           tabBarIcon: ({ focused }) => (
             <Image
@@ -135,8 +136,8 @@ const Tabs = () => {
         }}
       />
       <Tab.Screen
-        name="Like"
-        component={HomeScreen}
+        name="Cart"
+        component={Cart}
         options={{
           tabBarIcon: ({ focused }) => (
             <Image
@@ -153,7 +154,7 @@ const Tabs = () => {
         }}
       />
       <Tab.Screen
-        name="User"
+        name="Home"
         component={HomeScreen}
         options={{
           tabBarIcon: ({ focused }) => (
