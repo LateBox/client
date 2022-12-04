@@ -7,8 +7,12 @@ function RouterScreen({ navigation }) {
         <Text>Please choose a screen to go to</Text>
         <Button title="Go to Login" onPress={() => navigation.navigate('Login')} />  
         <Button title="Go to Register" onPress={() => navigation.navigate('Register')} />  
-        <Button title="Go to Home" onPress={() => navigation.navigate('Home')} />  
-        <Button title="Go to Show Box" onPress={() => navigation.navigate('ShowBox')} />  
+        <Button title="Go to Home" onPress={() => navigation.navigate('Home')} />
+        <Button title="Go to Welcome" onPress={() => navigation.navigate('WelcomeScreen')} />  
+        <Button title="Go to Show Box" onPress={() => navigation.navigate('ShowBox')} /> 
+        <Button title="Go to Thankyou Screen" onPress={() => navigation.navigate('ThankyouScreen')} />
+        <Button title="Go to HomeScreen Screen" onPress={() => navigation.navigate('HomeScreen')} />
+         
         <Button title="Go to Single Box" onPress={() => navigation.navigate('SingleShowBox')} />  
         <Button title="Go to Add Box" onPress={() => navigation.navigate('AddBox')} />  
         {/* <Button title="Go to Edit Box" onPress={() => navigation.navigate('EditBox')} />   */}

@@ -6,7 +6,9 @@ import HomeScreen from './src/views/HomeScreen';
 import SpareScreen from './src/views/SpareScreen';
 import RouterScreen from './src/views/RouterScreen';
 import SigninScreen from './src/views/SigninScreen';
-import SignupScreen from './src/views/SignupScreen'; 
+import SignupScreen from './src/views/SignupScreen';
+import ThankyouScreen from './src/views/ThankyouScreen'; 
+import WelcomeScreen from './src/views/WelcomeScreen';
 import NewAccountInfo1 from './src/views/NewAccountInfo1';
 import NewAccountInfo2 from './src/views/NewAccountInfo2'; 
 import NewAccountInfo3 from './src/views/NewAccountInfo3'; 
@@ -33,6 +35,9 @@ function App() {
         <Stack.Screen name="Home" component={Tabs}/>
         <Stack.Screen name="Router" component={RouterScreen}/>
         <Stack.Screen name="Spare" component={SpareScreen}/>
+        <Stack.Screen name="ThankyouScreen" component={ThankyouScreen}/>
+        <Stack.Screen name="HomeScreen" component={HomeScreen}/>
+        <Stack.Screen name="WelcomeScreen" component={WelcomeScreen}/>
         <Stack.Screen name="Login" component={SigninScreen}/>
         <Stack.Screen name="Register" component={SignupScreen}/>
         <Stack.Screen name="NewAccount1" component={NewAccountInfo1}/>

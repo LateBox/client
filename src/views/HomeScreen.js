@@ -1,26 +1,18 @@
-import { FlatList, View, Button, StyleSheet } from "react-native";
-import RestaurantItem from "../components/RestaurantItem";
+import { FlatList, View,Image, Button, StyleSheet, TouchableOpacity } from "react-native";
+import React, { useEffect } from 'react'
 
-import PRODUCTS from "../data/dummy-data";
 
 function HomeScreen(props, { navigation }) {
+  //  const timer = setTimeout(() => {
+  //   () => navigation.navigate('Login');
+  //   }, 1000);
   return (
-    <View>
-      <Button title="Return to Router" onPress={() => props.navigation.navigate('Router')} />  
-      <FlatList
-        data={PRODUCTS}
-        keyExtractor={(item) => item.id}
-        renderItem={(itemData) => (
-          <RestaurantItem
-            image={itemData.item.imageURL}
-            title={itemData.item.title}
-            price={itemData.item.price}
-            onViewDetail={() => props.navigation.navigate("Spare")}
-            onAddToCart={() => {}}
-          />
-        )}
-      />
-    </View>
+    
+    <TouchableOpacity style={styles.title} onPress={() => navigation.navigate('Login')}>
+
+       <Image style={styles.logo2} source={{uri: 'https://raw.githubusercontent.com/LateBox/latebox/main/SVGS/BlackLateBox.png'}} />
+       
+    </TouchableOpacity>
   );
 }
 
@@ -28,15 +20,21 @@ export default HomeScreen;
 
 const styles = StyleSheet.create({
   title: {
-    shadowColor: "black",
-    shadowOpacity: 0.26,
-    shadowOffset: { width: 0, height: 2 },
-    shadowRadius: 8,
-    elevation: 5,
-    borderRadius: 10,
-    backgroundColor: "white",
-    height: 300,
-    margin: 20,
-    overflow: "hidden",
+    backgroundColor: "#f18861",
+    alignItems: "center",
+    flex : 1,
+    width: "120%",
+    height: "100%",
+    justifyContent:"center",
   },
+
+  logo2: {
+    width: "50%",
+    height: "25%",
+    right: "7%",
+
+  },
+
+
+
 });
