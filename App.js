@@ -30,7 +30,7 @@ function App() {
   return (
     <NavigationContainer>
       <Stack.Navigator initialRouteName="Router" screenOptions={{headerShown: false}}>
-        <Stack.Screen name="Home" component={HomeScreen}/>
+        <Stack.Screen name="Home" component={Tabs}/>
         <Stack.Screen name="Router" component={RouterScreen}/>
         <Stack.Screen name="Spare" component={SpareScreen}/>
         <Stack.Screen name="Login" component={SigninScreen}/>
@@ -38,15 +38,16 @@ function App() {
         <Stack.Screen name="NewAccount1" component={NewAccountInfo1}/>
         <Stack.Screen name="NewAccount2" component={NewAccountInfo2}/>
         <Stack.Screen name="NewAccount3" component={NewAccountInfo3}/>
-        <Stack.Screen name="AccountPreferences" component={Tabs}/>
+        <Stack.Screen name="AccountPreferences" component={AccountPreferences}/>
         <Stack.Screen name="AddBox" component={AddBoxScreen}/>
         <Stack.Screen name="EditBox" component={EditBoxScreen}/>
-        <Stack.Screen name="ShowBox" component={Tabs}/>
+        <Stack.Screen name="ShowBox" component={ShowBoxScreen}/>
         <Stack.Screen name="SingleShowBox" component={SingleShowBox}/>
-        <Stack.Screen name="Map" component={Tabs}/>
-        <Stack.Screen name="Cart" component={Tabs}/>
+        <Stack.Screen name="Map" component={MapScreen}/>
+        <Stack.Screen name="Cart" component={Cart}/>
         <Stack.Screen name="ProductDetail" component={ProductDetailScreen}/>
         <Stack.Screen name="Settings" component={Settings}/>
+
       </Stack.Navigator>
     </NavigationContainer>
   );
