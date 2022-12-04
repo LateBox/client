@@ -52,11 +52,10 @@ function SigninScreen({ navigation }) {
 
   return (
     <View style={styles.mainContainer}>
-      <Button title="Return to Router" onPress={() => navigation.navigate('Router')} />  
 
       <View style={styles.topBar}>
 
-      <Text style={styles.titleText} >Login</Text>
+      <Text style={styles.titleText} > {"\n"}Login</Text>
         <Text style={styles.forgot}>
           {"\n"}
         </Text>
@@ -75,7 +74,7 @@ function SigninScreen({ navigation }) {
         </Text>
         
           <Text style={styles.sentence}>
-          {"PLEASE ENTER YOUR EMAIL                                     "}
+          {"PLEASE ENTER YOUR EMAIL                                                                         "}
           </Text>  
 
           <TextInput
@@ -87,7 +86,7 @@ function SigninScreen({ navigation }) {
           />
 
           <Text style={styles.sentence}>
-          {"PLEASE ENTER YOUR PASSWORD                             "}
+          {"PLEASE ENTER YOUR PASSWORD                                                             "}
           </Text>   
 
           <TextInput
@@ -121,7 +120,7 @@ const styles = StyleSheet.create({
     topBar: {
       alignItems: 'center',
       backgroundColor: 'rgba(241, 136, 97, 0.8)',
-      height: '24%',
+      height: '28%',
     },
     body: {
         flex: 3,
@@ -136,12 +135,13 @@ const styles = StyleSheet.create({
         width:"80%",
         backgroundColor:'rgba(245, 220, 189, 0.4)',
         borderRadius:25,
-        height:30,
-        color: "white",
+        height:38,
+        color:"#000000",
+        TextColor:"black",
         marginBottom:"6%",
         justifyContent:"center",
-        padding:20,
         fontSize: 12,
+        paddingLeft:15,
       
     },
       loginBtn: {
@@ -159,7 +159,6 @@ const styles = StyleSheet.create({
         color: "#141445",
       },
       newaccount:{
-        height: 10,
         marginBottom: 20,
         fontSize: 14,
         color: "#141445",
@@ -167,7 +166,7 @@ const styles = StyleSheet.create({
       },
       sentence: {
   
-        fontSize: 10,
+        fontSize: 12,
         color: "#8F8E8E",
       },
       loginBtnTxt: {

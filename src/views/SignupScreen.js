@@ -71,12 +71,10 @@ const postAccount = () => {
         return (
         
         <View style={styles.mainContainer}>
-            <Button title="Return to Router" onPress={() => navigation.navigate('Router')} />  
-
 
             <View style={styles.topBar}>
 
-                <Text style={styles.titleText} >Create new Account</Text>
+                <Text style={styles.titleText} >{"\n"}Create new Account</Text>
                 <Text style={styles.forgot}>
                     {"\n"}
                 </Text>
@@ -95,7 +93,7 @@ const postAccount = () => {
                 </Text>
 
                 <Text style={styles.sentence}>
-                    {"PLEASE ENTER YOUR NAME                                     "}
+                    {"PLEASE ENTER YOUR NAME                                                                "}
                 </Text> 
 
                 <TextInput
@@ -108,7 +106,7 @@ const postAccount = () => {
                 />
 
                 <Text style={styles.sentence}>
-                    {"PLEASE ENTER YOUR EMAIL                                     "}
+                    {"PLEASE ENTER YOUR EMAIL                                                               "}
                 </Text> 
 
                 <TextInput
@@ -121,7 +119,7 @@ const postAccount = () => {
                 />
 
                 <Text style={styles.sentence}>
-                    {"PLEASE ENTER YOUR PASSWORD                              "}
+                    {"PLEASE ENTER YOUR PASSWORD                                                    "}
                 </Text> 
 
                 <TextInput
@@ -135,7 +133,7 @@ const postAccount = () => {
                 />
 
                 <Text style={styles.sentence}>
-                    {"PLEASE ENTER YOUR PHONE NUMBER                      "}
+                    {"PLEASE ENTER YOUR PHONE NUMBER                                          "}
                 </Text> 
 
                 <TextInput
@@ -152,12 +150,10 @@ const postAccount = () => {
                 
 
                 <TouchableOpacity style={styles.signUpBtn} onPress={postAccount}>
-                    <Text style={styles.signUpBtnTxt}>Sign up</Text>
+                    <Text onPress={() => navigation.navigate('NewAccount2')} style={styles.signUpBtnTxt}>Sign up</Text>
                 </TouchableOpacity>
 
-                {/* <Button title="Sign up" onPress={() => navigation.navigate('Login')} />
-
-                <Button title="Go to Home" onPress={() => navigation.navigate('Home')} /> */}
+            
 
 
             </View>
@@ -178,7 +174,7 @@ const styles = StyleSheet.create({
     topBar: {
         alignItems: 'center',
         backgroundColor: 'rgba(241, 136, 97, 0.8)',
-        height: '24%',
+        height: '26%',
       },
     body: {
         flex: 1,
@@ -195,14 +191,15 @@ const styles = StyleSheet.create({
         width:"80%",
         backgroundColor:'rgba(245, 220, 189, 0.4)',
         borderRadius:25,
-        height:30,
-        color: "black",
+        height:38,
+        color:"#000000",
+        TextColor:"black",
         marginBottom:"6%",
         justifyContent:"center",
-        padding:20,
         fontSize: 12,
+        paddingLeft:15,
+
     },
- 
     signUpBtn: {
         width: "65%",
         borderRadius: 25,
@@ -222,7 +219,6 @@ const styles = StyleSheet.create({
         color: "#141445",
     },
     existing:{
-        height: 10,
         marginBottom: 20,
         fontSize: 14,
         color: "#141445",
@@ -230,7 +226,7 @@ const styles = StyleSheet.create({
     },
     sentence: {
   
-        fontSize: 10,
+        fontSize: 12,
         color: "#8F8E8E",
       },
 

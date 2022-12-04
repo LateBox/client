@@ -15,10 +15,10 @@ import ProductDetailScreen from './src/views/ProductDetailScreen';
 import AddBoxScreen from './src/views/AddBoxScreen';
 import EditBoxScreen from './src/views/EditBoxScreen';
 import ShowBoxScreen from './src/views/ShowBoxScreen';
+import SingleShowBox from './src/views/SingleShowBox';
 import MapScreen from './src/views/MapScreen';
 import Cart from './src/views/Cart';
 import Settings from './src/views/Settings';
-import SingleShowBox from './src/views/SingleShowBox';
 import Tabs from './src/navigation/tabs';
 
 

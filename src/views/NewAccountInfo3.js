@@ -1,13 +1,12 @@
 import React from 'react';
 import { StyleSheet, Text, View, Image, TouchableHighlight } from 'react-native';
 
-
-const AccountInfo3 = () => {
+function AccountInfo3({ navigation }) {
     return (
     <View>
         <View style={styles.above}>
             <TouchableHighlight style={styles.roundshape}>
-            <Image source={{uri: 'https://raw.githubusercontent.com/LateBox/latebox/a519091b93b168ebe7a69c9d361a3c65980ebd13/SVGS/mobile.svg'}}
+            <Image source={{uri: 'https://raw.githubusercontent.com/LateBox/latebox/main/SVGS/tel.png'}}
                 style={styles.logo} />
             </TouchableHighlight>
         </View>
@@ -22,7 +21,7 @@ const AccountInfo3 = () => {
         </View>
 
         <View style={styles.bottompage}>
-            <Text style={styles.textskip}>SKIP</Text>
+            <Text onPress={() => navigation.navigate('ShowBox')} style={styles.textskip}>SKIP</Text>
 
             <View style={styles.circles}>
               <View style={styles.circle}>
@@ -52,41 +51,43 @@ const styles = StyleSheet.create({
       color:"white"
     },
     logo: {
-        width: "100%",
-        height: "110%",
+        width: "90%",
+        height: "90%",
         alignItems:"center",
         justifyContent:"center",
-        left: "3%",
-        top: "30%",
+        left: "13%",
+        top: "18%",
 
       },
       under: {
         alignItems:"center",
         justifyContent:"center",
-        bottom: 100,
+        top:"160%",
 
       },
       maintext: {
         alignItems:"center",
         justifyContent:"center",
         fontWeight: 'bold',
-        fontSize: 16,
+        fontSize: 18,
       },
       secondtext: {
         alignItems:"center",
         justifyContent:"center",
-        fontSize: 12,
+        fontSize: 14,
 
       },
       bottompage: {
         flexDirection:"row",
         padding:1,
         display: "flex",
-        justifyContent:'space-around'
+        justifyContent:'space-around',
+        top:"127%"
+
 
       },
       circles: {
-        marginTop: "5px",
+        marginTop: "2%",
         display: "flex",
         width: "20%",
         flexDirection:"row",
@@ -95,8 +96,8 @@ const styles = StyleSheet.create({
 
       },
       circlemain: {
-        width: "7px",
-        height: "7px",
+        width: "9%",
+        height: "60%",
         borderRadius: 100 / 2,
         backgroundColor: "#212162",
         flexDirection:"row",

@@ -41,11 +41,9 @@ function ShowBoxScreen({  navigation}) {
       // this line is necessary to get the data before the html loads
     React.useEffect(() => {
         // this conditionis necessary to refresh the data when coming from a different screen
-        if(isFocused){ 
             getProducts();
-        }
         //return the isFocused to refresh data when coming from different screen
-    }, [[isFocused]]);
+    }, []);
 
 
 
@@ -69,11 +67,19 @@ function ShowBoxScreen({  navigation}) {
                                         <View style={styles.cardText}>
                                             {/* id: {item.id}, {"\n"} */}
                                             <Text style={styles.cardTextTitle}>
-                                                {item.name} {"\n"}{"\n"}{"\n"}
+                                                {item.name} {"\n"}
+
+                                            </Text>
+                                            <Text style={styles.cardTextAddress}>
+                                                {item.restaurantAddress} {"\n"}{"\n"}
 
                                             </Text>
                                             <Text style={styles.cardTextDescription}>
-                                                {item.description}
+                                                {item.description}{"\n"}{"\n"}
+
+                                            </Text>
+                                            <Text style={styles.cardTextRating}>
+                                                {item.rating + '/5  ⭐'}
 
                                             </Text>
 
@@ -82,12 +88,12 @@ function ShowBoxScreen({  navigation}) {
                                     <View style={styles.singleCardBottom}>
 
                                         <Text style={styles.cardTextPrice}>$ {item.price}</Text>
-                                        <Button
+                                        <Button tyle={styles.singleCardBottomButton}
                                             onPress={() =>{navigation.navigate('EditBox' , {
                                                 itemId: item.id})}} 
                                                 // itemId: item.id});setLoading(true)}} 
-                                            title="Add to cart"
-                                            color="#841584"
+                                            title="View Box"
+                                            color="#212162"
                                             accessibilityLabel="Learn more about this purple button"
                                         />
                                     </View>
@@ -147,7 +153,7 @@ const styles = StyleSheet.create({
 
     },
     image: {
-        marginBottom: 40
+        marginBottom: 40,
 
     },
     input: {
@@ -172,36 +178,51 @@ const styles = StyleSheet.create({
     },
     singleCard:{
         // margin:'100px 100px 100px 100px',
-        backgroundColor:'#D4CFC7',
+        backgroundColor:'#FFFFFF',
         paddingTop:10,
-        paddingBottom:10,
-        paddingLeft:20,
-        paddingRight:20,
+        // paddingBottom:10,
+        // paddingLeft:20,
+        // paddingRight:20,
         borderRadius:10,
     },
     singleCardTop:{
         // margin:'100px 100px 100px 100px',
-        backgroundColor:'#D4CFC7',
+        backgroundColor:'#FFFFFF',
         paddingTop:10,
         paddingBottom:10,
-        paddingLeft:20,
-        paddingRight:20,
+        paddingLeft:40,
+        paddingRight:40,
         flexDirection: 'row' ,
     },
     singleCardBottom:{
         // margin:'100px 100px 100px 100px',
-        backgroundColor:'#D4CFC7',
+        backgroundColor:'rgba(198, 198, 198,0.5)',
         paddingTop:10,
         paddingBottom:10,
-        paddingLeft:20,
-        paddingRight:20,
+        paddingLeft:40,
+        paddingRight:40,
+        borderBottomLeftRadius:5,
+        borderBottomRightRadius:5,
         flexDirection: 'row' ,
         justifyContent:'space-between'
     },
+    singleCardBottomButton:{
+        // margin:'100px 100px 100px 100px',
+        backgroundColor:'rgba(198, 198, 198,0.5)',
+        paddingTop:10,
+        paddingBottom:10,
+        paddingLeft:40,
+        paddingRight:40,
+        borderBottomLeftRadius:5,
+        borderBottomRightRadius:5,
+
+    },
+
+    
     cardPic:{
         // margin: '10px 10px 10px 10px',
-        width: 200, 
-        height: 200,
+        width: 150, 
+        height: 150,
 
     },
     cardText:{
@@ -220,10 +241,23 @@ const styles = StyleSheet.create({
 
 
     },
+    cardTextAddress:{
+        paddingLeft:5,
+
+        fontSize:12,
+
+    },
     cardTextDescription:{
         flexDirecton: 'row' ,
         // height: '60%',
-        paddingLeft:10,
+        paddingLeft:5,
+
+
+    },
+    cardTextRating:{
+        flexDirecton: 'row' ,
+        // height: '60%',
+        paddingLeft:5,
 
 
     },
@@ -238,12 +272,12 @@ const styles = StyleSheet.create({
 
 
     signUpBtn: {
-        width: "65%",
-        borderRadius: 25,
+        width: "100%",
         height: 50,
         alignItems: "center",
         justifyContent: "center",
-        marginTop: 70,
+        // marginTop: 10,
+        
         backgroundColor: "rgba(33, 33, 98, 0.8)",
     },
     signUpBtnTxt: {
