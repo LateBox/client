@@ -14,7 +14,7 @@ import {
 import { useIsFocused } from "@react-navigation/native";
 import currentUrl from "../constants/urls";
 
-import { icons, COLORS, SIZES, FONTS } from "../constants";
+import { icons, COLORS, SIZES, FONTS, images } from "../constants";
 import SigninScreen from "./SigninScreen";
 
 function SingleShowBox({ navigation, props }) {
@@ -134,7 +134,7 @@ function SingleShowBox({ navigation, props }) {
 
   function renderFoodInfo() {
     return (
-      <Animated.ScrollView
+      <View
         horizontal
         pagingEnabled
         scrollEventThrottle={16}
@@ -149,7 +149,7 @@ function SingleShowBox({ navigation, props }) {
           <View style={{ height: SIZES.height * 0.35 }}>
             {/* Food Image */}
             <Image
-              source={imageUri}
+              source={images.crispy_chicken_burger}
               resizeMode="cover"
               style={{
                 width: SIZES.width,
@@ -220,18 +220,22 @@ function SingleShowBox({ navigation, props }) {
             <Text style={{ marginVertical: 10, textAlign: "center" }}>
               {/* {item} - {item.price.toFixed(2)} */}
             </Text>
-            <Text>some food description</Text>
+            <Text style={{
+              padding: 30
+            }}>some food description</Text>
           </View>
         </View>
-      </Animated.ScrollView>
+      </View>
     );
   }
 
   return (
     <SafeAreaView style={styles.container}>
-      {renderHeader()}
-      {renderFoodInfo()}
-      <View style={styles.toCartButton}>
+      <View>
+        {renderHeader()}
+        {renderFoodInfo()}
+      </View>
+      <View style={{padding: 70}} >
         <Button title="Add to Cart" />
       </View>
     </SafeAreaView>
@@ -244,7 +248,7 @@ const styles = StyleSheet.create({
     backgroundColor: COLORS.lightGray2,
   },
   toCartButton: {
-    marginLeft:95,
+    marginLeft: 95,
     width: 200,
     backgroundColor: COLORS.white,
     borderColor: COLORS.black,

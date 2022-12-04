@@ -8,6 +8,8 @@ import Svg, { Path } from "react-native-svg";
 
 import { HomeScreen, RouterScreen, NewAccountInfo1, MapScreen } from "../views";
 import { COLORS, icons } from "../constants";
+import ShowBoxScreen from "../views/ShowBoxScreen";
+import SingleShowBox from "../views/SingleShowBox";
 
 const Tab = createBottomTabNavigator();
 
@@ -96,8 +98,8 @@ const Tabs = () => {
       }}
     >
       <Tab.Screen
-        name="Home"
-        component={HomeScreen}
+        name="ShowBox"
+        component={ShowBoxScreen}
         options={{
           tabBarIcon: ({ focused }) => (
             <Image
@@ -114,8 +116,8 @@ const Tabs = () => {
         }}
       />
       <Tab.Screen
-        name="Search"
-        component={HomeScreen}
+        name="SingleShowBox"
+        component={SingleShowBox}
         options={{
           tabBarIcon: ({ focused }) => (
             <Image

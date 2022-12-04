@@ -41,8 +41,8 @@ function App() {
         <Stack.Screen name="AccountPreferences" component={AccountPreferences}/>
         <Stack.Screen name="AddBox" component={AddBoxScreen}/>
         <Stack.Screen name="EditBox" component={EditBoxScreen}/>
-        <Stack.Screen name="ShowBox" component={ShowBoxScreen}/>
-        <Stack.Screen name="SingleShowBox" component={SingleShowBox}/>
+        <Stack.Screen name="ShowBox" component={Tabs}/>
+        <Stack.Screen name="SingleShowBox" component={Tabs}/>
         <Stack.Screen name="Map" component={MapScreen}/>
         <Stack.Screen name="Cart" component={Cart}/>
         <Stack.Screen name="ProductDetail" component={ProductDetailScreen}/>
