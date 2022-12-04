@@ -43,7 +43,7 @@ function NewAccountPreferences({ navigation }) {
           const buttonStyle = {
               backgroundColor: active ? "rgba(241, 136, 97, 1)" : "rgba(198, 198, 198, 0.35)",
               width: '27%',
-              height: '85%',
+              height: '97%',
               alignItems: "center",
               padding: 10,
               flexDirection:"row",
@@ -51,8 +51,8 @@ function NewAccountPreferences({ navigation }) {
             };
           return (
             <TouchableOpacity style={buttonStyle} onPress={() => {onPress(); buttonChange(vegan);} }>
-              <Image style={styles.icon} source={{uri: 'https://raw.githubusercontent.com/LateBox/latebox/main/SVGS/lettuce2.svg'}}/>
-              <Text > Vegan</Text>
+              <Image style={styles.icon} source={{uri: 'https://raw.githubusercontent.com/LateBox/latebox/main/SVGS/lettuce2.png'}}/>
+              <Text >  Vegan</Text>
             </TouchableOpacity>
 
           );
@@ -64,8 +64,8 @@ function NewAccountPreferences({ navigation }) {
           const onPress = () => setActive(!active);
           const buttonStyle = {
               backgroundColor: active ? "rgba(241, 136, 97, 1)" : "rgba(198, 198, 198, 0.35)",
-              width: '27%',
-              height: '85%',
+              width: '25%',
+              height: '97%',
               alignItems: "center",
               padding: 10,
               flexDirection:"row",
@@ -73,8 +73,8 @@ function NewAccountPreferences({ navigation }) {
             };
           return (
             <TouchableOpacity style={buttonStyle} onPress={() => {onPress(); buttonChange(halal);} }>
-            <Image style={styles.icon} source={{uri: 'https://raw.githubusercontent.com/LateBox/latebox/main/SVGS/halal-cropped.svg'}}/>
-              <Text > Halal</Text>
+            <Image style={styles.icon} source={{uri: 'https://raw.githubusercontent.com/LateBox/latebox/main/SVGS/halal.png'}}/>
+              <Text >  Halal</Text>
             </TouchableOpacity>
 
           );
@@ -86,8 +86,8 @@ function NewAccountPreferences({ navigation }) {
           const onPress = () => setActive(!active);
           const buttonStyle = {
               backgroundColor: active ? "rgba(241, 136, 97, 1)" : "rgba(198, 198, 198, 0.35)",
-              width: '37%',
-              height: '85%',
+              width: '35%',
+              height: '97%',
               alignItems: "center",
               padding: 10,
               flexDirection:"row",
@@ -95,8 +95,8 @@ function NewAccountPreferences({ navigation }) {
             };
           return (
             <TouchableOpacity style={buttonStyle} onPress={() => {onPress(); buttonChange(vege);} }>
-            <Image style={styles.icon} source={{uri: 'https://raw.githubusercontent.com/LateBox/latebox/main/SVGS/vegan-cropped.svg'}}/>
-              <Text > Vegetarian</Text>
+            <Image style={styles.icon} source={{uri: 'https://raw.githubusercontent.com/LateBox/latebox/main/SVGS/vege.png'}}/>
+              <Text >  Vegetarian</Text>
             </TouchableOpacity>
 
           );
@@ -108,7 +108,7 @@ function NewAccountPreferences({ navigation }) {
           const onPress = () => setActive(!active);
           const buttonStyle = {
               backgroundColor: active ? "rgba(241, 136, 97, 1)" : "rgba(198, 198, 198, 0.35)",
-              width: '34%',
+              width: '30%',
               height: '126%',
               alignItems: "center",
               padding: 5,
@@ -117,7 +117,7 @@ function NewAccountPreferences({ navigation }) {
             };
           return (
             <TouchableOpacity style={buttonStyle} onPress={() => {onPress(); buttonChange(gluten);} }>
-            <Image style={styles.icon2} source={{uri: 'https://raw.githubusercontent.com/LateBox/latebox/main/SVGS/gluten-cropped.svg'}}/>
+            <Image style={styles.icon2} source={{uri: 'https://raw.githubusercontent.com/LateBox/latebox/main/SVGS/gluten.png'}}/>
               <Text > Gluten-free</Text>
             </TouchableOpacity>
 
@@ -130,8 +130,8 @@ function NewAccountPreferences({ navigation }) {
           const onPress = () => setActive(!active);
           const buttonStyle = {
               backgroundColor: active ? "rgba(241, 136, 97, 1)" : "rgba(198, 198, 198, 0.35)",
-              width: '34%',
-              height: '126%',
+              width: '30%',
+              height: '132%',
               alignItems: "center",
               padding: 5,
               flexDirection:"row",
@@ -139,7 +139,7 @@ function NewAccountPreferences({ navigation }) {
             };
           return (
             <TouchableOpacity style={buttonStyle} onPress={() => {onPress(); buttonChange(lactose);} }>
-            <Image style={styles.icon2} source={{uri: 'https://raw.githubusercontent.com/LateBox/latebox/main/SVGS/lactose-cropped.svg'}}/>
+            <Image style={styles.icon2} source={{uri: 'https://raw.githubusercontent.com/LateBox/latebox/main/SVGS/lactose.png'}}/>
               <Text > Lactose-free</Text>
             </TouchableOpacity>
 
@@ -152,8 +152,8 @@ function NewAccountPreferences({ navigation }) {
           const onPress = () => setActive(!active);
           const buttonStyle = {
               backgroundColor: active ? "rgba(241, 136, 97, 1)" : "rgba(198, 198, 198, 0.35)",
-              width: '28%',
-              height: '120%',
+              width: '24%',
+              height: '124%',
               alignItems: "center",
               padding: 5,
               flexDirection:"row",
@@ -161,7 +161,7 @@ function NewAccountPreferences({ navigation }) {
             };
           return (
             <TouchableOpacity style={buttonStyle} onPress={() => {onPress(); buttonChange(indian);} }>
-            <Image style={styles.icon3} source={{uri: 'https://raw.githubusercontent.com/LateBox/latebox/main/SVGS/indian-cropped.svg'}}/>
+            <Image style={styles.icon3} source={{uri: 'https://raw.githubusercontent.com/LateBox/latebox/main/SVGS/indian.png'}}/>
               <Text >  Indian</Text>
             </TouchableOpacity>
 
@@ -175,7 +175,7 @@ function NewAccountPreferences({ navigation }) {
           const buttonStyle = {
               backgroundColor: active ? "rgba(241, 136, 97, 1)" : "rgba(198, 198, 198, 0.35)",
               width: '28%',
-              height: '120%',
+              height: '124%',
               alignItems: "center",
               padding: 5,
               flexDirection:"row",
@@ -183,7 +183,7 @@ function NewAccountPreferences({ navigation }) {
             };
           return (
             <TouchableOpacity style={buttonStyle} onPress={() => {onPress(); buttonChange(fastfood);} }>
-            <Image style={styles.icon4} source={{uri: 'https://raw.githubusercontent.com/LateBox/latebox/main/SVGS/fast-cropped.svg'}}/>
+            <Image style={styles.icon4} source={{uri: 'https://raw.githubusercontent.com/LateBox/latebox/main/SVGS/fast.png'}}/>
               <Text > Fast food</Text>
             </TouchableOpacity>
 
@@ -196,8 +196,8 @@ function NewAccountPreferences({ navigation }) {
           const onPress = () => setActive(!active);
           const buttonStyle = {
               backgroundColor: active ? "rgba(241, 136, 97, 1)" : "rgba(198, 198, 198, 0.35)",
-              width: '28%',
-              height: '120%',
+              width: '25%',
+              height: '124%',
               alignItems: "center",
               padding: 5,
               flexDirection:"row",
@@ -205,7 +205,7 @@ function NewAccountPreferences({ navigation }) {
             };
           return (
             <TouchableOpacity style={buttonStyle} onPress={() => {onPress(); buttonChange(italian);} }>
-            <Image style={styles.icon3} source={{uri: 'https://raw.githubusercontent.com/LateBox/latebox/main/SVGS/pizza-cropped.svg'}}/>
+            <Image style={styles.icon3} source={{uri: 'https://raw.githubusercontent.com/LateBox/latebox/main/SVGS/pizza.png'}}/>
               <Text >  Italian</Text>
             </TouchableOpacity>
 
@@ -219,7 +219,7 @@ function NewAccountPreferences({ navigation }) {
           const buttonStyle = {
               backgroundColor: active ? "rgba(241, 136, 97, 1)" : "rgba(198, 198, 198, 0.35)",
               width: '28%',
-              height: '120%',
+              height: '124%',
               alignItems: "center",
               padding: 5,
               flexDirection:"row",
@@ -227,7 +227,7 @@ function NewAccountPreferences({ navigation }) {
             };
           return (
             <TouchableOpacity style={buttonStyle} onPress={() => {onPress(); buttonChange(mexican);} }>
-            <Image style={styles.icon5} source={{uri: 'https://raw.githubusercontent.com/LateBox/latebox/main/SVGS/tacos-cropped.svg'}}/>
+            <Image style={styles.icon5} source={{uri: 'https://raw.githubusercontent.com/LateBox/latebox/main/SVGS/tacos.png'}}/>
               <Text >  Mexican</Text>
             </TouchableOpacity>
 
@@ -240,8 +240,8 @@ function NewAccountPreferences({ navigation }) {
           const onPress = () => setActive(!active);
           const buttonStyle = {
               backgroundColor: active ? "rgba(241, 136, 97, 1)" : "rgba(198, 198, 198, 0.35)",
-              width: '40%',
-              height: '120%',
+              width: '35%',
+              height: '124%',
               alignItems: "center",
               padding: 5,
               flexDirection:"row",
@@ -249,8 +249,8 @@ function NewAccountPreferences({ navigation }) {
             };
           return (
             <TouchableOpacity style={buttonStyle} onPress={() => {onPress(); buttonChange(mediteranean);} }>
-            <Image style={styles.icon6} source={{uri: 'https://raw.githubusercontent.com/LateBox/latebox/main/SVGS/kebab-cropped.svg'}}/>
-              <Text >  Mediteranean</Text>
+            <Image style={styles.icon6} source={{uri: 'https://raw.githubusercontent.com/LateBox/latebox/main/SVGS/kebab.png'}}/>
+              <Text >   Mediteranean</Text>
             </TouchableOpacity>
 
           );
@@ -263,7 +263,7 @@ function NewAccountPreferences({ navigation }) {
           const buttonStyle = {
               backgroundColor: active ? "rgba(241, 136, 97, 1)" : "rgba(198, 198, 198, 0.35)",
               width: '28%',
-              height: '120%',
+              height: '124%',
               alignItems: "center",
               padding: 5,
               flexDirection:"row",
@@ -271,7 +271,7 @@ function NewAccountPreferences({ navigation }) {
             };
           return (
             <TouchableOpacity style={buttonStyle} onPress={() => {onPress(); buttonChange(african);} }>
-            <Image style={styles.icon3} source={{uri: 'https://raw.githubusercontent.com/LateBox/latebox/main/SVGS/african.svg'}}/>
+            <Image style={styles.icon3} source={{uri: 'https://raw.githubusercontent.com/LateBox/latebox/main/SVGS/african.png'}}/>
               <Text >  African</Text>
             </TouchableOpacity>
 
@@ -284,8 +284,8 @@ function NewAccountPreferences({ navigation }) {
           const onPress = () => setActive(!active);
           const buttonStyle = {
               backgroundColor: active ? "rgba(241, 136, 97, 1)" : "rgba(198, 198, 198, 0.35)",
-              width: '28%',
-              height: '120%',
+              width: '24%',
+              height: '124%',
               alignItems: "center",
               padding: 5,
               flexDirection:"row",
@@ -293,8 +293,8 @@ function NewAccountPreferences({ navigation }) {
             };
           return (
             <TouchableOpacity style={buttonStyle} onPress={() => {onPress(); buttonChange(asian);} }>
-            <Image style={styles.icon3} source={{uri: 'https://raw.githubusercontent.com/LateBox/latebox/main/SVGS/sopa-cropped.svg'}}/>
-              <Text > Asian</Text>
+            <Image style={styles.icon3} source={{uri: 'https://raw.githubusercontent.com/LateBox/latebox/main/SVGS/soup.png'}}/>
+              <Text >   Asian</Text>
             </TouchableOpacity>
 
           );
@@ -306,8 +306,8 @@ function NewAccountPreferences({ navigation }) {
           const onPress = () => setActive(!active);
           const buttonStyle = {
               backgroundColor: active ? "rgba(241, 136, 97, 1)" : "rgba(198, 198, 198, 0.35)",
-              width: '28%',
-              height: '120%',
+              width: '25%',
+              height: '124%',
               alignItems: "center",
               padding: 5,
               flexDirection:"row",
@@ -315,8 +315,8 @@ function NewAccountPreferences({ navigation }) {
             };
           return (
             <TouchableOpacity style={buttonStyle} onPress={() => {onPress(); buttonChange(bakery);} }>
-            <Image style={styles.icon3} source={{uri: 'https://raw.githubusercontent.com/LateBox/latebox/main/SVGS/cake.svg'}}/>
-              <Text >  Bakery</Text>
+            <Image style={styles.icon3} source={{uri: 'https://raw.githubusercontent.com/LateBox/latebox/main/SVGS/cake.png'}}/>
+              <Text >   Bakery</Text>
             </TouchableOpacity>
 
           );
@@ -332,7 +332,7 @@ function NewAccountPreferences({ navigation }) {
 
             <View style={styles.above}>
                 <TouchableHighlight style={styles.roundshape}>
-                    <Image source={{uri: 'https://raw.githubusercontent.com/LateBox/latebox/main/SVGS/latebox.svg'}}
+                    <Image source={{uri: 'https://raw.githubusercontent.com/LateBox/latebox/main/SVGS/latebox.png'}}
                         style={styles.logo} />
                 </TouchableHighlight>
                 
@@ -340,7 +340,7 @@ function NewAccountPreferences({ navigation }) {
     
             <View style={styles.under}>
                 <Text>
-                    {"\n"}{"\n"}{"\n"}{"\n"}{"\n"}{"\n"}{"\n"}{"\n"}{"\n"}{"\n"}{"\n"}{"\n"}{"\n"}{"\n"}{"\n"}{"\n"}{"\n"}{"\n"}{"\n"}{"\n"}{"\n"}{"\n"}{"\n"}{"\n"}{"\n"}{"\n"}{"\n"}{"\n"}
+                    {"\n"}{"\n"}{"\n"}{"\n"}{"\n"}{"\n"}{"\n"}{"\n"}{"\n"}{"\n"}{"\n"}{"\n"}{"\n"}{"\n"}{"\n"}{"\n"}{"\n"}{"\n"}{"\n"}{"\n"}{"\n"}{"\n"}{"\n"}{"\n"}{"\n"}{"\n"}{"\n"}{"\n"}{"\n"}{"\n"}{"\n"}{"\n"}{"\n"}{"\n"}{"\n"}{"\n"}{"\n"}{"\n"}{"\n"}{"\n"}{"\n"}{"\n"}{"\n"}{"\n"}{"\n"}{"\n"}
                 </Text>
                 <Text style={styles.maintext}>   Dietary Restrictions</Text>
                 <Text>
@@ -400,10 +400,10 @@ function NewAccountPreferences({ navigation }) {
 
                     </View>
                     <Text>
-                    {"\n"}{"\n"}{"\n"}{"\n"}{"\n"}{"\n"}{"\n"}{"\n"}{"\n"}{"\n"}{"\n"}{"\n"}{"\n"}{"\n"}{"\n"}{"\n"}{"\n"}{"\n"}
+                    {"\n"}{"\n"}{"\n"}{"\n"}{"\n"}{"\n"}{"\n"}
                 </Text>
                     <View style={styles.bottompage}>
-            <Text style={styles.textskip}>SKIP</Text>
+            <Text onPress={() => navigation.navigate('ShowBox')} style={styles.textskip}>SKIP</Text>
 
             <View style={styles.circles}>
               <View style={styles.circle}>
@@ -416,7 +416,7 @@ function NewAccountPreferences({ navigation }) {
               </View>
             </View>
 
-            <Text onPress={() => navigation.navigate('AccountPreferences')} style={styles.textnext}>NEXT</Text>
+            <Text onPress={() => navigation.navigate('ShowBox')} style={styles.textnext}>NEXT</Text>
 
         </View>
 
@@ -456,54 +456,54 @@ const styles = StyleSheet.create({
     icon: {
         width: "30%",
         height: "170%",
-        alignItems:"left",
-        justifyContent:"left",
+        // alignItems:"left",
+        // justifyContent:"left",
         aspectratio: "1.4"
   
       },
       icon2: {
         width: "20%",
         height: "95%",
-        alignItems:"left",
-        justifyContent:"left",
+        // alignItems:"left",
+        // justifyContent:"left",
         aspectratio: "1.4"
   
       },
       icon3: {
         width: "25%",
-        height: "120%",
-        alignItems:"left",
-        justifyContent:"left",
+        height: "105%",
+        // alignItems:"left",
+        // justifyContent:"left",
         aspectratio: "1.4"
   
       },
       icon4: {
         width: "25%",
-        height: "150%",
-        alignItems:"left",
-        justifyContent:"left",
+        height: "130%",
+        // alignItems:"left",
+        // justifyContent:"left",
         aspectratio: "1.4"
   
       },
       icon5: {
         width: "27%",
         height: "57%",
-        alignItems:"left",
-        justifyContent:"left",
+        // alignItems:"left",
+        // justifyContent:"left",
         aspectratio: "1.4"
   
       },
       icon6: {
         width: "15%",
         height: "80%",
-        alignItems:"left",
-        justifyContent:"left",
+        // alignItems:"left",
+        // justifyContent:"left",
         aspectratio: "1.4"
   
       },
    
     under: {
-      alignItems:"left",
+      // alignItems:"left",
       justifyContent:"center",
       bottom: "40%",
       marginLeft: "3%",
@@ -592,7 +592,7 @@ const styles = StyleSheet.create({
 
       },
       circles: {
-        marginTop: "5px",
+        marginTop: "2%",
         display: "flex",
         width: "20%",
         flexDirection:"row",
@@ -601,8 +601,8 @@ const styles = StyleSheet.create({
 
       },
       circlemain: {
-        width: "7px",
-        height: "7px",
+        width: "9%",
+        height: "60%",
         borderRadius: 100 / 2,
         backgroundColor: "#212162",
         flexDirection:"row",
