@@ -37,21 +37,22 @@ function MapScreen(props, { navigation }) {
   const isFocused = useIsFocused();
 
 
-  const [boxName, setBoxName] = React.useState('Box Name');
-  const [description, setDescription] = React.useState('description');
-  const [price, setPrice] = React.useState('price');
-  const [restaurantId, setRestaurantId] = React.useState('restaurantId');
-  const [restaurantName, setRestaurantName] = React.useState('restaurantName');
-  const [restaurantAddress, setRestaurantAddress] = React.useState('restaurantAddress');
-  const [stock, setStock] = React.useState('stock');
-  const [imageUri, setImageUri] = React.useState('imageUri');
-  const [rating, setRating] = React.useState('rating');
+  var [boxName, setBoxName] = React.useState('Box Name');
+  var [description, setDescription] = React.useState('description');
+  var [price, setPrice] = React.useState('price');
+  var [restaurantId, setRestaurantId] = React.useState('restaurantId');
+  var [restaurantName, setRestaurantName] = React.useState('restaurantName');
+  var [restaurantAddress, setRestaurantAddress] = React.useState('restaurantAddress');
+  var [stock, setStock] = React.useState('stock');
+  var [imageUri, setImageUri] = React.useState('imageUri');
+  var [rating, setRating] = React.useState('rating');
 
-  const [selectedMarkerID, setSelectedMarkerID] = React.useState('0');
+  var [selectedMarkerID, setSelectedMarkerID] = React.useState('1');
+  var [markerChange, setMarkerChange] = React.useState(false);
 
   const getProductByRestaurant = async () => {
     try {
-      console.log(selectedMarkerID);
+      // console.log(selectedMarkerID);
         const response = await fetch(currentUrl + 'product/restaurant/'+selectedMarkerID,
             {
                 method: 'GET',
@@ -84,11 +85,22 @@ function MapScreen(props, { navigation }) {
     // this line is necessary to get the data before the html loads
     React.useEffect(() => {
       // this conditionis necessary to refresh the data when coming from a different screen
-      if(isFocused){ 
+      if(isFocused){
+        console.log(selectedMarkerID)
+        console.log(markerChange)
+
         getProductByRestaurant();
       }
       //return the isFocused to refresh data when coming from different screen
-  }, [[isFocused]]);
+  }, [selectedMarkerID]);
+
+  function switchFlag(){
+    if(markerChange == true){
+      setMarkerChange(false)
+    }else{
+      setMarkerChange(true)
+    }
+  }
 
   return (
     <View>
@@ -103,7 +115,6 @@ function MapScreen(props, { navigation }) {
         anchor={{x: 0.69, y: 1}}
         image={marker100}
       />
-<></>
       {COORDINATES.map(mymarker => (
         <Marker
           coordinate={{
@@ -112,7 +123,7 @@ function MapScreen(props, { navigation }) {
             latitudeDelta: latlongdelta,
             longitudeDelta: latlongdelta,
           }}
-          onPress= {() => (setSelectedMarkerID(mymarker.id), getProductByRestaurant)}
+          onPress= {() => (switchFlag,setSelectedMarkerID(mymarker.id))}
           title={mymarker.id}
           description={mymarker.ownerId}
           centerOffset={{x: -18, y: -60}}
@@ -122,7 +133,6 @@ function MapScreen(props, { navigation }) {
 
         </Marker>      
       ))}
-      <></>
       </MapView>
       {isLoading ? <ActivityIndicator /> : (
                 <View style={styles.cardHolder}>
@@ -179,7 +189,7 @@ function MapScreen(props, { navigation }) {
             </View> 
                 )}
 
-                        {isLoading ? console.log(data) : console.log("nothing here")}
+                        {/* {isLoading ? console.log(data) : console.log("nothing here")} */}
 
     </View>
   );
@@ -196,7 +206,7 @@ const styles = StyleSheet.create({
   },
   map: {
     width: width,
-    height: height-300,
+    height: height-450,
   },
   boxPopup:{
       flex: 1,
@@ -221,6 +231,7 @@ const styles = StyleSheet.create({
   },
   cardHolder:{
     // margin:'100px 100px 100px 100px',
+    marginBottom: 100,
     paddingTop:5,
     paddingBottom:5,
     paddingLeft:10,

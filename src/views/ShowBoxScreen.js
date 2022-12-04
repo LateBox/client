@@ -1,15 +1,17 @@
 import * as React from 'react';
-import { Button, View, Text, StyleSheet, FlatList, TouchableOpacity, ActivityIndicator,Image } from 'react-native';
+import { Button, View, Text, StyleSheet, FlatList, TouchableOpacity, ActivityIndicator,Image, TextInput } from 'react-native';
 import { useIsFocused } from "@react-navigation/native";
 import currentUrl from "../constants/urls";
+import {  icons } from "../constants";
 
 
 function ShowBoxScreen({  navigation}) {
     const [isLoading, setLoading] = React.useState(true);
     const [data, setData] = React.useState([]);
+    const [searchString, setSearchString] = React.useState('');
 
     const isFocused = useIsFocused();
-
+    const setFilters = () => {};
 
 
 
@@ -17,20 +19,39 @@ function ShowBoxScreen({  navigation}) {
         console.debug(currentUrl)
 
         try {
-            const response = await fetch(currentUrl + 'products/',
-                {
-                    method: 'GET',
-                    // mode: 'no-cors',
-
-                    // credentials: 'include',
-                    'Access-Control-Allow-Credentials': 'true'
-
-                },
-            );
-            const json = await response.json();
-            setData(json);
-            console.log(data);
-            console.log(json)
+            if(searchString == ''){
+                const response = await fetch(currentUrl + 'products',
+                    {
+                        method: 'GET',
+                        // mode: 'no-cors',
+    
+                        // credentials: 'include',
+                        'Access-Control-Allow-Credentials': 'true'
+    
+                    },
+                );
+                const json = await response.json();
+                setData(json);
+                console.log(data);
+                console.log(json)
+            }
+            else{
+                const response = await fetch(currentUrl + 'products/name/' +searchString,
+                    {
+                        method: 'GET',
+                        // mode: 'no-cors',
+    
+                        // credentials: 'include',
+                        'Access-Control-Allow-Credentials': 'true'
+    
+                    },
+                );
+                const json = await response.json();
+                setData(json);
+                console.log(data);
+                console.log(json)
+            }
+            
         } catch (error) {
             console.error(error);
         } finally {
@@ -39,12 +60,13 @@ function ShowBoxScreen({  navigation}) {
     }
 
       // this line is necessary to get the data before the html loads
-    React.useEffect(() => {
-        // this conditionis necessary to refresh the data when coming from a different screen
-            getProducts();
-        //return the isFocused to refresh data when coming from different screen
-    }, []);
+    
 
+    React.useEffect(() => {
+        if(isFocused){
+                getProducts();
+        }
+      }, [searchString]);
 
 
 
@@ -53,6 +75,24 @@ function ShowBoxScreen({  navigation}) {
 
         <View style={styles.mainContainer}>
             <Button title="Return to Router" onPress={() => navigation.navigate('Router')} />
+            
+            <View style={styles.searchBar}>
+                <TextInput
+                    style={styles.input}
+                    placeholder="Search for something"
+                    placeholderTextColor="#a9a9a9"
+                    onChangeText={value => setSearchString(value)}
+                    boxNameValue={searchString}
+                    autoCapitalize={"none"}
+                /> 
+                <TouchableOpacity style={styles.searchBtn} onPress={(setFilters)}>
+                    {/* <Text style={styles.searchBtnTxt}>Filters</Text> */}
+                    <Image style={styles.icon} source={icons.filters}/>
+
+                </TouchableOpacity>
+
+            </View>
+
 
             {isLoading ? <ActivityIndicator /> : (
                 <FlatList
@@ -118,10 +158,7 @@ function ShowBoxScreen({  navigation}) {
             {/* {isLoading ? console.log(data) : console.log("nothing here")} */}
             
 
-            <TouchableOpacity style={styles.signUpBtn} onPress={getProducts}>
-                <Text style={styles.signUpBtnTxt}>Refresh</Text>
-            </TouchableOpacity>
-
+            
             {/* <Button title="Sign up" onPress={() => navigation.navigate('Login')} />
 
                 <Button title="Go to Home" onPress={() => navigation.navigate('Home')} /> */}
@@ -146,6 +183,12 @@ const styles = StyleSheet.create({
         backgroundColor: 'rgba(241, 136, 97, 0.8)',
         height: '24%',
     },
+    searchBar: {
+        flexDirection: 'row' ,
+        margin:10,
+        justifyContent:'space-between'
+
+    },
     body: {
         flex: 1,
         backgroundColor: 'white',
@@ -157,15 +200,14 @@ const styles = StyleSheet.create({
 
     },
     input: {
-        marginTop: "2%",
-        width: "80%",
+        width: "90%",
         backgroundColor: 'rgba(245, 220, 189, 0.4)',
         borderRadius: 25,
-        height: 30,
+        height: 40,
         color: "black",
-        marginBottom: "6%",
         justifyContent: "center",
-        padding: 20,
+        padding: 5,
+        paddingLeft: 15,
         fontSize: 12,
     },
         cardHolder:{
@@ -271,16 +313,20 @@ const styles = StyleSheet.create({
 
 
 
-    signUpBtn: {
-        width: "100%",
-        height: 50,
+    searchBtn: {
+        width: "10%",
         alignItems: "center",
         justifyContent: "center",
         // marginTop: 10,
         
-        backgroundColor: "rgba(33, 33, 98, 0.8)",
+        // backgroundColor: "rgba(33, 33, 98, 0.8)",
     },
-    signUpBtnTxt: {
+    icon: {
+        width: 25,
+        height: 25,
+        
+    },
+    searchBtnTxt: {
         color: "white",
 
     },
