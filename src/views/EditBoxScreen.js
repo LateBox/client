@@ -1,5 +1,6 @@
 import * as React from 'react';
-import { Image,Button, View, Text, StyleSheet, TextInput, TouchableOpacity,ActivityIndicator } from 'react-native';
+import { useState } from "react";
+import { Image,Button,Switch, View, Text, StyleSheet, TextInput, TouchableOpacity,ActivityIndicator } from 'react-native';
 import currentUrl from "../constants/urls";
 import ShowBoxScreen from './ShowBoxScreen';
 
@@ -174,10 +175,13 @@ function EditBoxScreen({ navigation, route  }) {
       });
   };
 
+
   // this line is necessary to get the data before the html loads, it kinda triggers the method getBox() before returning the view
   React.useEffect(() => {
     getBox();
 }, []);
+
+
 
   return (
 
@@ -237,8 +241,19 @@ function EditBoxScreen({ navigation, route  }) {
 <Button title="Pick an image from camera roll" onPress={takeImage} />
       {imageUri && <Image source={{ uri: imageUri }} style={{ width: 200, height: 200 }} />}
 
+    <View style= {styles.notifyrows}>
 
+      <Switch 
+        trackColor={{ false: "#767577", true: "#81b0ff" }}
+        thumbColor={isEnabled ? "#f5dd4b" : "#f4f3f4"}
+        ios_backgroundColor="#3e3e3e"
+        onValueChange={toggleSwitch}
+        value={isEnabled}
+      />
+      <Text>Notify shelters</Text>
 
+    </View>
+      
 
           <TouchableOpacity style={styles.signUpBtn} onPress={putBox}>
             <Text style={styles.signUpBtnTxt}>edit box</Text>
@@ -266,6 +281,10 @@ const styles = StyleSheet.create({
     height: '100%',
     display: 'flex',
     flexDirection: 'column',
+  },
+  notifyrows:{
+    top: "5%",
+    flexDirection:"row",
   },
   topBar: {
     alignItems: 'center',
