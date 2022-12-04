@@ -10,6 +10,7 @@ import {
   ActivityIndicator,
   Image,
   Animated,
+  FlexBox,
 } from "react-native";
 import { useIsFocused } from "@react-navigation/native";
 import currentUrl from "../constants/urls";
@@ -21,12 +22,13 @@ function SingleShowBox({ navigation, props }) {
   const scrollX = new Animated.Value(0);
   const [boxName, setBoxName] = React.useState("Box Name");
   const [description, setDescription] = React.useState("description");
-  const [price, setPrice] = React.useState("price");
+  const [price, setPrice] = React.useState(5);
   const [restaurantId, setRestaurantId] = React.useState("restaurantId");
   const [stock, setStock] = React.useState("stock");
   const [imageUri, setImageUri] = React.useState("imageUri");
   const itemId = 3;
   const [orderQuantity, setOrderQuantity] = React.useState(1);
+  const initialPrice = 5;
 
   // React.useEffect(() => {
   //   setRestaurant();
@@ -34,6 +36,7 @@ function SingleShowBox({ navigation, props }) {
 
   const Increment = () => {
     setOrderQuantity(orderQuantity + 1);
+    setPrice(price + initialPrice);
   };
 
   const Decrement = () => {
@@ -205,24 +208,53 @@ function SingleShowBox({ navigation, props }) {
                 <Text>+</Text>
               </TouchableOpacity>
             </View>
-          </View>
+            {/* Name & Description */}
+            <View
+              style={{
+                bottom: -20,
+                width: SIZES.width,
+                alignItems: "center",
+                marginTop: 15,
+                paddingHorizontal: SIZES.padding * 2,
+              }}
+            >
+              <Text
+                style={{
+                  padding: 30,
+                }}
+              >
+                some food description
+              </Text>
+            </View>
 
-          {/* Name & Description */}
-          <View
-            style={{
-              bottom: -20,
-              width: SIZES.width,
-              alignItems: "center",
-              marginTop: 15,
-              paddingHorizontal: SIZES.padding * 2,
-            }}
-          >
-            <Text style={{ marginVertical: 10, textAlign: "center" }}>
-              {/* {item} - {item.price.toFixed(2)} */}
-            </Text>
-            <Text style={{
-              padding: 30
-            }}>some food description</Text>
+            {/* Price */}
+            <View
+              style={{
+                justifyContent: "center",
+                flexDirection: "row",
+                alignItems: "center",
+                width: 50,
+                backgroundColor: COLORS.white,
+                borderRadius: 25,
+              }}
+            >
+              <Text style={{ textAlign: "center" }}>{price} $</Text>
+            </View>
+
+            {/* Add to Cart */}
+            <TouchableOpacity
+              style={{
+                height: 50,
+                alignItems: "center",
+                justifyContent: "center",
+                borderRadius: SIZES.radius,
+                paddingHorizontal: SIZES.padding * 3,
+                backgroundColor: COLORS.lightGray3,
+              }}
+              onPress={''}
+            >
+              <Text>Add to Cart</Text>
+            </TouchableOpacity>
           </View>
         </View>
       </View>
@@ -234,9 +266,6 @@ function SingleShowBox({ navigation, props }) {
       <View>
         {renderHeader()}
         {renderFoodInfo()}
-      </View>
-      <View style={{padding: 70}} >
-        <Button title="Add to Cart" />
       </View>
     </SafeAreaView>
   );
