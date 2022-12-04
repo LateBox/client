@@ -19,6 +19,8 @@ function RouterScreen({ navigation }) {
         <Button title="SingleShowBox" onPress={() => navigation.navigate('SingleShowBox')} />
         <Button title="Go to Account Preferences" onPress={() => navigation.navigate('AccountPreferences')} />
         <Button title="Go to Settings" onPress={() => navigation.navigate('Settings')} />
+        <Button title="Go to Cart" onPress={() => navigation.navigate('Cart')} />
+
 
 
         <Button title="Go to Spare screen" onPress={() => navigation.navigate('Spare')} />
