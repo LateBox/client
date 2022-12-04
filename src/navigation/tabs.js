@@ -10,6 +10,7 @@ import { HomeScreen, RouterScreen, NewAccountInfo1, MapScreen } from "../views";
 import { COLORS, icons } from "../constants";
 import ShowBoxScreen from "../views/ShowBoxScreen";
 import SingleShowBox from "../views/SingleShowBox";
+import Cart from "../views/Cart";
 
 const Tab = createBottomTabNavigator();
 
