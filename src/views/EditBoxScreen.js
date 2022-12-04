@@ -175,6 +175,8 @@ function EditBoxScreen({ navigation, route  }) {
       });
   };
 
+  const [isEnabled, setIsEnabled] = useState(false);
+  const toggleSwitch = () => setIsEnabled(previousState => !previousState);
 
   // this line is necessary to get the data before the html loads, it kinda triggers the method getBox() before returning the view
   React.useEffect(() => {
