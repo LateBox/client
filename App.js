@@ -19,7 +19,6 @@ import SingleShowBox from './src/views/SingleShowBox';
 import MapScreen from './src/views/MapScreen';
 import Cart from './src/views/Cart';
 import Settings from './src/views/Settings';
-import SingleShowBox from './src/views/SingleShowBox';
 import Tabs from './src/navigation/tabs';
 
 
