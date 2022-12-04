@@ -11,6 +11,7 @@ import ShowBoxScreen from "../views/ShowBoxScreen";
 import MapScreen from "../views/MapScreen";
 import Cart from "../views/Cart";
 import HomeScreen from "../views/HomeScreen";
+import SettingsScreen from "../views/Settings";
 
 
 const Tab = createBottomTabNavigator();
@@ -154,8 +155,8 @@ const Tabs = () => {
         }}
       />
       <Tab.Screen
-        name="Home"
-        component={HomeScreen}
+        name="Account Settings"
+        component={SettingsScreen}
         options={{
           tabBarIcon: ({ focused }) => (
             <Image

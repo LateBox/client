@@ -26,10 +26,10 @@ function Settings(props, { navigation }) {
   return (
     <View>
       <Button title="Return to Router" onPress={() => props.navigation.navigate('Router')} />  
-      <Button title="Logout" onPress={() => props.navigation.navigate('Home')} />  
       <Button title="Preferences" onPress={() => props.navigation.navigate('AccountPreferences')} />  
-      <Button title="Help Center" onPress={() => props.navigation.navigate('Home')} />  
-      <Button title="Terms & Conditions" onPress={() => props.navigation.navigate('Home')} />
+      <Button title="Help Center" onPress={() => props.navigation.navigate('HC')} />  
+      <Button title="Terms & Conditions" onPress={() => props.navigation.navigate('TC')} />
+      <Button title="Logout" onPress={() => props.navigation.navigate('Home')} />  
     </View>
   );
 }

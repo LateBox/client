@@ -20,8 +20,8 @@ import MapScreen from './src/views/MapScreen';
 import Cart from './src/views/Cart';
 import Settings from './src/views/Settings';
 import Tabs from './src/navigation/tabs';
-
-
+import TC from './src/views/TC';
+import HC from './src/views/HC';
 
 
 const Stack = createNativeStackNavigator();
@@ -47,7 +47,8 @@ function App() {
         <Stack.Screen name="Cart" component={Cart}/>
         <Stack.Screen name="ProductDetail" component={ProductDetailScreen}/>
         <Stack.Screen name="Settings" component={Settings}/>
-
+        <Stack.Screen name="TC" component={TC}/>
+        <Stack.Screen name="HC" component={HC}/>
       </Stack.Navigator>
     </NavigationContainer>
   );
