@@ -41,8 +41,11 @@ function MapScreen(props, { navigation }) {
   const [description, setDescription] = React.useState('description');
   const [price, setPrice] = React.useState('price');
   const [restaurantId, setRestaurantId] = React.useState('restaurantId');
+  const [restaurantName, setRestaurantName] = React.useState('restaurantName');
+  const [restaurantAddress, setRestaurantAddress] = React.useState('restaurantAddress');
   const [stock, setStock] = React.useState('stock');
   const [imageUri, setImageUri] = React.useState('imageUri');
+  const [rating, setRating] = React.useState('rating');
 
   const [selectedMarkerID, setSelectedMarkerID] = React.useState('0');
 
@@ -68,6 +71,7 @@ function MapScreen(props, { navigation }) {
         setRestaurantId(json.restaurantId)
         setStock(json.stock)
         setImageUri(json.imageUri)
+        setRating(json.rating)
         // console.log(data);
         // console.log(json)
     } catch (error) {
@@ -99,6 +103,7 @@ function MapScreen(props, { navigation }) {
         anchor={{x: 0.69, y: 1}}
         image={marker100}
       />
+<></>
       {COORDINATES.map(mymarker => (
         <Marker
           coordinate={{
@@ -114,36 +119,64 @@ function MapScreen(props, { navigation }) {
           anchor={{x: 0.69, y: 1}}
           image={address}
         >
-{/*           
-          <MapView.Callout tooltip style={styles.customView}>
-            <TouchableHighlight onPress= {() => setSelectedMarkerID(mymarker.id)} underlayColor='#dddddd'>
-                <View style={styles.calloutText}>
 
-                    <Text>{mymarker.id}{"\n"}{mymarker.ownerId}</Text>
-                </View>
-            </TouchableHighlight>
-          </MapView.Callout>
- */}
         </Marker>      
       ))}
+      <></>
       </MapView>
       {isLoading ? <ActivityIndicator /> : (
-                <>
-                <View style={styles.boxPopup}>
-                <Text style={styles.popupItem}>
-                Name: {boxName}, {"\n"}
-                description:{description}, {"\n"}
-                price: {price}, {"\n"}
-                restaurantId: {restaurantId}, {"\n"}
-                stock: {stock}, {"\n"}{"\n"}{"\n"}{"\n"}{"\n"}
-                <Button title="Order" style={styles.popupItem} >Order</Button>
-                </Text>
-                <Image source={{ uri: imageUri }} style={{ width: 200, height: 200, marginRight:0 }} />
-            
+                <View style={styles.cardHolder}>
+                <View>
+                    <View style={styles.singleCard}>
+                        <View style={styles.singleCardTop}>
+                            <Image source={{ uri: imageUri }} style={styles.cardPic}  />
+                            <View style={styles.cardText}>
+                                {/* id: {item.id}, {"\n"} */}
+                                <Text style={styles.cardTextTitle}>
+                                    {boxName} {"\n"}
+
+                                </Text>
+                                <Text style={styles.cardTextAddress}>
+                                    {restaurantAddress} {"\n"}{"\n"}
+
+                                </Text>
+                                <Text style={styles.cardTextDescription}>
+                                    {description}{"\n"}{"\n"}
+
+                                </Text>
+                                <Text style={styles.cardTextRating}>
+                                    {rating + '/5  ⭐'}
+
+                                </Text>
+
+                            </View>
+                        </View>
+                        <View style={styles.singleCardBottom}>
+
+                            <Text style={styles.cardTextPrice}>$ {price}</Text>
+                            <Button tyle={styles.singleCardBottomButton}
+                                onPress={() =>{navigation.navigate('EditBox' , {
+                                    itemId: id})}} 
+                                    // itemId: item.id});setLoading(true)}} 
+                                title="View Box"
+                                color="#212162"
+                                accessibilityLabel="Learn more about this purple button"
+                            />
+                        </View>
+                    </View>
+
+
                 </View>
-                
-                {console.log()}
-            </> 
+
+                    {/* <Button
+                        onPress={() =>{navigation.navigate('EditBox' , {
+                            itemId: item.id})}} 
+                            // itemId: item.id});setLoading(true)}} 
+                        title="Edit"
+                        color="#841584"
+                        accessibilityLabel="Learn more about this purple button"
+                    /> */}
+            </View> 
                 )}
 
                         {isLoading ? console.log(data) : console.log("nothing here")}
@@ -185,7 +218,108 @@ const styles = StyleSheet.create({
     height:100,
     width:200,
 
-  }
+  },
+  cardHolder:{
+    // margin:'100px 100px 100px 100px',
+    paddingTop:5,
+    paddingBottom:5,
+    paddingLeft:10,
+    paddingRight:10,
+
+},
+singleCard:{
+    // margin:'100px 100px 100px 100px',
+    backgroundColor:'#FFFFFF',
+    paddingTop:10,
+    // paddingBottom:10,
+    // paddingLeft:20,
+    // paddingRight:20,
+    borderRadius:10,
+},
+singleCardTop:{
+    // margin:'100px 100px 100px 100px',
+    backgroundColor:'#FFFFFF',
+    paddingTop:10,
+    paddingBottom:10,
+    paddingLeft:40,
+    paddingRight:40,
+    flexDirection: 'row' ,
+},
+singleCardBottom:{
+    // margin:'100px 100px 100px 100px',
+    backgroundColor:'rgba(198, 198, 198,0.5)',
+    paddingTop:10,
+    paddingBottom:10,
+    paddingLeft:40,
+    paddingRight:40,
+    borderBottomLeftRadius:5,
+    borderBottomRightRadius:5,
+    flexDirection: 'row' ,
+    justifyContent:'space-between'
+},
+singleCardBottomButton:{
+    // margin:'100px 100px 100px 100px',
+    backgroundColor:'rgba(198, 198, 198,0.5)',
+    paddingTop:10,
+    paddingBottom:10,
+    paddingLeft:40,
+    paddingRight:40,
+    borderBottomLeftRadius:5,
+    borderBottomRightRadius:5,
+
+},
+
+
+cardPic:{
+    // margin: '10px 10px 10px 10px',
+    width: 150, 
+    height: 150,
+
+},
+cardText:{
+    width:'60%',
+    flexDirecton: 'row' ,
+    height: '100%',
+    paddingLeft:10,
+
+
+},
+cardTextTitle:{
+    flexDirecton: 'row' ,
+    // height: '40%',
+    paddingLeft:5,
+    fontSize:26,
+
+
+},
+cardTextAddress:{
+    paddingLeft:5,
+
+    fontSize:12,
+
+},
+cardTextDescription:{
+    flexDirecton: 'row' ,
+    // height: '60%',
+    paddingLeft:5,
+
+
+},
+cardTextRating:{
+    flexDirecton: 'row' ,
+    // height: '60%',
+    paddingLeft:5,
+
+
+},
+
+cardTextPrice:{
+
+    fontSize:26,
+
+
+},
+
   // map: {
   //   ...StyleSheet.absoluteFillObject,
   // },

@@ -12,8 +12,11 @@ function EditBoxScreen({ navigation, route  }) {
   const [description, setDescription] = React.useState('description');
   const [price, setPrice] = React.useState('price');
   const [restaurantId, setRestaurantId] = React.useState('restaurantId');
+  const [restaurantName, setRestaurantName] = React.useState('restaurantName');
+  const [restaurantAddress, setRestaurantAddress] = React.useState('restaurantAddress');
   const [stock, setStock] = React.useState('stock');
   const [imageUri, setImageUri] = React.useState('imageUri');
+  const [rating, setRating] = React.useState('rating');
 
   const [isLoading, setLoading] = React.useState(true);
   const itemId  = route.params.itemId;
@@ -101,6 +104,7 @@ function EditBoxScreen({ navigation, route  }) {
       setRestaurantId(json.restaurantId)
       setStock(json.stock)
       setImageUri(json.imageUri)
+      setRating(json.rating)
       return json;
     } catch (error) {
       console.error(error);

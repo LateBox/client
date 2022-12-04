@@ -19,11 +19,56 @@ import SigninScreen from "./SigninScreen";
 
 function SingleShowBox({ navigation, props }) {
   const scrollX = new Animated.Value(0);
-  const [restaurant, setRestaurant] = React.useState(null);
+  const [boxName, setBoxName] = React.useState("Box Name");
+  const [description, setDescription] = React.useState("description");
+  const [price, setPrice] = React.useState("price");
+  const [restaurantId, setRestaurantId] = React.useState("restaurantId");
+  const [stock, setStock] = React.useState("stock");
+  const [imageUri, setImageUri] = React.useState("imageUri");
+  const itemId = 3;
+  const [orderQuantity, setOrderQuantity] = React.useState(1);
 
+  // React.useEffect(() => {
+  //   setRestaurant();
+  // });
+
+  const Increment = () => {
+    setOrderQuantity(orderQuantity + 1);
+  };
+
+  const Decrement = () => {
+    if (orderQuantity > 1) {
+      setOrderQuantity(orderQuantity - 1);
+    }
+  };
+
+  const getBox = async () => {
+    try {
+      const response = await fetch(currentUrl + "products/" + itemId, {
+        method: "GET",
+        // mode: 'no-cors',
+
+        // credentials: 'include',
+        "Access-Control-Allow-Credentials": "true",
+      });
+      const json = await response.json();
+
+      setBoxName(json.name);
+      setDescription(json.description);
+      setPrice(json.price);
+      setRestaurantId(json.restaurantId);
+      setStock(json.stock);
+      setImageUri(json.imageUri);
+      return json;
+    } catch (error) {
+      console.error(error);
+    } finally {
+      setLoading(false);
+    }
+  };
   React.useEffect(() => {
-    setRestaurant();
-  });
+    getBox();
+  }, []);
 
   const renderHeader = () => {
     return (
@@ -74,14 +119,14 @@ function SingleShowBox({ navigation, props }) {
             justifyContent: "center",
           }}
         >
-          <Image
-            source={icons.list}
+          {/* <Image
+            source={icons.star}
             resizeMode="contain"
             style={{
               width: 30,
               height: 30,
             }}
-          />
+          /> */}
         </TouchableOpacity>
       </View>
     );
@@ -100,91 +145,84 @@ function SingleShowBox({ navigation, props }) {
           { useNativeDriver: false }
         )}
       >
-        {restaurant?.menu.map((item, index) => (
-          <View key={`menu-${index}`} style={{ alignItems: "center" }}>
-            <View style={{ height: SIZES.height * 0.35 }}>
-              {/* Food Image */}
-              <Image
-                source={item.photo}
-                resizeMode="cover"
-                style={{
-                  width: SIZES.width,
-                  height: "100%",
-                }}
-              />
+        <View key={`menu-${itemId}`} style={{ alignItems: "center" }}>
+          <View style={{ height: SIZES.height * 0.35 }}>
+            {/* Food Image */}
+            <Image
+              source={imageUri}
+              resizeMode="cover"
+              style={{
+                width: SIZES.width,
+                height: "100%",
+              }}
+            />
 
-              {/* Quantity */}
-              <View
-                style={{
-                  position: "absolute",
-                  bottom: -20,
-                  width: SIZES.width,
-                  height: 50,
-                  justifyContent: "center",
-                  flexDirection: "row",
-                }}
-              >
-                <TouchableOpacity
-                  style={{
-                    width: 50,
-                    backgroundColor: COLORS.white,
-                    alignItems: "center",
-                    justifyContent: "center",
-                    borderTopLeftRadius: 25,
-                    borderBottomLeftRadius: 25,
-                  }}
-                  onPress={() => editOrder("-", item.menuId, item.price)}
-                >
-                  <Text>-</Text>
-                </TouchableOpacity>
-
-                <View
-                  style={{
-                    width: 50,
-                    backgroundColor: COLORS.white,
-                    alignItems: "center",
-                    justifyContent: "center",
-                  }}
-                >
-                  <Text>
-                    {getOrderQty(item.menuId)}
-                  </Text>
-                </View>
-
-                <TouchableOpacity
-                  style={{
-                    width: 50,
-                    backgroundColor: COLORS.white,
-                    alignItems: "center",
-                    justifyContent: "center",
-                    borderTopRightRadius: 25,
-                    borderBottomRightRadius: 25,
-                  }}
-                  onPress={() => editOrder("+", item.menuId, item.price)}
-                >
-                  <Text>+</Text>
-                </TouchableOpacity>
-              </View>
-            </View>
-
-            {/* Name & Description */}
+            {/* Quantity */}
             <View
               style={{
                 width: SIZES.width,
-                alignItems: "center",
-                marginTop: 15,
-                paddingHorizontal: SIZES.padding * 2,
+                height: 50,
+                justifyContent: "center",
+                flexDirection: "row",
               }}
             >
-              <Text
-                style={{ marginVertical: 10, textAlign: "center"}}
+              <TouchableOpacity
+                style={{
+                  width: 50,
+                  backgroundColor: COLORS.white,
+                  alignItems: "center",
+                  justifyContent: "center",
+                  borderTopLeftRadius: 25,
+                  borderBottomLeftRadius: 25,
+                }}
+                onPress={() => Decrement()}
               >
-                {item.name} - {item.price.toFixed(2)}
-              </Text>
-              <Text>{item.description}</Text>
+                <Text>-</Text>
+              </TouchableOpacity>
+
+              <View
+                style={{
+                  width: 50,
+                  backgroundColor: COLORS.white,
+                  alignItems: "center",
+                  justifyContent: "center",
+                }}
+              >
+                <Text>{orderQuantity}</Text>
+              </View>
+
+              <TouchableOpacity
+                style={{
+                  width: 50,
+                  backgroundColor: COLORS.white,
+                  alignItems: "center",
+                  justifyContent: "center",
+                  borderTopRightRadius: 25,
+                  borderBottomRightRadius: 25,
+                }}
+                onPress={() => Increment()}
+              >
+                <Text>+</Text>
+              </TouchableOpacity>
             </View>
           </View>
-        ))}
+
+          {/* Name & Description */}
+          <View
+            style={{
+              bottom: -20,
+              width: SIZES.width,
+              alignItems: "center",
+              marginTop: 15,
+              paddingHorizontal: SIZES.padding * 2,
+            }}
+          >
+            <Text style={{ marginVertical: 10, textAlign: "center" }}>
+              {/* {item} - {item.price.toFixed(2)} */}
+            </Text>
+            <Text>some food description</Text>
+          </View>
+        </View>
       </Animated.ScrollView>
     );
   }
@@ -193,7 +231,9 @@ function SingleShowBox({ navigation, props }) {
     <SafeAreaView style={styles.container}>
       {renderHeader()}
       {renderFoodInfo()}
-      <Button title="Add to Cart" />
+      <View style={styles.toCartButton}>
+        <Button title="Add to Cart" />
+      </View>
     </SafeAreaView>
   );
 }
@@ -202,6 +242,16 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: COLORS.lightGray2,
+  },
+  toCartButton: {
+    marginLeft:95,
+    width: 200,
+    backgroundColor: COLORS.white,
+    borderColor: COLORS.black,
+    alignItems: "center",
+    justifyContent: "center",
+    borderWidth: 2,
+    borderRadius: 25,
   },
 });
 

@@ -12,8 +12,11 @@ function AddBoxScreen({ navigation }) {
   const [description, setDescription] = React.useState('description');
   const [price, setPrice] = React.useState('price');
   const [restaurantId, setRestaurantId] = React.useState('restaurantId');
+  const [restaurantName, setRestaurantName] = React.useState('restaurantName');
+  const [restaurantAddress, setRestaurantAddress] = React.useState('restaurantAddress');
   const [stock, setStock] = React.useState('stock');
   const [imageUri, setImageUri] = React.useState('imageUri');
+  const [rating, setRating] = React.useState('rating');
 
 
   const takeImage = async () => {
@@ -63,7 +66,11 @@ function AddBoxScreen({ navigation }) {
       "price": price,
       "restaurantId": "0",
       "stock": stock,
-      "imageUri":imageUri
+      "imageUri":imageUri,
+      "restaurantId":restaurantId,
+      "restaurantName":restaurantName,
+      "restaurantAddress":restaurantAddress,
+      "rating":"3.5"
     }
     return fetch(currentUrl + 'products',
       // return fetch('http://localhost:8080/accounts',
@@ -95,6 +102,10 @@ function AddBoxScreen({ navigation }) {
     
       <View style={styles.mainContainer}>
         <Button title="Return to Router" onPress={() => navigation.navigate('Router')} />
+
+        <TouchableOpacity style={styles.signUpBtn} onPress={postBox}>
+            <Text style={styles.signUpBtnTxt}>Submit box</Text>
+          </TouchableOpacity>
 
 
         <View style={styles.body}>
@@ -139,7 +150,6 @@ function AddBoxScreen({ navigation }) {
 
           <TextInput
             style={styles.input}
-            secureTextEntry={true}
             placeholder="price"
             placeholderTextColor="#a9a9a9"
             onChangeText={value => setPrice(value)}
@@ -162,14 +172,50 @@ function AddBoxScreen({ navigation }) {
             autoCapitalize={"none"}
           />
 
+<Text style={styles.sentence}>
+            {"PLEASE ENTER YOUR restaurantId               "}
+          </Text>
+
+          <TextInput
+            style={styles.input}
+            placeholder="restaurantId"
+            placeholderTextColor="#a9a9a9"
+            onChangeText={value => setRestaurantId(value)}
+            priceValue={restaurantId}
+            autoCapitalize={"none"}
+          />
+
+<Text style={styles.sentence}>
+            {"PLEASE ENTER YOUR restaurantName                    "}
+          </Text>
+
+          <TextInput
+            style={styles.input}
+            placeholder="restaurantName"
+            placeholderTextColor="#a9a9a9"
+            onChangeText={value => setRestaurantName(value)}
+            priceValue={restaurantName}
+            autoCapitalize={"none"}
+          />
+
+<Text style={styles.sentence}>
+            {"PLEASE ENTER YOUR restaurantAddress                     "}
+          </Text>
+
+          <TextInput
+            style={styles.input}
+            placeholder="restaurantAddress"
+            placeholderTextColor="#a9a9a9"
+            onChangeText={value => setRestaurantAddress(value)}
+            priceValue={restaurantAddress}
+            autoCapitalize={"none"}
+          />
+
 <Button title="Pick an image from camera roll" onPress={takeImage} />
       {imageUri && <Image source={{ uri: imageUri }} style={{ width: 200, height: 200 }} />}
 
 
-          <TouchableOpacity style={styles.signUpBtn} onPress={postBox}>
-            <Text style={styles.signUpBtnTxt}>Submit box</Text>
-          </TouchableOpacity>
-
+          
           {/* <Button title="Sign up" onPress={() => navigation.navigate('Login')} />
 
                 <Button title="Go to Home" onPress={() => navigation.navigate('Home')} /> */}
