@@ -416,7 +416,7 @@ function NewAccountPreferences({ navigation }) {
               </View>
             </View>
 
-            <Text onPress={() => navigation.navigate('ShowBox')} style={styles.textnext}>NEXT</Text>
+            <Text onPress={() => navigation.navigate('Home')} style={styles.textnext}>NEXT</Text>
 
         </View>
 

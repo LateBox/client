@@ -129,6 +129,7 @@ function MapScreen(props, { navigation }) {
           centerOffset={{x: -18, y: -60}}
           anchor={{x: 0.69, y: 1}}
           image={address}
+          key={mymarker.id}
         >
 
         </Marker>      

@@ -31,7 +31,7 @@ const Stack = createNativeStackNavigator();
 function App() {
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="Router" screenOptions={{headerShown: false}}>
+      <Stack.Navigator initialRouteName="Home" screenOptions={{headerShown: false}}>
         <Stack.Screen name="Home" component={Tabs}/>
         <Stack.Screen name="Router" component={RouterScreen}/>
         <Stack.Screen name="Spare" component={SpareScreen}/>
