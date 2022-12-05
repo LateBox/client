@@ -104,7 +104,6 @@ function MapScreen(props, { navigation }) {
 
   return (
     <View>
-      <Button title="Return to Router" onPress={() => props.navigation.navigate('Router')} />  
       <MapView
         provider={PROVIDER_GOOGLE} // remove if not using Google Maps
         style={styles.map} 
@@ -207,7 +206,7 @@ const styles = StyleSheet.create({
   },
   map: {
     width: width,
-    height: height-450,
+    height: height-410,
   },
   boxPopup:{
       flex: 1,
@@ -259,7 +258,7 @@ singleCardTop:{
 },
 singleCardBottom:{
     // margin:'100px 100px 100px 100px',
-    backgroundColor:'rgba(198, 198, 198,0.5)',
+    backgroundColor:'rgba(198, 198, 198,0.2)',
     paddingTop:10,
     paddingBottom:10,
     paddingLeft:40,

@@ -189,7 +189,6 @@ function EditBoxScreen({ navigation, route  }) {
 
     
       <View style={styles.mainContainer}>
-        <Button title="Return to Router" onPress={() => navigation.navigate('Router')} />
 
 
         <View style={styles.body}>
@@ -203,10 +202,9 @@ function EditBoxScreen({ navigation, route  }) {
           {isLoading ? <ActivityIndicator /> : (
           <><Text style={styles.sentence}>
             {"PLEASE ENTER THE BOX NAME                                     "}
-            {boxName}
           </Text><TextInput
               style={styles.input}
-              placeholderTextColor="#a9a9a9"
+              placeholderTextColor="#black"
               onChangeText={value => setBoxName(value)}
               value={boxName}
               autoCapitalize={"none"} /><Text style={styles.sentence}>
@@ -240,14 +238,17 @@ function EditBoxScreen({ navigation, route  }) {
           )}
 
 
-<Button title="Pick an image from camera roll" onPress={takeImage} />
-      {imageUri && <Image source={{ uri: imageUri }} style={{ width: 200, height: 200 }} />}
+<TouchableOpacity style={styles.photobtn} onPress={takeImage}>
+<Text style={styles.signUpBtnTxt}>Upload photo</Text>
+
+</TouchableOpacity>
+      {imageUri && <Image source={{ uri: imageUri }} style={{ width: 200, height: 200, borderRadius:25, top:5, }} />}
 
     <View style= {styles.notifyrows}>
 
       <Switch 
-        trackColor={{ false: "#767577", true: "#81b0ff" }}
-        thumbColor={isEnabled ? "#f5dd4b" : "#f4f3f4"}
+        trackColor={{ false: "#ececec", true: "#ececec" }}
+        thumbColor={isEnabled ? "#f18861" : "#c6c6c6"}
         ios_backgroundColor="#3e3e3e"
         onValueChange={toggleSwitch}
         value={isEnabled}
@@ -256,18 +257,19 @@ function EditBoxScreen({ navigation, route  }) {
 
     </View>
       
-
+<View style={styles.buttons}>
           <TouchableOpacity style={styles.signUpBtn} onPress={putBox}>
             <Text style={styles.signUpBtnTxt}>edit box</Text>
           </TouchableOpacity>
-          <TouchableOpacity style={styles.signUpBtn} onPress={deleteBox}>
-            <Text style={styles.signUpBtnTxt}>DELETE box</Text>
+          <TouchableOpacity style={styles.signUpBtn2} onPress={deleteBox}>
+            <Text style={styles.signUpBtnTxt}>delete box</Text>
           </TouchableOpacity>
 
           {/* <Button title="Sign up" onPress={() => navigation.navigate('Login')} />
 
                 <Button title="Go to Home" onPress={() => navigation.navigate('Home')} /> */}
 
+</View>
 
         </View>
 
@@ -308,22 +310,44 @@ const styles = StyleSheet.create({
     width: "80%",
     backgroundColor: 'rgba(245, 220, 189, 0.4)',
     borderRadius: 25,
-    height: 30,
+    height: 35,
     color: "black",
     marginBottom: "6%",
     justifyContent: "center",
-    padding: 20,
-    fontSize: 12,
+    paddingLeft: 11,
+    fontSize: 15
   },
 
   signUpBtn: {
-    width: "65%",
+    width: "40%",
     borderRadius: 25,
-    height: 50,
+    height: 45,
     alignItems: "center",
     justifyContent: "center",
     marginTop: 70,
     backgroundColor: "rgba(33, 33, 98, 0.8)",
+    marginRight:10,
+  },
+  photobtn: {
+    width: "40%",
+    borderRadius: 25,
+    height: 45,
+    alignItems: "center",
+    justifyContent: "center",
+    backgroundColor: "black",
+  },
+  signUpBtn2: {
+    width: "40%",
+    borderRadius: 25,
+    height: 45,
+    alignItems: "center",
+    justifyContent: "center",
+    marginTop: 70,
+    backgroundColor: "#CF2534",
+    marginRight:10,
+  },
+  buttons: {
+    flexDirection: "row",
   },
   signUpBtnTxt: {
     color: "white",

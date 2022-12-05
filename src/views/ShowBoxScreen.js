@@ -74,7 +74,6 @@ function ShowBoxScreen({  navigation}) {
     return (
 
         <View style={styles.mainContainer}>
-            <Button title="Return to Router" onPress={() => navigation.navigate('Router')} />
             
             <View style={styles.searchBar}>
                 <TextInput
@@ -129,7 +128,7 @@ function ShowBoxScreen({  navigation}) {
 
                                         <Text style={styles.cardTextPrice}>$ {item.price}</Text>
                                         <Button tyle={styles.singleCardBottomButton}
-                                            onPress={() =>{navigation.navigate('EditBox' , {
+                                            onPress={() =>{navigation.navigate('SingleShowBox' , {
                                                 itemId: item.id})}} 
                                                 // itemId: item.id});setLoading(true)}} 
                                             title="View Box"
@@ -238,7 +237,7 @@ const styles = StyleSheet.create({
     },
     singleCardBottom:{
         // margin:'100px 100px 100px 100px',
-        backgroundColor:'rgba(198, 198, 198,0.5)',
+        backgroundColor:'rgba(198, 198, 198,0.4)',
         paddingTop:10,
         paddingBottom:10,
         paddingLeft:40,
@@ -257,6 +256,7 @@ const styles = StyleSheet.create({
         paddingRight:40,
         borderBottomLeftRadius:5,
         borderBottomRightRadius:5,
+        borderRadius: 25,
 
     },
 

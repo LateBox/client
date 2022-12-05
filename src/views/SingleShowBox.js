@@ -94,6 +94,7 @@ function SingleShowBox({ navigation, props }) {
             }}
           />
         </TouchableOpacity>
+       
 
         {/* Restaurant name section */}
         <View
@@ -103,6 +104,7 @@ function SingleShowBox({ navigation, props }) {
             justifyContent: "center",
           }}
         >
+          
           <View
             style={{
               height: 50,
@@ -198,6 +200,11 @@ function SingleShowBox({ navigation, props }) {
           </View>
 
           {/* Name & Description */}
+          <TouchableOpacity style={styles.buttonStyle}>
+          <Image style={styles.icon} source={{uri: 'https://raw.githubusercontent.com/LateBox/latebox/main/SVGS/lettuce2.png'}}/>
+
+              <Text >  Vegan</Text>
+            </TouchableOpacity>
           <View
             style={{
               width: SIZES.width,
@@ -262,6 +269,25 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: COLORS.lightGray2,
+  },
+  buttonStyle:{
+    backgroundColor:"rgba(241, 136, 97, 1)",
+    width: '23%',
+    height: '5%',
+    alignItems: "center",
+    padding: 10,
+    flexDirection:"row",
+    borderRadius: 100,
+    marginLeft: "-70%",
+    marginTop:"4%",
+  },
+  icon: {
+    width: "30%",
+    height: "170%",
+    // alignItems:"left",
+    // justifyContent:"left",
+    aspectratio: "1.4"
+
   },
   toCartButton: {
     width: "65%",
