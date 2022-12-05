@@ -2,12 +2,9 @@ import * as React from 'react';
 import { View, Button, Image, StyleSheet, Dimensions } from "react-native";
 import { useIsFocused } from "@react-navigation/native";
 import currentUrl from "../constants/urls";
-<<<<<<< Updated upstream
 import Accordion from '../components/Accordion';
-=======
 import { COLORS, icons } from "../constants";
 import LateboxButton from '../utils/button';
->>>>>>> Stashed changes
 
 
 const {width, height} = Dimensions.get('window');
@@ -16,15 +13,6 @@ const {width, height} = Dimensions.get('window');
 function Settings(props, { navigation }) {
 
   return (
-<<<<<<< Updated upstream
-    <View>
-      <Button title="Return to Router" onPress={() => props.navigation.navigate('Router')} />  
-      <Button title="Preferences" onPress={() => props.navigation.navigate('AccountPreferences')} />  
-      <Button title="Help Center" onPress={() => props.navigation.navigate('HC')} />  
-      <Button title="Terms & Conditions" onPress={() => props.navigation.navigate('TC')} />
-      <Button title="Logout" onPress={() => props.navigation.navigate('Home')} />  
-      <Accordion />
-=======
     <View style={{ flexDirection: "column" }}>
       {/* <Button title="Return to Router" onPress={() => props.navigation.navigate('Router')} /> */}
       <LateboxButton text="Return to Router" image={icons.back} onPress={() => props.navigation.navigate('Router')} />
@@ -32,7 +20,7 @@ function Settings(props, { navigation }) {
       <LateboxButton text="Help Center" onPress={() => props.navigation.navigate('HC')} />
       <LateboxButton text="Terms & Conditions" onPress={() => props.navigation.navigate('TC')} />
       <LateboxButton text="Logout" onPress={() => props.navigation.navigate('Login')} />
->>>>>>> Stashed changes
+      <Accordion/>
     </View>
   );
 }
