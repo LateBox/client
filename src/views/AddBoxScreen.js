@@ -8,7 +8,7 @@ import * as ImagePicker from 'expo-image-picker';  // not react-image-picker
 
 
 function AddBoxScreen({ navigation }) {
-  const [boxId, setboxId] = React.useState('0');
+  const [boxId, setboxId] = React.useState('3');
   const [boxName, setBoxName] = React.useState('Box Name');
   const [description, setDescription] = React.useState('description');
   const [price, setPrice] = React.useState('price');
@@ -94,8 +94,7 @@ function AddBoxScreen({ navigation }) {
       })
       // get the new products before moving to the show box screen
       // .then(ShowBoxScreen.getProducts)
-      .then(navigation.navigate('EditBox' , {
-        itemId: boxId}))
+      .then(navigation.navigate('BoxAdded'))
       .catch((error) => {
         console.error(error);
       });
@@ -118,7 +117,7 @@ function AddBoxScreen({ navigation }) {
 
 
           <Text style={styles.sentence}>
-            {"PLEASE ENTER THE BOX NAME                                     "}
+            {"PLEASE ENTER THE BOX NAME                                                                                             "}
           </Text>
 
           <TextInput
@@ -131,12 +130,12 @@ function AddBoxScreen({ navigation }) {
           />
 
           <Text style={styles.sentence}>
-            {"PLEASE ENTER YOUR DESCRIPTION                                     "}
+            {"PLEASE ENTER YOUR DESCRIPTION                                                                                    "}
           </Text>
 
           <TextInput
             style={styles.input}
-            placeholder="DESCRIPTION"
+            placeholder="description"
             placeholderTextColor="#a9a9a9"
             onChangeText={value => setDescription(value)}
             descriptionValue={description}
@@ -144,7 +143,7 @@ function AddBoxScreen({ navigation }) {
           />
 
           <Text style={styles.sentence}>
-            {"PLEASE ENTER YOUR PRICE                              "}
+            {"PLEASE ENTER YOUR PRICE                                                                                                    "}
           </Text>
 
           <TextInput
@@ -157,13 +156,13 @@ function AddBoxScreen({ navigation }) {
           />
 
           <Text style={styles.sentence}>
-            {"PLEASE ENTER YOUR STOCK NUMBER                      "}
+            {"PLEASE ENTER YOUR STOCK NUMBER                                                                                "}
           </Text>
 
           <TextInput
             style={styles.input}
             keyboardType={'phone-pad'}
-            placeholder="STOCK NUMBER"
+            placeholder="stock number"
             maxLength={10}
             placeholderTextColor="#a9a9a9"
             onChangeText={value => setStock(value)}
@@ -240,12 +239,12 @@ const styles = StyleSheet.create({
     width: "80%",
     backgroundColor: 'rgba(245, 220, 189, 0.4)',
     borderRadius: 25,
-    height: 30,
+    height: 35,
     color: "black",
     marginBottom: "6%",
     justifyContent: "center",
-    padding: 20,
-    fontSize: 12,
+    paddingLeft: 11,
+    fontSize: 15,
   },
 
   signUpBtn: {

@@ -72,6 +72,7 @@ function MapScreen( { navigation }) {
         setDescription(json.description)
         setPrice(json.price)
         setRestaurantId(json.restaurantId)
+        setRestaurantAddress(json.restaurantAddress)
         setStock(json.stock)
         setImageUri(json.imageUri)
         setRating(json.rating)
@@ -110,12 +111,12 @@ function MapScreen( { navigation }) {
         provider={PROVIDER_GOOGLE} // remove if not using Google Maps
         style={styles.map} 
         initialRegion={ottawa}>
-      <Marker
+      {/* <Marker
         coordinate={ottawa}
         centerOffset={{x: -18, y: -60}}
         anchor={{x: 0.69, y: 1}}
         image={marker100}
-      />
+      /> */}
       {COORDINATES.map(mymarker => (
         <Marker
           coordinate={{
@@ -125,8 +126,7 @@ function MapScreen( { navigation }) {
             longitudeDelta: latlongdelta,
           }}
           onPress= {() => (switchFlag,setSelectedMarkerID(mymarker.id))}
-          title={mymarker.id}
-          description={mymarker.ownerId}
+          title={mymarker.ownerId}
           centerOffset={{x: -18, y: -60}}
           anchor={{x: 0.69, y: 1}}
           image={address}

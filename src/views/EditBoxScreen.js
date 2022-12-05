@@ -21,7 +21,7 @@ function EditBoxScreen({ navigation, route  }) {
 
   const [isLoading, setLoading] = React.useState(true);
   // const itemId  = route.params.itemId;
-  const itemId  = 7;
+  const itemId  = 3;
   // const itemId  = 0;
   // console.log(itemId);
 //   const getProduct = async () => {
@@ -146,7 +146,7 @@ function EditBoxScreen({ navigation, route  }) {
         // console.log(json)
         return json;
       })
-      .then(navigation.navigate('EditBox'))
+      .then(navigation.navigate('BoxUpdated'))
       .catch((error) => {
         console.error(error);
       });
@@ -171,7 +171,7 @@ function EditBoxScreen({ navigation, route  }) {
           // get the new products before moving to the show box screen
 
     // .then(ShowBoxScreen.getProducts)
-      .then(navigation.navigate('AddBox'))
+      .then(navigation.navigate('BoxDeleted'))
       .catch((error) => {
         console.error(error);
       });

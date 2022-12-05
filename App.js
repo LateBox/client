@@ -26,6 +26,12 @@ import TabsRestaurant from './src/navigation/tabsRestaurant';
 import TC from './src/views/TC';
 import HC from './src/views/HC';
 import ChangePref from './src/views/ChangePref';
+import BoxUpdated from './src/views/BoxUpdated';
+import BoxDeleted from './src/views/BoxDeleted';
+import BoxAdded from './src/views/BoxAdded';
+
+
+
 
 import { LogBox } from 'react-native';
 
@@ -41,7 +47,7 @@ LogBox.ignoreAllLogs();
 
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="Home" screenOptions={{headerShown: false}}>
+      <Stack.Navigator initialRouteName="HomeScreen" screenOptions={{headerShown: false}}>
         <Stack.Screen name="Home" component={Tabs}/>
         <Stack.Screen name="Router" component={RouterScreen}/>
         <Stack.Screen name="Spare" component={SpareScreen}/>
@@ -65,6 +71,10 @@ LogBox.ignoreAllLogs();
         <Stack.Screen name="ProductDetail" component={ProductDetailScreen}/>
         <Stack.Screen name="Settings" component={Settings}/>
         <Stack.Screen name="TC" component={TC}/>
+        <Stack.Screen name="BoxUpdated" component={BoxUpdated}/>
+        <Stack.Screen name="BoxDeleted" component={BoxDeleted}/>
+        <Stack.Screen name="BoxAdded" component={BoxAdded}/>
+
         <Stack.Screen name="HC" component={HC}/>
       </Stack.Navigator>
     </NavigationContainer>
