@@ -20,7 +20,7 @@ function EditBoxScreen({ navigation, route  }) {
   const [rating, setRating] = React.useState('rating');
 
   const [isLoading, setLoading] = React.useState(true);
-  const itemId  = 101;
+  const itemId  = route.params.itemId;
   // console.log(itemId);
 //   const getProduct = async () => {
 //     try {

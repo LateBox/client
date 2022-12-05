@@ -14,21 +14,27 @@ import {
 } from "react-native";
 import { useIsFocused } from "@react-navigation/native";
 import currentUrl from "../constants/urls";
+import Cart from './Cart';
+
 
 import { icons, COLORS, SIZES, FONTS, images } from "../constants";
 import SigninScreen from "./SigninScreen";
 
-function SingleShowBox({ navigation, props }) {
+function SingleShowBox({ navigation, route }) {
   const scrollX = new Animated.Value(0);
   const [boxName, setBoxName] = React.useState("Box Name");
   const [description, setDescription] = React.useState("description");
   const [price, setPrice] = React.useState(5);
   const [restaurantId, setRestaurantId] = React.useState("restaurantId");
   const [stock, setStock] = React.useState("stock");
+  const [restaurantName, setRestaurantName] = React.useState('restaurantName');
+  const [restaurantAddress, setRestaurantAddress] = React.useState('restaurantAddress');
   const [imageUri, setImageUri] = React.useState("imageUri");
-  const itemId = 3;
+  // const itemId = 101;
   const [orderQuantity, setOrderQuantity] = React.useState(1);
+  const [rating, setRating] = React.useState('rating');
   const initialPrice = 5;
+  const itemId  = route.params.itemId;
 
   // React.useEffect(() => {
   //   setRestaurant();
@@ -74,72 +80,18 @@ function SingleShowBox({ navigation, props }) {
     getBox();
   }, []);
 
-  const renderHeader = () => {
-    return (
-      <View style={{ flexDirection: "row" }}>
-        <TouchableOpacity
-          style={{
-            width: 50,
-            paddingLeft: SIZES.padding * 2,
-            justifyContent: "center",
-          }}
-          onPress={() => navigation.goBack()}
-        >
-          <Image
-            source={icons.back}
-            resizeMode="contain"
-            style={{
-              width: 30,
-              height: 30,
-            }}
-          />
-        </TouchableOpacity>
-       
-
-        {/* Restaurant name section */}
-        <View
-          style={{
-            flex: 1,
-            alignItems: "center",
-            justifyContent: "center",
-          }}
-        >
-          
-          <View
-            style={{
-              height: 50,
-              alignItems: "center",
-              justifyContent: "center",
-              borderRadius: SIZES.radius,
-              paddingHorizontal: SIZES.padding * 3,
-              backgroundColor: COLORS.lightGray3,
-            }}
-          >
-            <Text>Restaurant Name</Text>
-          </View>
-        </View>
-
-        <TouchableOpacity
-          style={{
-            width: 50,
-            paddingRight: SIZES.padding * 2,
-            justifyContent: "center",
-          }}
-        ></TouchableOpacity>
-      </View>
-    );
-  };
 
   // OK
 
-  function renderFoodInfo() {
-    return (
+
+  return (
+    <View style={styles.mainContainer}>
       <View>
         <View key={`menu-${itemId}`} style={{ alignItems: "center" }}>
           <View style={{ height: SIZES.height * 0.35 }}>
             {/* Food Image */}
             <Image
-              source={images.crispy_chicken_burger}
+              source={{uri:imageUri}}
               resizeMode="cover"
               style={{
                 width: SIZES.width,
@@ -220,17 +172,11 @@ function SingleShowBox({ navigation, props }) {
                 padding: 20,
               }}
             >
-              itemName - ${price}
+              {boxName} - ${price}
             </Text>
             <View style={{ backgroundColor: COLORS.white }}>
               <Text>
-                "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-                enim ad minim veniam, quis nostrud exercitation ullamco laboris
-                nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor
-                in reprehenderit in voluptate velit esse cillum dolore eu fugiat
-                nulla pariatur. Excepteur sint occaecat cupidatat non proident,
-                sunt in culpa qui officia deserunt mollit anim id est laborum."
+              {description}
               </Text>
             </View>
           </View>
@@ -247,25 +193,22 @@ function SingleShowBox({ navigation, props }) {
           >
             <Text style={{ textAlign: "center" }}>{price} $</Text>
           </View> */}
-          <TouchableOpacity style={styles.toCartButton} onPress={""}>
-            <Text>Add to Cart</Text>
+          <TouchableOpacity style={styles.toCartButton} onPress={() => navigation.navigate('Home')}>
+            <Text>Go to checkout</Text>
           </TouchableOpacity>
         </View>
       </View>
-    );
-  }
-
-  return (
-    <SafeAreaView style={styles.container}>
-      <View>
-        {renderHeader()}
-        {renderFoodInfo()}
       </View>
-    </SafeAreaView>
+
   );
 }
 
 const styles = StyleSheet.create({
+  mainContainer: {
+    height: '100%',
+    display: 'flex',
+    flexDirection: 'column',
+},
   container: {
     flex: 1,
     backgroundColor: COLORS.lightGray2,
