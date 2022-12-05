@@ -14,7 +14,7 @@ import HomeScreen from "../views/HomeScreen";
 import SettingsScreen from "../views/Settings";
 import AddBoxScreen from "../views/AddBoxScreen";
 import EditBoxScreen from "../views/EditBoxScreen";
-
+import SettingsScreen from "../views/Settings";
 
 const Tab = createBottomTabNavigator();
 
@@ -90,7 +90,7 @@ const CustomTabBar = (props) => {
   }
 };
 
-const Tabs = () => {
+const TabsRestaurant = () => {
   return (
     <Tab.Navigator
       screenOptions={{
@@ -103,7 +103,7 @@ const Tabs = () => {
       }}
     >
       <Tab.Screen
-        name="Add Box"
+        name="AddBox"
         component={AddBoxScreen}
         options={{
           tabBarIcon: ({ focused }) => (
@@ -121,7 +121,7 @@ const Tabs = () => {
         }}
       />
       <Tab.Screen
-        name="Edit Box"
+        name="EditBox"
         component={EditBoxScreen}
         options={{
           tabBarIcon: ({ focused }) => (
@@ -140,7 +140,7 @@ const Tabs = () => {
       />
 
       <Tab.Screen
-        name="Account Settings"
+        name="SettingsScreen"
         component={SettingsScreen}
         options={{
           tabBarIcon: ({ focused }) => (

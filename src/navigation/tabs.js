@@ -119,7 +119,7 @@ const Tabs = () => {
         }}
       />
       <Tab.Screen
-        name="Maps"
+        name="Map"
         component={MapScreen}
         options={{
           tabBarIcon: ({ focused }) => (
