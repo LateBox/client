@@ -29,7 +29,7 @@ const Accordion = () => {
               minimumValue={1}
               onValueChange={value => setValue(value)}
             />
-            <Text>Current distance range: {int(value)}</Text>
+            <Text>Current distance range: {parseInt(value,10)}</Text>
           </View>
         </View>
       </Collapsible>
