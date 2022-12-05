@@ -20,7 +20,8 @@ function EditBoxScreen({ navigation, route  }) {
   const [rating, setRating] = React.useState('rating');
 
   const [isLoading, setLoading] = React.useState(true);
-  const itemId  = route.params.itemId;
+  // const itemId  = route.params.itemId;
+  const itemId  = 7;
   // const itemId  = 0;
   // console.log(itemId);
 //   const getProduct = async () => {
@@ -145,7 +146,7 @@ function EditBoxScreen({ navigation, route  }) {
         // console.log(json)
         return json;
       })
-      .then(navigation.navigate('ShowBox'))
+      .then(navigation.navigate('EditBox'))
       .catch((error) => {
         console.error(error);
       });
@@ -170,7 +171,7 @@ function EditBoxScreen({ navigation, route  }) {
           // get the new products before moving to the show box screen
 
     // .then(ShowBoxScreen.getProducts)
-      .then(navigation.navigate('ShowBox'))
+      .then(navigation.navigate('AddBox'))
       .catch((error) => {
         console.error(error);
       });
@@ -202,14 +203,14 @@ function EditBoxScreen({ navigation, route  }) {
 
           {isLoading ? <ActivityIndicator /> : (
           <><Text style={styles.sentence}>
-            {"PLEASE ENTER THE BOX NAME                                     "}
+            {"PLEASE ENTER THE BOX NAME                                                   "}
           </Text><TextInput
               style={styles.input}
               placeholderTextColor="#black"
               onChangeText={value => setBoxName(value)}
               value={boxName}
               autoCapitalize={"none"} /><Text style={styles.sentence}>
-              {"PLEASE ENTER YOUR DESCRIPTION                                     "}
+              {"PLEASE ENTER YOUR DESCRIPTION                                         "}
             </Text><TextInput
               style={styles.input}
               placeholder="DESCRIPTION"
@@ -217,16 +218,15 @@ function EditBoxScreen({ navigation, route  }) {
               onChangeText={value => setDescription(value)}
               value={description}
               autoCapitalize={"none"} /><Text style={styles.sentence}>
-              {"PLEASE ENTER YOUR price                              "}
+              {"PLEASE ENTER YOUR PRICE                                                          "}
             </Text><TextInput
               style={styles.input}
-              secureTextEntry={true}
               placeholder="price"
               placeholderTextColor="#a9a9a9"
               onChangeText={value => setPrice(value)}
               value={price}
               autoCapitalize={"none"} /><Text style={styles.sentence}>
-              {"PLEASE ENTER YOUR stock NUMBER                      "}
+              {"PLEASE ENTER YOUR STOCK NUMBER                                    "}
             </Text><TextInput
               style={styles.input}
               keyboardType={'phone-pad'}
@@ -260,7 +260,7 @@ function EditBoxScreen({ navigation, route  }) {
       
 <View style={styles.buttons}>
           <TouchableOpacity style={styles.signUpBtn} onPress={putBox}>
-            <Text style={styles.signUpBtnTxt}>edit box</Text>
+            <Text style={styles.signUpBtnTxt}>update box</Text>
           </TouchableOpacity>
           <TouchableOpacity style={styles.signUpBtn2} onPress={deleteBox}>
             <Text style={styles.signUpBtnTxt}>delete box</Text>
@@ -283,13 +283,15 @@ function EditBoxScreen({ navigation, route  }) {
 
 const styles = StyleSheet.create({
   mainContainer: {
-    height: '100%',
+    height: '600%',
     display: 'flex',
     flexDirection: 'column',
+    top: -50
   },
   notifyrows:{
     top: "5%",
     flexDirection:"row",
+    alignItems:"center"
   },
   topBar: {
     alignItems: 'center',
@@ -316,7 +318,7 @@ const styles = StyleSheet.create({
     marginBottom: "6%",
     justifyContent: "center",
     paddingLeft: 11,
-    fontSize: 15
+    fontSize: 15,
   },
 
   signUpBtn: {
@@ -349,6 +351,7 @@ const styles = StyleSheet.create({
   },
   buttons: {
     flexDirection: "row",
+    top:-30
   },
   signUpBtnTxt: {
     color: "white",
@@ -367,7 +370,7 @@ const styles = StyleSheet.create({
     marginTop: 17,
   },
   sentence: {
-
+    left:-35,
     fontSize: 10,
     color: "#8F8E8E",
   },

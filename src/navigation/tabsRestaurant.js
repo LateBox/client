@@ -14,7 +14,6 @@ import HomeScreen from "../views/HomeScreen";
 import SettingsScreen from "../views/Settings";
 import AddBoxScreen from "../views/AddBoxScreen";
 import EditBoxScreen from "../views/EditBoxScreen";
-import SettingsScreen from "../views/Settings";
 
 const Tab = createBottomTabNavigator();
 
@@ -108,7 +107,7 @@ const TabsRestaurant = () => {
         options={{
           tabBarIcon: ({ focused }) => (
             <Image
-              source={icons.cutlery}
+              source={icons.plus}
               resizeMode="contain"
               style={{
                 width: 25,
@@ -126,7 +125,7 @@ const TabsRestaurant = () => {
         options={{
           tabBarIcon: ({ focused }) => (
             <Image
-              source={icons.location}
+              source={icons.edit}
               resizeMode="contain"
               style={{
                 width: 27,
@@ -161,4 +160,4 @@ const TabsRestaurant = () => {
   );
 };
 
-export default Tabs;
+export default TabsRestaurant;

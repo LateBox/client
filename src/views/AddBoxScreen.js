@@ -8,6 +8,7 @@ import * as ImagePicker from 'expo-image-picker';  // not react-image-picker
 
 
 function AddBoxScreen({ navigation }) {
+  const [boxId, setboxId] = React.useState('0');
   const [boxName, setBoxName] = React.useState('Box Name');
   const [description, setDescription] = React.useState('description');
   const [price, setPrice] = React.useState('price');
@@ -93,7 +94,8 @@ function AddBoxScreen({ navigation }) {
       })
       // get the new products before moving to the show box screen
       // .then(ShowBoxScreen.getProducts)
-      .then(navigation.navigate('ShowBox'))
+      .then(navigation.navigate('EditBox' , {
+        itemId: boxId}))
       .catch((error) => {
         console.error(error);
       });
@@ -101,11 +103,8 @@ function AddBoxScreen({ navigation }) {
   return (
     
       <View style={styles.mainContainer}>
-        <Button title="Return to Router" onPress={() => navigation.navigate('Router')} />
 
-        <TouchableOpacity style={styles.signUpBtn} onPress={postBox}>
-            <Text style={styles.signUpBtnTxt}>Submit box</Text>
-          </TouchableOpacity>
+    
 
 
         <View style={styles.body}>
@@ -145,7 +144,7 @@ function AddBoxScreen({ navigation }) {
           />
 
           <Text style={styles.sentence}>
-            {"PLEASE ENTER YOUR price                              "}
+            {"PLEASE ENTER YOUR PRICE                              "}
           </Text>
 
           <TextInput
@@ -158,7 +157,7 @@ function AddBoxScreen({ navigation }) {
           />
 
           <Text style={styles.sentence}>
-            {"PLEASE ENTER YOUR stock NUMBER                      "}
+            {"PLEASE ENTER YOUR STOCK NUMBER                      "}
           </Text>
 
           <TextInput
@@ -172,47 +171,16 @@ function AddBoxScreen({ navigation }) {
             autoCapitalize={"none"}
           />
 
-<Text style={styles.sentence}>
-            {"PLEASE ENTER YOUR restaurantId               "}
-          </Text>
 
-          <TextInput
-            style={styles.input}
-            placeholder="restaurantId"
-            placeholderTextColor="#a9a9a9"
-            onChangeText={value => setRestaurantId(value)}
-            priceValue={restaurantId}
-            autoCapitalize={"none"}
-          />
 
-<Text style={styles.sentence}>
-            {"PLEASE ENTER YOUR restaurantName                    "}
-          </Text>
 
-          <TextInput
-            style={styles.input}
-            placeholder="restaurantName"
-            placeholderTextColor="#a9a9a9"
-            onChangeText={value => setRestaurantName(value)}
-            priceValue={restaurantName}
-            autoCapitalize={"none"}
-          />
 
-<Text style={styles.sentence}>
-            {"PLEASE ENTER YOUR restaurantAddress                     "}
-          </Text>
+          
+<TouchableOpacity style={styles.photobtn} onPress={takeImage}>
+<Text style={styles.signUpBtnTxt}>Upload photo</Text>
+</TouchableOpacity>
 
-          <TextInput
-            style={styles.input}
-            placeholder="restaurantAddress"
-            placeholderTextColor="#a9a9a9"
-            onChangeText={value => setRestaurantAddress(value)}
-            priceValue={restaurantAddress}
-            autoCapitalize={"none"}
-          />
-
-<Button title="Pick an image from camera roll" onPress={takeImage} />
-      {imageUri && <Image source={{ uri: imageUri }} style={{ width: 200, height: 200 }} />}
+      {imageUri && <Image source={{ uri: imageUri }} style={{ width: 180, height: 180 }} />}
 
 
           
@@ -222,6 +190,9 @@ function AddBoxScreen({ navigation }) {
 
 
         </View>
+        <TouchableOpacity style={styles.signUpBtn} onPress={postBox}>
+            <Text style={styles.signUpBtnTxt}>Submit box</Text>
+          </TouchableOpacity>
 
 
       </View>
@@ -232,7 +203,7 @@ function AddBoxScreen({ navigation }) {
 
 const styles = StyleSheet.create({
   mainContainer: {
-    height: '100%',
+    height: '110%',
     display: 'flex',
     flexDirection: 'column',
   },
@@ -245,6 +216,19 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: 'white',
     alignItems: 'center',
+
+  },
+  photobtn: {
+    width: "40%",
+    borderRadius: 25,
+    height: 45,
+    alignItems: "center",
+    justifyContent: "center",
+    backgroundColor: "black",
+    marginBottom:10
+  },
+  signUpBtnTxt: {
+    color: "white",
 
   },
   image: {
@@ -270,8 +254,10 @@ const styles = StyleSheet.create({
     height: 50,
     alignItems: "center",
     justifyContent: "center",
-    marginTop: 70,
+    // marginTop: -70,
     backgroundColor: "rgba(33, 33, 98, 0.8)",
+    top:-100,
+    left:70
   },
   signUpBtnTxt: {
     color: "white",

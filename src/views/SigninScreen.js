@@ -76,7 +76,7 @@ function SigninScreen({ navigation }) {
           navigation.navigate('Home');
         }
         if (role == "restaurant") {
-          navigation.navigate('AddBox');
+          navigation.navigate('RestoTab');
         }
         setProceedFlag(true);
       })

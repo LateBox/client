@@ -26,6 +26,9 @@ export const user = require("../../assets/icons/user.png");
 export const map = require("../../assets/icons/map.png");
 export const filters = require("../../assets/icons/filters.png");
 export const toc = require("../../assets/icons/tos.png");
+export const plus = require("../../assets/icons/plus.png");
+export const edit = require("../../assets/icons/edit.png");
+
 
 export default {
   back,
@@ -56,4 +59,7 @@ export default {
   map,
   filters,
   toc,
+  plus,
+  edit,
+
 };

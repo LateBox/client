@@ -54,7 +54,8 @@ LogBox.ignoreAllLogs();
         <Stack.Screen name="NewAccount2" component={NewAccountInfo2}/>
         <Stack.Screen name="NewAccount3" component={NewAccountInfo3}/>
         <Stack.Screen name="AccountPreferences" component={AccountPreferences}/>
-        <Stack.Screen name="AddBox" component={TabsRestaurant}/>
+        <Stack.Screen name="AddBox" component={AddBoxScreen}/>
+        <Stack.Screen name="RestoTab" component={TabsRestaurant}/>
         <Stack.Screen name="EditBox" component={EditBoxScreen}/>
         <Stack.Screen name="ShowBox" component={ShowBoxScreen}/>
         <Stack.Screen name="SingleShowBox" component={SingleShowBox}/>
