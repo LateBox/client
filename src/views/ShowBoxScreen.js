@@ -3,6 +3,7 @@ import { Button, View, Text, StyleSheet, FlatList, TouchableOpacity, ActivityInd
 import { useIsFocused } from "@react-navigation/native";
 import currentUrl from "../constants/urls";
 import {  icons } from "../constants";
+import Accordion from '../components/Accordion';
 
 
 function ShowBoxScreen({  navigation}) {
@@ -76,6 +77,7 @@ function ShowBoxScreen({  navigation}) {
         <View style={styles.mainContainer}>
             
             <View style={styles.searchBar}>
+            
                 <TextInput
                     style={styles.input}
                     placeholder="Search for something"
