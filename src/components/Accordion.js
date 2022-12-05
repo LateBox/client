@@ -3,14 +3,25 @@ import { View, StyleSheet, Text, TouchableOpacity } from "react-native";
 
 import Collapsible from "react-native-collapsible";
 import { Slider } from "@miblanchard/react-native-slider";
+import { TextInput } from "react-native-web";
 
 const Accordion = () => {
   const [isCollapsed, setIsCollapsed] = React.useState(true);
-  const [value, setValue] = React.useState(5)
+  const [value, setValue] = React.useState(5);
+  const [enteredAddressText, setEnteredAddressText] = React.useState('');
+  const [currentAddress, setCurrentAddress] = React.useState('')
 
   const toggleExpanded = () => {
     return setIsCollapsed(!isCollapsed);
   };
+
+  const addressInputHandler = (enteredAddressText) => {
+    setEnteredAddressText(enteredAddressText);
+  }
+
+  const addAddressHandler = () => {
+    setCurrentAddress(enteredAddressText);
+  }
 
 
   return (
@@ -22,6 +33,16 @@ const Accordion = () => {
       </TouchableOpacity>
       <Collapsible collapsed={isCollapsed}>
         <View style={styles.content}>
+            <View>
+                <TextInput 
+                    placeholder="enter new address"
+                    onChangeText={addressInputHandler}
+                />
+                <Button title="change address" onPress={addAddressHandler} />
+                <View>
+                    <Text>{currentAddress}</Text>
+                </View>
+            </View>
           <View >
             <Slider
             value={value}
