@@ -17,12 +17,12 @@ export default function LateboxButton({ text, image, onPress }) {
   return (
     <TouchableOpacity onPress={onPress}>
       <View style={styles.button}>
-        <Text style={styles.buttonText}>{text}</Text>
         <Image
               source={image}
-              resizeMode="cover"
+              resizeMode="contain"
               style={styles.buttonImage}
-            />
+        />
+        <Text style={styles.buttonText}>{text}</Text>
       </View>
     </TouchableOpacity>
   );
@@ -30,6 +30,7 @@ export default function LateboxButton({ text, image, onPress }) {
 
 const styles = StyleSheet.create({
   button: {
+    display: 'flex',
     borderRadius: 22,
     paddingVertical: 14,
     paddingHorizontal: 20,
@@ -37,7 +38,7 @@ const styles = StyleSheet.create({
     width: width,
     height: buttonHeight,
     justifyContent: "center",
-    alignItems: "center",
+    alignItems: 'center',
     marginTop: 8,
   },
   buttonText: {

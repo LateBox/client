@@ -25,6 +25,7 @@ export const sushi = require("../../assets/icons/sushi.png");
 export const user = require("../../assets/icons/user.png");
 export const map = require("../../assets/icons/map.png");
 export const filters = require("../../assets/icons/filters.png");
+export const toc = require("../../assets/icons/tos.png");
 
 export default {
   back,
@@ -53,5 +54,6 @@ export default {
   sushi,
   user,
   map,
-  filters
+  filters,
+  toc,
 };
