@@ -1,15 +1,20 @@
 import React from "react";
 import { View, StyleSheet, Text, TouchableOpacity } from "react-native";
-import * as Animatable from "react-native-animatable";
 
 import Collapsible from "react-native-collapsible";
+import { Slider } from "@miblanchard/react-native-slider";
 
 const Accordion = () => {
   const [isCollapsed, setIsCollapsed] = React.useState(true);
+  const [rangeValue, setRangeValue] = React.useState(5)
 
   const toggleExpanded = () => {
     return setIsCollapsed(!isCollapsed);
   };
+
+  const onValueChangeHandler = (newValue) => {
+    return setRangeValue(newValue);
+  }
 
   return (
     <View>
@@ -20,13 +25,13 @@ const Accordion = () => {
       </TouchableOpacity>
       <Collapsible collapsed={isCollapsed}>
         <View style={styles.content}>
-          <Animatable.Text
-            animation={isCollapsed ? undefined : "zoomIn"}
-            duration={300}
-            useNativeDriver
-          >
-            Bacon ipsum dolor amet chuck turducken landjaeger tongue spare ribs
-          </Animatable.Text>
+          <View style={styles.container}>
+            <Slider
+              value={value}
+              onValueChange={onValueChangeHandler(value)}
+            />
+            <Text>Current distance range: {value}</Text>
+          </View>
         </View>
       </Collapsible>
     </View>
