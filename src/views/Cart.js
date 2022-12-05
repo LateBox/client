@@ -1,20 +1,63 @@
 import React from 'react';
-import { StyleSheet, Text, View, Image, TouchableHighlight } from 'react-native';
+import { StyleSheet, Text, View, Image, TouchableHighlight,Animated } from 'react-native';
 import { TouchableOpacity } from 'react-native';
 
 
 
-function Cart({ navigation }) {
+function Cart({ navigation,route }) {
   
+  const scrollX = new Animated.Value(0);
+  const [boxName, setBoxName] = React.useState("Box Name");
+  const [description, setDescription] = React.useState("description");
+  const [price, setPrice] = React.useState(5);
+  const [restaurantId, setRestaurantId] = React.useState("restaurantId");
+  const [stock, setStock] = React.useState("stock");
+  const [restaurantName, setRestaurantName] = React.useState('restaurantName');
+  const [restaurantAddress, setRestaurantAddress] = React.useState('restaurantAddress');
+  const [imageUri, setImageUri] = React.useState("imageUri");
+  const itemId = 101;
+  const [orderQuantity, setOrderQuantity] = React.useState(1);
+  const [rating, setRating] = React.useState('rating');
+  const initialPrice = 5;
+  // const itemId  = route.params.itemId;
+
+
+  const getBox = async () => {
+    try {
+      const response = await fetch(currentUrl + "products/" + itemId, {
+        method: "GET",
+        // mode: 'no-cors',
+
+        // credentials: 'include',
+        "Access-Control-Allow-Credentials": "true",
+      });
+      const json = await response.json();
+
+      setBoxName(json.name);
+      setDescription(json.description);
+      setPrice(json.price);
+      setRestaurantId(json.restaurantId);
+      setStock(json.stock);
+      setImageUri(json.imageUri);
+      return json;
+    } catch (error) {
+      console.error(error);
+    } finally {
+      setLoading(false);
+    }
+  };
+  React.useEffect(() => {
+    getBox();
+  }, []);
     return (
       <View style={styles.main}>
         <View style={styles.above}>
           <Text style={styles.text1}>Your order from</Text>
-          <Text style={styles.text2}>###RestaurantName###{"\n"}{"\n"}</Text>
+          <Text style={styles.text2}>{restaurantName}{"\n"}{"\n"}</Text>
           <Image onPress={() => Linking.openURL('google.com')} source={{uri: 'https://github.com/LateBox/latebox/blob/main/SVGS/map.png?raw=true'}}
             style={styles.logo} />
           <Text style={styles.text3}>Pickup this order at</Text>
-          <Text style={styles.text4}>###Address of restaurant###{"\n"}{"\n"}</Text>
+          <Text style={styles.text4}>{restaurantAddress}{"\n"}{"\n"}</Text>
         </View>
 
         <View style={styles.bottompage}>
@@ -43,15 +86,15 @@ function Cart({ navigation }) {
         <View style={styles.bottompage2}>
           <View style = {styles.payments}>
             <Text style={styles.text5}>Total{"\n"}</Text>
-            <Text style={styles.text52}>$67{"\n"}{"\n"}</Text>
+            <Text style={styles.text52}>{(price*1.13).toFixed(2)}{"\n"}{"\n"}</Text>
           </View>
           <View style = {styles.payments}>
             <Text style={styles.text6}>Subtotal</Text>
-            <Text style={styles.text62}>$60</Text>
+            <Text style={styles.text62}>{(price).toFixed(2)}</Text>
           </View>
           <View style = {styles.payments}>
             <Text style={styles.text6}>Tax</Text>
-            <Text style={styles.text63}>$7</Text>
+            <Text style={styles.text63}>{(price*0.13).toFixed(2)}</Text>
           </View>
           <View style={styles.cartadd}>
             <TouchableOpacity style={styles.loginBtn}>
