@@ -22,6 +22,7 @@ import MapScreen from './src/views/MapScreen';
 import Cart from './src/views/Cart';
 import Settings from './src/views/Settings';
 import Tabs from './src/navigation/tabs';
+import TabsRestaurant from './src/navigation/tabsRestaurant';
 import TC from './src/views/TC';
 import HC from './src/views/HC';
 
@@ -44,7 +45,7 @@ function App() {
         <Stack.Screen name="NewAccount2" component={NewAccountInfo2}/>
         <Stack.Screen name="NewAccount3" component={NewAccountInfo3}/>
         <Stack.Screen name="AccountPreferences" component={AccountPreferences}/>
-        <Stack.Screen name="AddBox" component={AddBoxScreen}/>
+        <Stack.Screen name="AddBox" component={TabsRestaurant}/>
         <Stack.Screen name="EditBox" component={EditBoxScreen}/>
         <Stack.Screen name="ShowBox" component={ShowBoxScreen}/>
         <Stack.Screen name="SingleShowBox" component={SingleShowBox}/>
