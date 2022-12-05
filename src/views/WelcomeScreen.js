@@ -1,15 +1,14 @@
 import React from 'react';
-import { StyleSheet, Text, View, Image, TouchableHighlight } from 'react-native';
-import { TouchableOpacity } from 'react-native-web';
+import { StyleSheet, Text, View, Image, TouchableHighlight,TouchableOpacity } from 'react-native';
 
 
-function WelcomeScreen(props, { navigation }) {
+function WelcomeScreen({ navigation }) {
   //  const timer = setTimeout(() => {
   //   () => navigation.navigate('Login');
   //   }, 1000);
   return (
     
-    <View style={styles.title}>
+    <TouchableOpacity style={styles.title} onPress={() => navigation.navigate('Home')}>
 
         <View style={styles.welcomeview}>
 
@@ -26,7 +25,7 @@ function WelcomeScreen(props, { navigation }) {
 
        <Image style={styles.logo2} source={{uri: 'https://raw.githubusercontent.com/LateBox/latebox/main/SVGS/BlueLateBox.png'}} />
        
-    </View>
+    </TouchableOpacity>
   );
 }
 
@@ -54,7 +53,7 @@ const styles = StyleSheet.create({
     welcomeview:{
         height: "60%",
         top:"8%",
-        right:"14%",
+        right:"8%",
     },
     title: {
         
@@ -64,7 +63,13 @@ const styles = StyleSheet.create({
         height: "100%",
         // justifyContent:"center",
       },
+      logo1:{
+        width: 177,
+        height: 191,
+        top:"38%",
+        left: "8%",
 
+    },
     logo2: {
         width: "30%",
         padding:"10%",
@@ -73,13 +78,7 @@ const styles = StyleSheet.create({
         top:"20%",
 
     },
-    logo1:{
-        width: "50%",
-        height: "25%",
-        top:"38%",
-        left: "35%",
 
-    },
 
 
 

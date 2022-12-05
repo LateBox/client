@@ -21,6 +21,7 @@ function EditBoxScreen({ navigation, route  }) {
 
   const [isLoading, setLoading] = React.useState(true);
   const itemId  = route.params.itemId;
+  // const itemId  = 0;
   // console.log(itemId);
 //   const getProduct = async () => {
 //     try {

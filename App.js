@@ -24,11 +24,20 @@ import Settings from './src/views/Settings';
 import Tabs from './src/navigation/tabs';
 import TC from './src/views/TC';
 import HC from './src/views/HC';
+import ChangePref from './src/views/ChangePref';
+
+import { LogBox } from 'react-native';
 
 
 const Stack = createNativeStackNavigator();
 
 function App() {
+  // Ignore log notification by message:
+LogBox.ignoreLogs(['Warning: ...']);
+
+// Ignore all log notifications:
+LogBox.ignoreAllLogs();
+
   return (
     <NavigationContainer>
       <Stack.Navigator initialRouteName="Home" screenOptions={{headerShown: false}}>
@@ -50,6 +59,7 @@ function App() {
         <Stack.Screen name="SingleShowBox" component={SingleShowBox}/>
         <Stack.Screen name="Map" component={MapScreen}/>
         <Stack.Screen name="Cart" component={Cart}/>
+        <Stack.Screen name="ChangePref" component={ChangePref}/>
         <Stack.Screen name="ProductDetail" component={ProductDetailScreen}/>
         <Stack.Screen name="Settings" component={Settings}/>
         <Stack.Screen name="TC" component={TC}/>

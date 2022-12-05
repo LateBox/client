@@ -1,15 +1,61 @@
 import React from 'react';
-import { StyleSheet, Text, View, Image, TouchableHighlight } from 'react-native';
-import { TouchableOpacity } from 'react-native-web';
+import { StyleSheet, Text, View, Image, TouchableHighlight,TouchableOpacity } from 'react-native';
 
 
-function ThankyouScreen(props, { navigation }) {
+function ThankyouScreen({ navigation,route }) {
+
+  const [boxName, setBoxName] = React.useState("Box Name");
+  const [description, setDescription] = React.useState("description");
+  const [price, setPrice] = React.useState(5);
+  const [restaurantId, setRestaurantId] = React.useState("restaurantId");
+  const [stock, setStock] = React.useState("stock");
+  const [restaurantName, setRestaurantName] = React.useState('restaurantName');
+  const [restaurantAddress, setRestaurantAddress] = React.useState('45 Clarence St, Ottawa, K1N 9K1');
+  const [imageUri, setImageUri] = React.useState("imageUri");
+  // const itemId = 0;
+  const [orderQuantity, setOrderQuantity] = React.useState(1);
+  const [rating, setRating] = React.useState('rating');
+  const itemId  = route.params.itemId;
+  console.log(itemId)
+
+  const getBox = async () => {
+    try {
+      const response = await fetch(currentUrl + "products/" + itemId, {
+        method: "GET",
+        // mode: 'no-cors',
+
+        // credentials: 'include',
+        "Access-Control-Allow-Credentials": "true",
+      });
+      const json = await response.json();
+
+      setBoxName(json.name);
+      setDescription(json.description);
+      setPrice(json.price);
+      setRestaurantId(json.restaurantId);
+      setRestaurantName(json.restaurantName);
+      setRestaurantAddress(json.restaurantAddress);
+      setStock(json.stock);
+      setImageUri(json.imageUri);
+      return json;
+    } catch (error) {
+      console.error(error);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+
+  React.useEffect(() => {
+    getBox();
+  }, []);
+
   //  const timer = setTimeout(() => {
   //   () => navigation.navigate('Login');
   //   }, 1000);
   return (
     
-    <View style={styles.title}>
+    <TouchableOpacity style={styles.title} onPress={() => navigation.navigate('Home')}>
 
         <View style={styles.welcomeview}>
 
@@ -22,7 +68,7 @@ function ThankyouScreen(props, { navigation }) {
 
         <View style={styles.above}>
                 <Text style={styles.text3}>Pickup this order at</Text>
-                <Text style={styles.text4}>###Address of restaurant###{"\n"}{"\n"}</Text>
+                <Text style={styles.text4}>{restaurantAddress}{"\n"}{"\n"}</Text>
             <Image style={styles.logo1} source={{uri: 'https://raw.githubusercontent.com/LateBox/latebox/main/SVGS/EmojiHomeCropped.png'}} /> 
             
         </View>
@@ -34,7 +80,7 @@ function ThankyouScreen(props, { navigation }) {
         
 
        
-    </View>
+    </TouchableOpacity>
   );
 }
 
@@ -90,21 +136,22 @@ const styles = StyleSheet.create({
         // justifyContent:"center",
       },
 
+
+    logo1:{
+      width: 177,
+      height:105
+    },
+
+
     logo2: {
         width: "30%",
         padding:"10%",
         height: "15%",
-        right: "7%",
+        right: "11%",
         top:"20%",
 
     },
-    logo1:{
-        width: "50%",
-        padding:"5%",
-        height: "25%",
-        right: "0%",
-        top:"20%",
-    },
+
 
 
 

@@ -28,7 +28,7 @@ var ottawa = {
 
 
 
-function MapScreen(props, { navigation }) {
+function MapScreen( { navigation }) {
 
 
   const [isLoading, setLoading] = React.useState(true);
@@ -37,6 +37,7 @@ function MapScreen(props, { navigation }) {
   const isFocused = useIsFocused();
 
 
+  var [boxId, setBoxId] = React.useState('box id');
   var [boxName, setBoxName] = React.useState('Box Name');
   var [description, setDescription] = React.useState('description');
   var [price, setPrice] = React.useState('price');
@@ -67,6 +68,7 @@ function MapScreen(props, { navigation }) {
         const json = await response.json();
         setData(json);
         setBoxName(json.name)
+        setBoxId(json.id)
         setDescription(json.description)
         setPrice(json.price)
         setRestaurantId(json.restaurantId)
@@ -165,8 +167,8 @@ function MapScreen(props, { navigation }) {
 
                             <Text style={styles.cardTextPrice}>$ {price}</Text>
                             <Button tyle={styles.singleCardBottomButton}
-                                onPress={() =>{navigation.navigate('EditBox' , {
-                                    itemId: id})}} 
+                                onPress={() =>{navigation.navigate('SingleShowBox' , {
+                                    itemId: boxId})}} 
                                     // itemId: item.id});setLoading(true)}} 
                                 title="View Box"
                                 color="#212162"

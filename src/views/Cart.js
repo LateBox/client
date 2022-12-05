@@ -7,18 +7,17 @@ import { TouchableOpacity } from 'react-native';
 function Cart({ navigation,route }) {
   
   const scrollX = new Animated.Value(0);
-  const [boxName, setBoxName] = React.useState("Box Name");
-  const [description, setDescription] = React.useState("description");
-  const [price, setPrice] = React.useState(5);
-  const [restaurantId, setRestaurantId] = React.useState("restaurantId");
-  const [stock, setStock] = React.useState("stock");
-  const [restaurantName, setRestaurantName] = React.useState('restaurantName');
-  const [restaurantAddress, setRestaurantAddress] = React.useState('restaurantAddress');
+  const [boxName, setBoxName] = React.useState("GrillBox");
+  const [description, setDescription] = React.useState("This box may contain any mix of the following: Grilled Steak,  Kebab, Steamed Vegetables, Salad and/or fries.");
+  const [price, setPrice] = React.useState(9);
+  const [restaurantId, setRestaurantId] = React.useState("0");
+  const [stock, setStock] = React.useState("3");
+  const [restaurantName, setRestaurantName] = React.useState('Lavender Grill');
+  const [restaurantAddress, setRestaurantAddress] = React.useState('45 Clarence St, Ottawa, K1N 9K1');
   const [imageUri, setImageUri] = React.useState("imageUri");
-  const itemId = 101;
+  const itemId = 0;
   const [orderQuantity, setOrderQuantity] = React.useState(1);
   const [rating, setRating] = React.useState('rating');
-  const initialPrice = 5;
   // const itemId  = route.params.itemId;
 
 
@@ -37,6 +36,8 @@ function Cart({ navigation,route }) {
       setDescription(json.description);
       setPrice(json.price);
       setRestaurantId(json.restaurantId);
+      setRestaurantName(json.restaurantName);
+      setRestaurantAddress(json.restaurantAddress)
       setStock(json.stock);
       setImageUri(json.imageUri);
       return json;
@@ -86,7 +87,7 @@ function Cart({ navigation,route }) {
         <View style={styles.bottompage2}>
           <View style = {styles.payments}>
             <Text style={styles.text5}>Total{"\n"}</Text>
-            <Text style={styles.text52}>{(price*1.13).toFixed(2)}{"\n"}{"\n"}</Text>
+            <Text style={styles.text52}>{(price*1.13).toFixed(2)}{"\n"}</Text>
           </View>
           <View style = {styles.payments}>
             <Text style={styles.text6}>Subtotal</Text>
@@ -97,7 +98,8 @@ function Cart({ navigation,route }) {
             <Text style={styles.text63}>{(price*0.13).toFixed(2)}</Text>
           </View>
           <View style={styles.cartadd}>
-            <TouchableOpacity style={styles.loginBtn}>
+            <TouchableOpacity style={styles.loginBtn} onPress={() =>{navigation.navigate('ThankyouScreen' , {
+                                                itemId: itemId})}} >
               <Text style={styles.loginBtnTxt} >order</Text>
             </TouchableOpacity>
           </View>
@@ -125,10 +127,10 @@ const styles = StyleSheet.create({
       loginBtn: {
         width: "65%",
         borderRadius: 25,
-        height: 60,
+        height: 57,
         alignItems: "center",
         justifyContent: "center",
-        marginTop: 20,
+        marginTop: 5,
         backgroundColor: "rgba(33, 33, 98, 0.8)",
         padding:"1%",
   
@@ -170,8 +172,9 @@ const styles = StyleSheet.create({
       },
   
       logo: {
-        width: "73%",
+        width: "78%",
         height: "37%",
+        top:-40,
 
       },
        logo2: {
@@ -217,7 +220,7 @@ const styles = StyleSheet.create({
       text2: {
         alignItems:"center",
         justifyContent:"center",
-        fontSize: 18,
+        fontSize: 28,
       },
       text3: {
         alignItems:"center",

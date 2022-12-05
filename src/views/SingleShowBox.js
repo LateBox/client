@@ -42,13 +42,11 @@ function SingleShowBox({ navigation, route }) {
 
   const Increment = () => {
     setOrderQuantity(orderQuantity + 1);
-    setPrice(price + initialPrice);
   };
 
   const Decrement = () => {
     if (orderQuantity > 1) {
       setOrderQuantity(orderQuantity - 1);
-      setPrice(price - initialPrice);
     }
   };
 
@@ -67,6 +65,7 @@ function SingleShowBox({ navigation, route }) {
       setDescription(json.description);
       setPrice(json.price);
       setRestaurantId(json.restaurantId);
+      setRestaurantName(json.restaurantName);
       setStock(json.stock);
       setImageUri(json.imageUri);
       return json;
@@ -96,14 +95,35 @@ function SingleShowBox({ navigation, route }) {
               style={{
                 width: SIZES.width,
                 height: "100%",
+                marginTop:40,
               }}
             />
+            <Text
+              style={{
+                marginVertical: 10,
+                textAlign: "center",
+                padding: 20,
+                fontSize:30,
+              }}
+            >
+               {restaurantName}
+            </Text>
+            <Text
+              style={{
+                marginVertical: 10,
+                textAlign: "center",
+                padding: 20,
+              }}
+            >
+               {boxName}
+            </Text>
+            
 
             {/* Quantity */}
             <View
               style={{
                 position: "absolute",
-                bottom: -20,
+                bottom: -200,
                 width: SIZES.width,
                 height: 50,
                 justifyContent: "center",
@@ -152,16 +172,12 @@ function SingleShowBox({ navigation, route }) {
           </View>
 
           {/* Name & Description */}
-          <TouchableOpacity style={styles.buttonStyle}>
-          <Image style={styles.icon} source={{uri: 'https://raw.githubusercontent.com/LateBox/latebox/main/SVGS/lettuce2.png'}}/>
 
-              <Text >  Vegan</Text>
-            </TouchableOpacity>
           <View
             style={{
               width: SIZES.width,
               alignItems: "center",
-              marginTop: 15,
+              marginTop: 200,
               paddingHorizontal: SIZES.padding * 2,
             }}
           >
@@ -172,10 +188,14 @@ function SingleShowBox({ navigation, route }) {
                 padding: 20,
               }}
             >
-              {boxName} - ${price}
+               ${price} / Box
             </Text>
-            <View style={{ backgroundColor: COLORS.white }}>
-              <Text>
+            <View >
+              <Text
+              style={{
+                fontSize:20
+              }}
+              >
               {description}
               </Text>
             </View>
@@ -194,7 +214,9 @@ function SingleShowBox({ navigation, route }) {
             <Text style={{ textAlign: "center" }}>{price} $</Text>
           </View> */}
           <TouchableOpacity style={styles.toCartButton} onPress={() => navigation.navigate('Home')}>
-            <Text>Go to checkout</Text>
+            <Text 
+            style={{color:'white'}} 
+            >Add to Cart</Text>
           </TouchableOpacity>
         </View>
       </View>
@@ -214,7 +236,7 @@ const styles = StyleSheet.create({
     backgroundColor: COLORS.lightGray2,
   },
   buttonStyle:{
-    backgroundColor:"rgba(241, 136, 97, 1)",
+    backgroundColor:"#c6c6c6",
     width: '23%',
     height: '5%',
     alignItems: "center",
@@ -239,7 +261,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
     marginTop: 100,
     justifyContent: "center",
-    backgroundColor: "rgb(80, 200, 120)",
+    backgroundColor: "#212162",
   },
 });
 

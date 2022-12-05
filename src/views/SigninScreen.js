@@ -101,8 +101,8 @@ function SigninScreen({ navigation }) {
         <Text style={styles.forgot}>
           {"\n"}
         </Text>
-        <TouchableOpacity>
-              <Text style={styles.newaccount} onPress={() => navigation.navigate('Register')}>Don't have an account? Sign up</Text>
+        <TouchableOpacity onPress={() => navigation.navigate('Register')}>
+              <Text style={styles.newaccount} >Don't have an account? Sign up</Text>
           </TouchableOpacity>
 
       </View>

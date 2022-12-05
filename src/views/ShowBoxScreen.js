@@ -3,7 +3,6 @@ import { Button, View, Text, StyleSheet, FlatList, TouchableOpacity, ActivityInd
 import { useIsFocused } from "@react-navigation/native";
 import currentUrl from "../constants/urls";
 import {  icons } from "../constants";
-import Accordion from '../components/Accordion';
 
 
 function ShowBoxScreen({  navigation}) {
@@ -108,7 +107,7 @@ function ShowBoxScreen({  navigation}) {
                                         <View style={styles.cardText}>
                                             {/* id: {item.id}, {"\n"} */}
                                             <Text style={styles.cardTextTitle}>
-                                                {item.name} {"\n"}
+                                                {item.restaurantName} {"\n"}
 
                                             </Text>
                                             <Text style={styles.cardTextAddress}>

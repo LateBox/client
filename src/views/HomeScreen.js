@@ -2,7 +2,7 @@ import { FlatList, View,Image, Button, StyleSheet, TouchableOpacity } from "reac
 import React, { useEffect } from 'react'
 
 
-function HomeScreen(props, { navigation }) {
+function HomeScreen({  navigation}) {
   //  const timer = setTimeout(() => {
   //   () => navigation.navigate('Login');
   //   }, 1000);

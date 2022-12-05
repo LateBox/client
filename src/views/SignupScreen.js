@@ -85,8 +85,8 @@ const postAccount = () => {
                     {"\n"}
                 </Text>
                 
-                <TouchableOpacity>
-                    <Text style={styles.existing} onPress={() => navigation.navigate('Login')}>Already Registered? Login</Text>
+                <TouchableOpacity onPress={() => navigation.navigate('Login')} >
+                    <Text style={styles.existing} >Already Registered? Login</Text>
                 </TouchableOpacity>
 
             </View>

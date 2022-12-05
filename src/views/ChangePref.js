@@ -3,9 +3,8 @@ import React, { useState } from "react";
 
 
 
-function NewAccountPreferences({ navigation }) {
+function ChangePref({ navigation }) {
     {
-        var arr = []
 
         var halal = "halal"
         var vegan = "vegan"
@@ -22,6 +21,7 @@ function NewAccountPreferences({ navigation }) {
         var asian= "asian"
         var bakery= "bakery"
 
+        var arr = [halal,italian,mediteranean,asian]
 
         function buttonChange(varr){
             console.log(arr);
@@ -60,7 +60,7 @@ function NewAccountPreferences({ navigation }) {
 
         const ButtonHalal = (props) => {
           const { color, activeColor } = props;
-          const [active, setActive] = useState(false);
+          const [active, setActive] = useState(true);
           const onPress = () => setActive(!active);
           const buttonStyle = {
               backgroundColor: active ? "rgba(241, 136, 97, 1)" : "rgba(198, 198, 198, 0.35)",
@@ -192,7 +192,7 @@ function NewAccountPreferences({ navigation }) {
 
         const ButtonItalian = (props) => {
           const { color, activeColor } = props;
-          const [active, setActive] = useState(false);
+          const [active, setActive] = useState(true);
           const onPress = () => setActive(!active);
           const buttonStyle = {
               backgroundColor: active ? "rgba(241, 136, 97, 1)" : "rgba(198, 198, 198, 0.35)",
@@ -236,7 +236,7 @@ function NewAccountPreferences({ navigation }) {
 
         const ButtonMed = (props) => {
           const { color, activeColor } = props;
-          const [active, setActive] = useState(false);
+          const [active, setActive] = useState(true);
           const onPress = () => setActive(!active);
           const buttonStyle = {
               backgroundColor: active ? "rgba(241, 136, 97, 1)" : "rgba(198, 198, 198, 0.35)",
@@ -280,7 +280,7 @@ function NewAccountPreferences({ navigation }) {
 
         const ButtonAsian = (props) => {
           const { color, activeColor } = props;
-          const [active, setActive] = useState(false);
+          const [active, setActive] = useState(true);
           const onPress = () => setActive(!active);
           const buttonStyle = {
               backgroundColor: active ? "rgba(241, 136, 97, 1)" : "rgba(198, 198, 198, 0.35)",
@@ -403,20 +403,11 @@ function NewAccountPreferences({ navigation }) {
                     {"\n"}{"\n"}{"\n"}{"\n"}{"\n"}{"\n"}{"\n"}
                 </Text>
                     <View style={styles.bottompage}>
-            <Text onPress={() => navigation.navigate('Home')} style={styles.textskip}>SKIP</Text>
+            <Text onPress={() => navigation.navigate('Home')} style={styles.textskip}>Back</Text>
 
-            <View style={styles.circles}>
-              <View style={styles.circle}>
-              </View>
-              <View style={styles.circle}>
-              </View>
-              <View style={styles.circle}>
-              </View>
-              <View style={styles.circlemain}>
-              </View>
-            </View>
+           
 
-            <Text onPress={() => navigation.navigate('WelcomeScreen')} style={styles.textnext}>NEXT</Text>
+            <Text onPress={() => navigation.navigate('Home')} style={styles.textnext}>Save</Text>
 
         </View>
 
@@ -631,4 +622,4 @@ const styles = StyleSheet.create({
  
 });
 
-export default NewAccountPreferences;
+export default ChangePref;
