@@ -82,16 +82,17 @@ const styles = StyleSheet.create({
       loginBtn: {
         width: "65%",
         borderRadius: 25,
-        height: 50,
+        height: 60,
         alignItems: "center",
         justifyContent: "center",
-        marginTop: 40,
+        marginTop: 20,
         backgroundColor: "rgba(33, 33, 98, 0.8)",
-        padding:"1%"
+        padding:"1%",
+  
       },
       loginBtnTxt: {
         color: "white",
-      
+        fontSize:20
       },
       textlatebox: {
         marginLeft:"-18%",

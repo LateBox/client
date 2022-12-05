@@ -9,6 +9,8 @@ function SigninScreen({ navigation }) {
 
   const [email, setEmail] = React.useState('Email');
   const [password, setPassword] = React.useState('Password');
+  const [nextPage, setNextPage] = React.useState();
+  const [proceedFlag, setProceedFlag] = React.useState(false);
 
 
   // function digestMessage(message) {
@@ -40,15 +42,55 @@ function SigninScreen({ navigation }) {
                     
                     }
                 )
-                .then((response) => response.json())
-                .then((json) => {
+                .then((response) => {
+                    
                     // console.log(json)
-                    return json;
+                    if(response.ok){
+                      getRole();
+                      // console.log(nextPage);
+                      
+                    }
+                    return response.json();
                 })
                 .catch((error) => {
                     console.error(error);
                 });
   };
+
+  function getRole() {
+    return fetch(currentUrl + 'account/role/' + email,
+      {
+        method: 'GET',
+        headers: {
+          'Content-Type': 'application/json',
+          'Access-Control-Allow-Credentials': 'true',
+        },
+        // mode: 'no-cors',
+        // credentials: 'include',
+      }
+    )
+      .then((response) => response.text())
+      .then((role) => {
+        // console.log(nextPage);
+        if (role == "normal") {
+          navigation.navigate('Home');
+        }
+        if (role == "restaurant") {
+          navigation.navigate('AddBox');
+        }
+        setProceedFlag(true);
+      })
+      .catch((error) => {
+          console.error(error);
+      });
+  }
+
+  // React.useEffect(() => {
+  //     ()=>navigation.navigate(nextPage);
+  // }, [[proceedFlag]]);
+
+
+  
 
   return (
     <View style={styles.mainContainer}>

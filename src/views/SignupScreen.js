@@ -56,10 +56,16 @@ const postAccount = () => {
                     
                     }
                 )
-                .then((response) => response.json())
-                .then((json) => {
-                    // console.log(json)
-                    return json;
+                // .then((response) => response.json())
+                // .then((json) => {
+                //     // console.log(json)
+                //     return json;
+                // })
+                .then((response) => {
+                    if(response.ok){
+                        navigation.navigate('NewAccount1')
+                    }
+                    return response.json();
                 })
                 .catch((error) => {
                     console.error(error);
@@ -150,7 +156,7 @@ const postAccount = () => {
                 
 
                 <TouchableOpacity style={styles.signUpBtn} onPress={postAccount}>
-                    <Text onPress={() => navigation.navigate('NewAccount1')} style={styles.signUpBtnTxt}>Sign up</Text>
+                    <Text style={styles.signUpBtnTxt}>Sign up</Text>
                 </TouchableOpacity>
 
             
