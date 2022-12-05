@@ -6,31 +6,30 @@ import { Slider } from "@miblanchard/react-native-slider";
 
 const Accordion = () => {
   const [isCollapsed, setIsCollapsed] = React.useState(true);
-  const [rangeValue, setRangeValue] = React.useState(5)
+  const [value, setValue] = React.useState(5)
 
   const toggleExpanded = () => {
     return setIsCollapsed(!isCollapsed);
   };
 
-  const onValueChangeHandler = (newValue) => {
-    return setRangeValue(newValue);
-  }
 
   return (
     <View>
       <TouchableOpacity onPress={toggleExpanded}>
         <View style={styles.header}>
-          <Text style={styles.headerText}>Single Collapsible</Text>
+          <Text style={styles.headerText}>Adjust range</Text>
         </View>
       </TouchableOpacity>
       <Collapsible collapsed={isCollapsed}>
         <View style={styles.content}>
-          <View style={styles.container}>
+          <View >
             <Slider
-              value={value}
-              onValueChange={onValueChangeHandler(value)}
+            value={value}
+              maximumValue={20}
+              minimumValue={1}
+              onValueChange={value => setValue(value)}
             />
-            <Text>Current distance range: {value}</Text>
+            <Text>Current distance range: {int(value)}</Text>
           </View>
         </View>
       </Collapsible>
