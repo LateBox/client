@@ -11,6 +11,7 @@ import colors from "../constants/Colors";
 import icons from "../constants/icons";
 const {width, height} = Dimensions.get('window');
 const buttonHeight = height / 16;
+const textAndIconColor = colors.BLACK;
 
 
 export default function LateboxButton({ text, image, onPress }) {
@@ -31,27 +32,28 @@ export default function LateboxButton({ text, image, onPress }) {
 const styles = StyleSheet.create({
   button: {
     display: 'flex',
-    borderRadius: 22,
-    paddingVertical: 14,
-    paddingHorizontal: 20,
-    backgroundColor: colors.primary,
+    flexDirection: 'row', // so that text and icon are next to each other
+    borderRadius: 1,
+    paddingVertical: 2, // top bottom
+    paddingHorizontal: 10, // left right
+    backgroundColor: colors.WHITE,
     width: width,
     height: buttonHeight,
-    justifyContent: "center",
-    alignItems: 'center',
-    marginTop: 8,
+    justifyContent: 'flex-start',/* horizontal alignment */
+    alignItems: 'center', /* vertical alignment */
+    marginTop: 2, // distance between buttons
   },
   buttonText: {
-    color: colors.accent,
-    fontWeight: 'bold',
-    textTransform: 'uppercase',
+    display: 'flex',
+    color: textAndIconColor,
+    fontWeight: '500',
     fontSize: 16,
-    textAlign: 'center',
+    textAlign: 'left',
   },
   buttonImage: {
-    width: width/10,
+    display: 'flex',
+    width: width/8,
     height: buttonHeight/2,
-    tintColor: colors.accent,
-
+    tintColor: textAndIconColor,
   },
 });
