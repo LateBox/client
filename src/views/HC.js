@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import { StyleSheet, View} from 'react-native';
-import Accordion from '../utils/HelpCenterAccordion' // HelpCenterAccordion.js
-//import { Colors } from '../constants/Colors';
+import Accordion from '../components/HelpCenterAccordion' // HelpCenterAccordion.js
+import THEME from "../constants/theme";
 
 
 export default class HC extends Component {
@@ -54,9 +54,8 @@ export default class HC extends Component {
 
 const styles = StyleSheet.create({
   container: {
-   flex:1,
-   paddingTop:100,
-   backgroundColor: '#fff',
-   
-  }
+   flex: 1,
+   paddingVertical: 32, // top bottom
+   backgroundColor: THEME.COLORS.LIGHTGRAY2,
+  },
 });

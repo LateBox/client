@@ -1,7 +1,7 @@
 import React from 'react';
 import { StyleSheet, Text, View, Image, TouchableHighlight,Animated } from 'react-native';
 import { TouchableOpacity } from 'react-native';
-
+import currentUrl from '../constants/urls';
 
 
 function Cart({ navigation,route }) {
@@ -98,7 +98,7 @@ function Cart({ navigation,route }) {
             <Text style={styles.text63}>{(price*0.13).toFixed(2)}</Text>
           </View>
           <View style={styles.cartadd}>
-            <TouchableOpacity style={styles.loginBtn} onPress={() =>{navigation.navigate('ThankyouScreen' , {
+            <TouchableOpacity style={styles.loginBtn} onPress={() =>{navigation.navigate('ThankYouScreen' , {
                                                 itemId: itemId})}} >
               <Text style={styles.loginBtnTxt} >order</Text>
             </TouchableOpacity>

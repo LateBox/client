@@ -1,13 +1,14 @@
-const URLs = {
-    DevRestApi: "http://149.28.236.92:8080/",
-    LocalRestApiUrl: "http://localhost:8080/"
-    // LocalRestApiUrl: "http://192.168.0.121:8080/"
-    // LocalRestApiUrl: "http://10.0.0.168:8080/"
-    // LocalRestApiUrl: "http://10.0.0.35:8080/"
-    // LocalRestApiUrl: "http://172.20.10.8:8080/"
+const env = "dev"; // dev or prod
+const serverIP = "149.28.236.92";
+const localIP = "10.200.40.42"; // only modify this IP
+var ip = "localhost";
+
+if (env == "dev") {
+    ip = localIP;
+} else if (env == "prod") {
+    ip = serverIP;
 }
 
-var currentUrl = URLs.LocalRestApiUrl
-
+const currentUrl = "http://" + ip + ":8080/";
 
 export default currentUrl;

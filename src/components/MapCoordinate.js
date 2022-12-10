@@ -1,6 +1,6 @@
 import { View, Text, Image, StyleSheet, Button, TouchableOpacity } from "react-native";
 import { Platform } from "react-native-web";
-import { Colors } from "../constants/Colors";
+import THEME from "../constants/theme";
 
 const MapCoordinate = (props) => {
 
@@ -33,13 +33,13 @@ const MapCoordinate = (props) => {
 
 const styles = StyleSheet.create({
   restaurant: {
-    shadowColor: 'black',
+    shadowColor: THEME.COLORS.BLACK,
     shadowOpacity: 0.26,
     shadowOffset: { width: 0, height: 2 },
     shadowRadius: 8,
     elevation: 5,
     borderRadius: 10,
-    backgroundColor: 'white',
+    backgroundColor: THEME.COLORS.WHITE,
     height: 300,
     margin: 20,
     overflow: 'hidden'

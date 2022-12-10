@@ -1,16 +1,12 @@
 import * as React from 'react';
 import { View, Button, Image, StyleSheet, Dimensions } from "react-native";
-import { useIsFocused } from "@react-navigation/native";
-import currentUrl from "../constants/urls";
-import Accordion from '../components/Accordion';
-import { COLORS, icons } from "../constants";
-import LateboxButton from '../utils/button';
-
+import icons from '../constants/icons';
+import THEME from '../constants/theme';
+import LateboxButton from '../components/LateboxButton';
 
 const {width, height} = Dimensions.get('window');
 
-
-function Settings(props, { navigation }) {
+function Settings(props, { navigation }){
 
   return (
     <View style={{ flexDirection: "column" }}>
@@ -28,7 +24,7 @@ export default Settings;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
+    backgroundColor: THEME.COLORS.WHITE,
     alignItems: 'center',
     justifyContent: 'center',
     paddingHorizontal: 50,

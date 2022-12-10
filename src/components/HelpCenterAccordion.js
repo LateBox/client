@@ -1,7 +1,19 @@
 import React, {Component} from 'react';
-import { View, TouchableOpacity, Text, StyleSheet, LayoutAnimation, Platform, UIManager} from "react-native";
-import colors from '../constants/Colors';
-//import Icon from "react-native-vector-icons/MaterialIcons";
+import { 
+    View,
+    TouchableOpacity,
+    Text,
+    Image,
+    Dimensions,
+    StyleSheet,
+    LayoutAnimation,
+    Platform,
+    UIManager
+} from "react-native";
+import THEME from '../constants/theme';
+import { questionmark } from '../constants/icons';
+const { width, height } = Dimensions.get('window');
+const buttonHeight = height / 20;
 // HC.js
 
 
@@ -24,7 +36,13 @@ export default class HelpCenterAccordion extends Component{
     return (
        <View>
             <TouchableOpacity ref={this.accordion} style={styles.row} onPress={()=>this.toggleExpand()}>
-                <Text style={[styles.title, styles.font]}>{this.props.title}</Text>
+                <Text style={[styles.title, styles.font]}>
+                    <Image
+                        source={questionmark}
+                        resizeMode="contain"
+                        style={styles.buttonImage}
+                    />
+                    {this.props.title}</Text>
                 {/* <Icon name={this.state.expanded ? 'keyboard-arrow-up' : 'keyboard-arrow-down'} size={30} color={'#000000'} /> */}
             </TouchableOpacity>
             <View style={styles.parentHr}/>
@@ -47,28 +65,33 @@ export default class HelpCenterAccordion extends Component{
 }
 
 const styles = StyleSheet.create({
-    title:{
+    title: {
         fontSize: 14,
         fontWeight:'bold',
-        color: colors.primary,
+        color: THEME.COLORS.BLACK,
     },
-    row:{
+    row: {
         flexDirection: 'row',
         justifyContent:'space-between',
         height:56,
         paddingLeft:25,
         paddingRight:18,
         alignItems:'center',
-        backgroundColor: colors.accent,
+        backgroundColor: THEME.COLORS.WHITE,
     },
-    parentHr:{
+    parentHr: {
         height:1,
-        color: colors.primary,
+        color: THEME.COLORS.WHITE,
         width:'100%'
     },
-    child:{
-        backgroundColor: colors.primary,
+    child: {
+        backgroundColor: THEME.COLORS.LIGHTGRAY2,
         padding:16,
-    }
-    
+    },
+    buttonImage: {
+        display: 'flex',
+        width: width/12,
+        height: buttonHeight/2,
+        tintColor: THEME.COLORS.ICON,
+    },
 });

@@ -24,7 +24,7 @@ function SigninScreen({ navigation }) {
 
   const getAuthToken = () => {
     
-    console.log("hada houa l fucking username: "+ email)
+    console.log("username: "+ email)
     var data = {
             "username" : email,
             "password" : password,

@@ -34,7 +34,7 @@ const getFromApi = () => {
 };
 
 const postAccount = () => {
-    console.log("hada houa l fucking name: "+ fullName)
+    console.log("name: "+ fullName)
     var data = {
             "fullName" : fullName,
             "email" : email,

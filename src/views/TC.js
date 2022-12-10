@@ -1,7 +1,6 @@
 import * as React from 'react';
 import { Text, View, Button, StyleSheet, Dimensions, ScrollView } from "react-native";
-import { useIsFocused } from "@react-navigation/native";
-import currentUrl from "../constants/urls";
+import THEME from "../constants/theme";
 const {width, height} = Dimensions.get('window');
 
 
@@ -50,9 +49,9 @@ This document was last updated on December 4, 2022`;
 
   return (
     <View>
-      <ScrollView>
-        <Button title="Return to Router" onPress={() => props.navigation.navigate('Router')} />
-        <Text style={styles.tc}>{bodyText}</Text>
+      <ScrollView style={styles.container}>
+        {/* <Button title="Return to Router" onPress={() => props.navigation.navigate('Router')} /> */}
+        <Text style={styles.tc}>{"\n"}{"\n"}{bodyText}</Text>
       </ScrollView>
     </View>
   );
@@ -62,10 +61,12 @@ export default TC;
 
 
 const styles = StyleSheet.create({
+  container: {
+    backgroundColor: THEME.COLORS.LIGHTGRAY2,
+   },
   tc: {
     width: '100%',
-    paddingVertical: 10, // top bottom
-    paddingHorizontal: 10, // left right
-    // marginTop: 20, // distance between buttons
+    paddingVertical: 16, // top bottom
+    paddingHorizontal: 16, // left right
   },
 });

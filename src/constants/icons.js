@@ -28,6 +28,7 @@ export const filters = require("../../assets/icons/filters.png");
 export const toc = require("../../assets/icons/tos.png");
 export const plus = require("../../assets/icons/plus.png");
 export const edit = require("../../assets/icons/edit.png");
+export const questionmark = require("../../assets/icons/questionmark.png");
 
 
 export default {
@@ -61,5 +62,5 @@ export default {
   toc,
   plus,
   edit,
-
+  questionmark,
 };

@@ -3,19 +3,24 @@ const { width, height } = Dimensions.get("window");
 
 export const COLORS = {
   // base colors
-  primary: "#f18861", // orange
-  secondary: "#CDCDD2", // gray
+  PRIMARY: "#F18861", // orange
+  SECONDARY: "#CDCDD2", // gray
 
   // colors
-  black: "#1E1F20",
-  white: "#FFFFFF",
+  WHITE: '#FFF',
+  BLACK: '#000',
+  LIGHTGRAY: "#F5F5F6",
+  LIGHTGRAY2: "#F6F6F7",
+  LIGHTGRAY3: "#EFEFF1",
+  LIGHTGRAY4: "#F8F8F9",
+  DARKGRAY: "#898C95",
 
-  lightGray: "#F5F5F6",
-  lightGray2: "#F6F6F7",
-  lightGray3: "#EFEFF1",
-  lightGray4: "#F8F8F9",
-  transparent: "transparent",
-  darkgray: "#898C95",
+  TEXT: '#000',
+  ICON: '#000',
+  TRANSPARENT: "transparent",
+
+  SELECT: 'rgba(241, 136, 97, 1)',
+  UNSELECT: 'rgba(198, 198, 198, 0.35)',
 };
 
 export const SIZES = {
@@ -80,6 +85,6 @@ export const FONTS = {
   },
 };
 
-const appTheme = { COLORS, SIZES, FONTS };
+const APPTHEME = { COLORS, SIZES, FONTS };
 
-export default appTheme;
+export default APPTHEME;

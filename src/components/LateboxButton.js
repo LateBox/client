@@ -7,11 +7,9 @@ import {
     View,
     Dimensions,
 } from 'react-native';
-import colors from "../constants/Colors";
-import icons from "../constants/icons";
-const {width, height} = Dimensions.get('window');
+import THEME from "../constants/theme";
+const { width, height } = Dimensions.get('window');
 const buttonHeight = height / 16;
-const textAndIconColor = colors.BLACK;
 
 
 export default function LateboxButton({ text, image, onPress }) {
@@ -36,7 +34,7 @@ const styles = StyleSheet.create({
     borderRadius: 1,
     paddingVertical: 2, // top bottom
     paddingHorizontal: 10, // left right
-    backgroundColor: colors.WHITE,
+    backgroundColor: THEME.COLORS.WHITE,
     width: width,
     height: buttonHeight,
     justifyContent: 'flex-start',/* horizontal alignment */
@@ -45,7 +43,7 @@ const styles = StyleSheet.create({
   },
   buttonText: {
     display: 'flex',
-    color: textAndIconColor,
+    color: THEME.COLORS.TEXT,
     fontWeight: '500',
     fontSize: 16,
     textAlign: 'left',
@@ -54,6 +52,6 @@ const styles = StyleSheet.create({
     display: 'flex',
     width: width/8,
     height: buttonHeight/2,
-    tintColor: textAndIconColor,
+    tintColor: THEME.COLORS.ICON,
   },
 });

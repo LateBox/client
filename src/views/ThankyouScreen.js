@@ -1,8 +1,9 @@
 import React from 'react';
 import { StyleSheet, Text, View, Image, TouchableHighlight,TouchableOpacity } from 'react-native';
+import currentUrl from '../constants/urls';
 
 
-function ThankyouScreen({ navigation,route }) {
+function ThankYouScreen({ navigation,route }) {
 
   const [boxName, setBoxName] = React.useState("Box Name");
   const [description, setDescription] = React.useState("description");
@@ -84,7 +85,7 @@ function ThankyouScreen({ navigation,route }) {
   );
 }
 
-export default ThankyouScreen;
+export default ThankYouScreen;
 
 const styles = StyleSheet.create({
 
